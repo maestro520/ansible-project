@@ -1,0 +1,22 @@
+---
+- name: Install Nagios Core
+  package:
+    name: nagios
+    state: present
+
+- name: Ensure Nagios directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: 0755
+  loop:
+    - /etc/nagios/servers
+    - /var/lib/nagios/rw
+
+- name: Enable and start Nagios service
+  systemd:
+    name: nagios
+    enabled: true
+    state: started

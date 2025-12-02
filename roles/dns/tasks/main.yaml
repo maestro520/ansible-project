@@ -1,0 +1,36 @@
+- name: Install BIND
+  ansible.builtin.yum:
+    name:
+      - bind
+      - bind-utils
+    state: present
+
+- name: Ensure /var/named directory exists
+  ansible.builtin.file:
+    path: /var/named
+    state: directory
+    owner: named
+    group: named
+    mode: 0755
+
+- name: Copy named.conf
+  ansible.builtin.template:
+    src: named.conf.j2
+    dest: /etc/named.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy zone file for ziyotek.local
+  ansible.builtin.copy:
+    src: ziyotek.local.db
+    dest: /var/named/ziyotek.local.db
+    owner: named
+    group: named
+    mode: 0644
+
+- name: Enable and start named
+  ansible.builtin.service:
+    name: named
+    state: started
+    enabled: yes

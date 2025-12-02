@@ -1,0 +1,13 @@
+$TTL 86400
+@   IN  SOA ns1.ziyotek.local. admin.ziyotek.local. (
+        2025112701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400 )    ; Minimum TTL
+
+@       IN  NS      ns1.ziyotek.local.
+
+ns1     IN  A       192.168.220.101
+www     IN  A       192.168.220.201
+ftp     IN  A       192.168.220.202

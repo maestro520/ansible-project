@@ -1,0 +1,10 @@
+- name: Install vsftpd
+  ansible.builtin.yum:
+    name: vsftpd
+    state: present
+
+- name: Enable and start vsftpd
+  ansible.builtin.service:
+    name: vsftpd
+    state: started
+    enabled: yes

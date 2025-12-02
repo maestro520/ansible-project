@@ -1,0 +1,57 @@
+---
+
+- hosts: dns
+  become: yes
+  roles:
+    - dns
+
+- hosts: ntp
+  become: yes
+  roles:
+    - ntp
+
+- hosts: database
+  become: yes
+  roles:
+    - database
+
+- hosts: webserver
+  become: yes
+  roles:
+    - webserver
+
+- hosts: haproxy
+  become: yes
+  roles:
+    - haproxy
+
+- hosts: nagios
+  become: yes
+  roles:
+    - nagios
+
+- hosts: ftp
+  become: yes
+  roles:
+    - ftp
+
+- hosts: nfs
+  become: yes
+  roles:
+    - nfs
+
+- hosts: docker
+  become: yes
+  roles:
+    - docker
+
+- name: Setup HAProxy for Docker Workers
+  hosts: haproxy
+  become: yes
+  vars:
+    docker_workers:
+      - 192.168.220.208
+      - 192.168.220.209
+  roles:
+    - haproxy
+

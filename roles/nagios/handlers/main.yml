@@ -1,0 +1,13 @@
+---
+- name: Validate and restart Nagios
+  block:
+    - name: Validate Nagios configuration
+      command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
+      register: nagios_validate
+      failed_when: nagios_validate.rc != 0
+
+    - name: Restart Nagios if configuration is valid
+      systemd:
+        name: nagios
+        state: restarted
+  when: nagios_validate is defined
