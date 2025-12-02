@@ -1,11 +1,11 @@
 ---
-# 0️⃣ Remove conflicting Podman Docker package
+# Remove conflicting Podman Docker package
 - name: Remove podman-docker to avoid conflict
   package:
     name: podman-docker
     state: absent
 
-# 1️⃣ Add Docker CE official repository
+# Add Docker CE official repository
 - name: Add Docker CE repository
   yum_repository:
     name: docker-ce
@@ -15,7 +15,7 @@
     gpgkey: https://download.docker.com/linux/centos/gpg
     state: present
 
-# 2️⃣ Install Docker CE packages
+# Install Docker CE packages
 - name: Install Docker CE packages
   package:
     name:
@@ -24,14 +24,14 @@
       - containerd.io
     state: present
 
-# 3️⃣ Ensure Docker service is running
+# Ensure Docker service is running
 - name: Start and enable Docker service
   systemd:
     name: docker
     state: started
     enabled: yes
 
-# 4️⃣ Install required utilities
+# Install required utilities
 - name: Install required utilities
   package:
     name:
@@ -40,63 +40,55 @@
       - tar
     state: present
 
-# 5️⃣ Create app build directory
+# Create app build directory
 - name: Create app build directory
   file:
     path: /tmp/docker_app
     state: directory
     mode: "0755"
 
-# 6️⃣ Download lab-app.tgz
+# Download lab-app.tgz
 - name: Download lab-app.tgz
   get_url:
     url: https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/CUR-TF-200-ACACAD/studentdownload/lab-app.tgz
     dest: /tmp/docker_app/lab-app.tgz
     mode: "0644"
 
-# 7️⃣ Create folder for extracted lab-app
+# Create folder for extracted lab-app
 - name: Create lab-app directory for extraction
   file:
     path: /tmp/docker_app/lab-app
     state: directory
     mode: "0755"
 
-# 8️⃣ Extract lab-app into the folder
+# Extract lab-app into the folder
 - name: Extract lab-app
   unarchive:
     src: /tmp/docker_app/lab-app.tgz
     dest: /tmp/docker_app/lab-app
     remote_src: yes
 
-# 9️⃣ Create Dockerfile
 - name: Create Dockerfile
   copy:
     dest: /tmp/docker_app/Dockerfile
     content: |
-      FROM centos:8
+      FROM rockylinux:9
 
-      # Install required packages
-      RUN dnf install -y httpd php mysql php-mysql && dnf clean all
+      RUN dnf install -y httpd php php-mysqli mariadb && dnf clean all
 
-      # Copy lab app
       COPY lab-app /var/www/html/
+      RUN chown -R apache:apache /var/www/html
 
-      # Set ownership
-      RUN chown apache:root /var/www/html/rds.conf.php
-
-      # Expose port 80
       EXPOSE 80
-
-      # Start Apache
       CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-# 🔹 Build Docker image
+# Build Docker image
 - name: Build Docker image
   command: docker build -t lab-app:latest /tmp/docker_app
   args:
     creates: /var/lib/docker/image/overlay2/repositories.json
 
-# 🔹 Initialize Docker Swarm on manager node
+# Initialize Docker Swarm on manager node
 - name: Initialize Docker Swarm on manager
   shell: docker swarm init
   register: swarm_init
@@ -104,18 +96,18 @@
   changed_when: "'This node is already part of a swarm' not in swarm_init.stdout"
   when: inventory_hostname == "prdx-dworker101.ziyotek.local"
 
-# 🔹 Get Swarm join token for worker nodes
+# Get Swarm join token for worker nodes
 - name: Get Swarm join token for workers
   shell: docker swarm join-token worker -q
   register: swarm_token
   when: inventory_hostname == "prdx-dworker101.ziyotek.local"
 
-# 🔹 Join worker node to Swarm
+# Join worker node to Swarm
 - name: Join worker node to Swarm
   shell: docker swarm join --token {{ hostvars['prdx-dworker101.ziyotek.local'].swarm_token.stdout }} 192.168.220.208:2377
   when: inventory_hostname == "prdx-dworker102.ziyotek.local"
 
-# 🔹 Deploy Docker service with 3 replicas (manager only)
+# Deploy Docker service with 3 replicas (manager only)
 - name: Deploy Docker service with 3 replicas
   shell: |
     docker service ls | grep lab_app || \
