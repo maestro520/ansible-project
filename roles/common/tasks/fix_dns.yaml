@@ -1,0 +1,22 @@
+---
+- name: Set DNS to public servers
+  nmcli:
+    conn_name: ens160
+    ipv4.dns: "8.8.8.8 1.1.1.1"
+    ipv4.ignore-auto-dns: yes
+    state: present
+
+- name: Restart network connection
+  nmcli:
+    conn_name: ens160
+    state: up
+
+- name: Verify DNS resolution
+  shell: ping -c 1 mirrors.rockylinux.org
+  register: ping_result
+  ignore_errors: yes
+
+- name: Fail if DNS still not working
+  fail:
+    msg: "DNS is not resolving mirrors.rockylinux.org"
+  when: ping_result.rc != 0

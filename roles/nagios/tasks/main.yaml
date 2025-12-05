@@ -1,34 +1,30 @@
 ---
-- name: Ensure Nagios required directories exist
-  file:
-    path: "{{ item }}"
-    state: directory
+# Main Nagios tasks
+
+- include_tasks: install.yml
+
+- name: Deploy correct nagios.cfg
+  template:
+    src: nagios.cfg.j2
+    dest: /etc/nagios/nagios.cfg
     owner: nagios
     group: nagios
-    mode: "0755"
-  loop:
-    - /var/spool/nagios/checkresults
-    - /var/lib/nagios/rw
-    - /etc/nagios/servers
-    - /etc/nagios/private
+    mode: "0644"
+  notify: Restart Nagios
 
-- name: Ensure correct pid_file in nagios.cfg
+
+- name: Ensure correct log_rotation_method in nagios.cfg
   lineinfile:
     path: /etc/nagios/nagios.cfg
-    regexp: '^pid_file='
-    line: 'pid_file=/var/run/nagios/nagios.pid'
-    owner: nagios
-    group: nagios
-    mode: "0644"
-  notify: Validate and restart Nagios
+    regexp: '^log_rotation_method='
+    line: 'log_rotation_method=d'
+  notify: Restart Nagios  # <- only the handler name, no extra text
 
-- name: Copy localhost config
-  copy:
-    src: localhost.cfg
-    dest: /etc/nagios/servers/localhost.cfg
-    owner: nagios
-    group: nagios
-    mode: "0644"
+- name: Validate Nagios configuration
+  command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
+  register: nagios_validate
+  failed_when: nagios_validate.rc != 0
+  changed_when: false
 
 - name: Create Nagios resource.cfg if it doesn't exist
   file:
@@ -37,8 +33,13 @@
     owner: nagios
     group: nagios
     mode: "0600"
+  notify: Restart Nagios
 
-- name: Enable Nagios service
-  systemd:
-    name: nagios
-    enabled: yes
+- name: Copy localhost config
+  copy:
+    src: localhost.cfg
+    dest: /etc/nagios/servers/localhost.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: Restart Nagios

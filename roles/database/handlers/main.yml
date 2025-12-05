@@ -1,0 +1,14 @@
+---
+- name: Restart Apache safely
+  block:
+    - name: Validate Apache configuration
+      command: apachectl configtest
+      register: apache_check
+      failed_when: apache_check.rc != 0
+      changed_when: false
+
+    - name: Restart Apache if configuration is valid
+      systemd:
+        name: httpd
+        state: restarted
+        enabled: yes

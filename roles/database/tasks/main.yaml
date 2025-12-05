@@ -44,3 +44,31 @@
 
 - name: Reload privileges
   command: mysqladmin flush-privileges
+
+# ---------------------------------------------------
+# Install Apache + PHP + phpMyAdmin
+# ---------------------------------------------------
+- name: Install required packages for phpMyAdmin
+  yum:
+    name:
+      - httpd
+      - php
+      - php-mysqlnd
+      - php-fpm
+      - php-json
+      - php-mbstring
+      - phpmyadmin
+    state: present
+
+- name: Allow phpMyAdmin for all hosts
+  lineinfile:
+    path: /etc/httpd/conf.d/phpMyAdmin.conf
+    regexp: 'Require ip'
+    line: '    Require all granted'
+  notify: restart_apache
+
+- name: Ensure Apache is installed
+  package:
+    name: httpd
+    state: present
+  notify: Restart Apache safely

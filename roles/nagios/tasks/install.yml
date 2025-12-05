@@ -1,22 +1,66 @@
 ---
-- name: Install Nagios Core
-  package:
-    name: nagios
-    state: present
+# Install and configure Nagios
 
-- name: Ensure Nagios directories exist
+- name: Ensure Nagios required directories exist
   file:
     path: "{{ item }}"
     state: directory
     owner: nagios
     group: nagios
-    mode: 0755
+    mode: "0755"
   loop:
-    - /etc/nagios/servers
+    - /var/spool/nagios/checkresults
     - /var/lib/nagios/rw
+    - /etc/nagios/servers
+    - /etc/nagios/private
+  notify: Validate and restart Nagios
 
-- name: Enable and start Nagios service
+- name: Ensure correct log_rotation_method in nagios.cfg
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^log_rotation_method='
+    line: 'log_rotation_method=d'
+  notify: Validate and restart Nagios
+
+- name: Ensure correct pid_file in nagios.cfg
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^pid_file='
+    line: 'pid_file=/var/run/nagios/nagios.pid'
+  notify: Validate and restart Nagios
+
+- name: Copy localhost config
+  copy:
+    src: localhost.cfg
+    dest: /etc/nagios/servers/localhost.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: Validate and restart Nagios
+
+- name: Create Nagios resource.cfg if it doesn't exist
+  file:
+    path: /etc/nagios/private/resource.cfg
+    state: touch
+    owner: nagios
+    group: nagios
+    mode: "0600"
+  notify: Restart Nagios
+
+
+- name: Enable Nagios service
   systemd:
     name: nagios
-    enabled: true
-    state: started
+    enabled: yes
+  notify: Validate and restart Nagios
+
+- name: Ensure apache-tools is installed
+  package:
+    name: httpd-tools
+    state: present
+
+- name: Create Nagios admin user without passlib
+  command: htpasswd -b -c /etc/nagios/passwd nagiosadmin "Nagios@123"
+  args:
+    creates: /etc/nagios/passwd
+  notify: Restart Apache
