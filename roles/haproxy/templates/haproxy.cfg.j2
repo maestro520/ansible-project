@@ -19,6 +19,8 @@ frontend http_front
     default_backend docker_back
 
 backend docker_back
+    balance roundrobin
+    option httpchk GET /index.html
 {% for worker in docker_workers %}
-    server docker{{ loop.index }} {{ worker }}:80 check
+    server docker{{ loop.index }} {{ worker }}:8080 check
 {% endfor %}

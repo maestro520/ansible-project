@@ -1,0 +1,150 @@
+---
+# -----------------------
+# 1) Создаём каталог site
+# -----------------------
+- name: Ensure /opt/site exists
+  ansible.builtin.file:
+    path: /opt/site
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  become: yes
+
+# ------------------------------------
+# 2) Разворачиваем index.html + картинку
+# ------------------------------------
+- name: Deploy index.html for this worker
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /opt/site/index.html
+    owner: root
+    group: root
+    mode: "0644"
+  become: yes
+
+- name: Copy image.jpg to site
+  ansible.builtin.copy:
+    src: image.jpg
+    dest: /opt/site/image.jpg
+    owner: root
+    group: root
+    mode: "0644"
+  become: yes
+
+# ---------------------------------------------------------
+# 3) УДАЛЯЕМ конфликтующие пакеты (podman-docker / виртуальный docker)
+#    Это нужно сделать *до* установки docker-ce
+# ---------------------------------------------------------
+- name: Remove podman-docker to avoid conflicts
+  ansible.builtin.package:
+    name: podman-docker
+    state: absent
+  become: yes
+
+- name: Remove virtual 'docker' package (if present) to avoid conflicts
+  ansible.builtin.package:
+    name: docker
+    state: absent
+  become: yes
+
+- name: Clean dnf metadata and cache (help resolver)
+  ansible.builtin.command:
+    cmd: dnf clean all
+  become: yes
+
+- name: Make dnf cache
+  ansible.builtin.command:
+    cmd: dnf makecache
+  become: yes
+
+# ---------------------------------------------------------
+# 4) УСТАНАВЛИВАЕМ Docker CE (containerd + docker-ce + cli)
+#    (если у вас уже есть официальный Docker repo — ok)
+#    Если репозитория нет — добавьте после (см. примечания).
+# ---------------------------------------------------------
+- name: Install required packages for Docker CE (docker-ce, docker-ce-cli, containerd)
+  ansible.builtin.package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+  become: yes
+
+# --------------------------------------------
+# 5) Устанавливаем python3-pip (если нужно) и docker Python SDK
+#    community.docker modules требуют python docker SDK на целевой машине
+# --------------------------------------------
+- name: Ensure python3-pip is installed
+  ansible.builtin.package:
+    name: python3-pip
+    state: present
+  become: yes
+
+- name: Ensure python docker SDK (docker python package) is installed via pip
+  ansible.builtin.pip:
+    name: docker
+    state: present
+    executable: /usr/bin/pip3
+  become: yes
+
+# ---------------------------------------------------------
+# 6) Запускаем/включаем сервисы containerd и docker
+#    containerd часто требуется до docker
+# ---------------------------------------------------------
+- name: Ensure containerd is started and enabled
+  ansible.builtin.systemd:
+    name: containerd
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Ensure docker service is started and enabled
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
+
+# ---------------------------------------------------------
+# 7) Загружаем образ и запускаем контейнер с монтированием /opt/site
+#    Используем community.docker модуль (убедитесь, что коллекция установлена на контроллере)
+# ---------------------------------------------------------
+- name: Pull httpd image
+  community.docker.docker_image:
+    name: httpd
+    tag: "2.4"
+    source: pull
+  become: yes
+
+- name: Run httpd container with site mounted
+  community.docker.docker_container:
+    name: docker_worker_site
+    image: httpd:2.4
+    state: started
+    restart_policy: always
+    ports:
+      - "8080:80"
+    volumes:
+      - /opt/site:/usr/local/apache2/htdocs:ro
+  become: yes
+
+# -----------------------------------
+# Остановить и отключить системный Apache (httpd),
+# чтобы он не занимал порт и не показывал тестовую страницу
+# -----------------------------------
+- name: Stop system Apache httpd if installed
+  ansible.builtin.service:
+    name: httpd
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  become: yes
+
+- name: Disable Rocky Linux welcome page (optional safety)
+  ansible.builtin.file:
+    path: /etc/httpd/conf.d/welcome.conf
+    state: absent
+  ignore_errors: yes
+  become: yes

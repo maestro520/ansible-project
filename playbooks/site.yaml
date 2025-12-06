@@ -1,5 +1,4 @@
 ---
-
 - hosts: dns
   become: yes
   roles:
@@ -55,3 +54,8 @@
   roles:
     - haproxy
 
+- name: Deploy site content on Docker workers
+  hosts: docker
+  become: yes
+  roles:
+    - docker_worker
