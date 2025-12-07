@@ -19,10 +19,11 @@
   roles:
     - webserver
 
-- hosts: haproxy
-  become: yes
+- name: Configure NRPE (monitoring agent)
+  hosts: "clients:!nagios:!ansible"
+  become: true
   roles:
-    - haproxy
+    - nrpe    
 
 - hosts: nagios
   become: yes
@@ -58,4 +59,5 @@
   hosts: docker
   become: yes
   roles:
-    - docker_worker
+    - { role: docker_worker, tags: ['deploy_site'] }
+

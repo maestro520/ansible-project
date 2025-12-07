@@ -1,22 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Docker Worker {{ inventory_hostname }}</title>
-  </head>
-  <body>
-    <h1>
-      {% if ansible_host == '192.168.220.208' %}
-        Hello Docker Worker 1
-      {% elif ansible_host == '192.168.220.209' %}
-        Hello Docker Worker 2
-      {% else %}
-        Hello from {{ inventory_hostname }} ({{ ansible_host }})
-      {% endif %}
-    </h1>
-
-    <p>Served from host: <strong>{{ ansible_hostname }}</strong> ({{ ansible_host }})</p>
-
-    <img src="image.jpg" alt="Image" style="max-width:600px; height:auto;" />
-  </body>
+<head>
+    <title>Docker Worker</title>
+</head>
+<body>
+    <h1>Welcome to Docker Worker {{ inventory_hostname }}</h1>
+    <p>Load balancer test image:</p>
+    <img src="image.jpg" width="400">
+</body>
 </html>

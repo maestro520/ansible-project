@@ -60,6 +60,18 @@
       - phpmyadmin
     state: present
 
+- name: Ensure correct phpMyAdmin Apache config
+  copy:
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf
+    content: |
+      Alias /phpMyAdmin /usr/share/phpMyAdmin
+      <Directory /usr/share/phpMyAdmin/>
+          AddDefaultCharset UTF-8
+          DirectoryIndex index.php
+          Require all granted
+      </Directory>
+  notify: Restart Apache
+  
 - name: Allow phpMyAdmin for all hosts
   lineinfile:
     path: /etc/httpd/conf.d/phpMyAdmin.conf
@@ -72,3 +84,52 @@
     name: httpd
     state: present
   notify: Restart Apache safely
+
+- name: Fix phpMyAdmin Apache configuration for Apache 2.4+
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf.d/phpMyAdmin.conf
+    state: present
+    regexp: '^\s*Require all granted'
+    line: '    Require all granted'
+  notify:
+    - Restart Apache safely
+
+- import_tasks: phpmyadmin.yml
+
+- name: Ensure phpMyAdmin is installed
+  dnf:
+    name: phpMyAdmin
+    state: present
+  become: yes
+
+- name: Backup existing phpMyAdmin Apache config if exists
+  copy:
+    src: /etc/httpd/conf.d/phpMyAdmin.conf
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf.bak
+    remote_src: yes
+  ignore_errors: yes
+  become: yes
+
+- name: Deploy correct phpMyAdmin Apache config
+  copy:
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf
+    content: |
+      Alias /phpMyAdmin /usr/share/phpMyAdmin
+
+      <Directory /usr/share/phpMyAdmin/>
+          AddDefaultCharset UTF-8
+          DirectoryIndex index.php
+          Require all granted
+      </Directory>
+  notify: Restart Apache
+  become: yes
+
+- name: Ensure Apache can read phpMyAdmin files under SELinux
+  command: setsebool -P httpd_read_user_content 1
+  become: yes
+
+- name: Set correct SELinux context for phpMyAdmin
+  command: chcon -R -t httpd_sys_content_t /usr/share/phpMyAdmin
+  become: yes
+
+ 

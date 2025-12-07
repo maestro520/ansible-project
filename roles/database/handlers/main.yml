@@ -6,9 +6,11 @@
       register: apache_check
       failed_when: apache_check.rc != 0
       changed_when: false
+      
+- name: Restart Apache
+  systemd:
+    name: httpd
+    state: restarted
+    enabled: yes
+  become: yes
 
-    - name: Restart Apache if configuration is valid
-      systemd:
-        name: httpd
-        state: restarted
-        enabled: yes

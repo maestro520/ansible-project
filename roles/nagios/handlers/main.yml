@@ -1,16 +1,18 @@
 ---
-- name: Validate and restart Nagios
-  block:
-    - name: Validate Nagios configuration
-      command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
-      register: nagios_validate
-      failed_when: nagios_validate.rc != 0
-    - name: Restart Nagios
-      systemd:
-        name: nagios
-        state: restarted
-    - name: Restart HTTPD
-      systemd:
-        name: httpd
-        state: restarted
+# Handlers for Nagios
 
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
+
+- name: restart nagios
+  service:
+    name: nagios
+    state: restarted
+    enabled: yes
+
+- name: restart apache
+  service:
+    name: httpd
+    state: restarted

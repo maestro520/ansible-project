@@ -148,3 +148,20 @@
     state: absent
   ignore_errors: yes
   become: yes
+
+- name: Ensure site directory exists
+  file:
+    path: /var/www/html
+    state: directory
+
+- name: Deploy index.html
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    mode: '0644'
+
+- name: Deploy image.jpg
+  copy:
+    src: image.jpg
+    dest: /var/www/html/image.jpg
+    mode: '0644'
