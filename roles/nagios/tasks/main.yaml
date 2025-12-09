@@ -1,446 +1,145 @@
+# roles/nagios/tasks/main.yaml
 ---
 
-# Nagios Install
-- name: Install Nagios and dependencies
-  dnf:
+- name: Install Nagios server and dependencies
+  yum:
     name:
       - nagios
       - nagios-plugins
-      - nagios-plugins-nrpe
+      - nagios-plugins-ping
       - nagios-plugins-load
+      - nagios-plugins-disk
       - nagios-plugins-procs
       - nagios-plugins-users
-      - nagios-plugins-http
-      - nagios-plugins-ping
       - httpd
       - php
       - php-cli
+      - git
+      - unzip
     state: present
 
-- name: Start Apache
-  service:
-    name: httpd
-    enabled: yes
-    state: started
 
-# REPLACE commands.cfg CLEAN
+- name: Ensure Nagios additional config directory exists
+  file:
+    path: /etc/nagios/servers
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: "0755"
 
-
-# Deploy main configuration
-- name: Deploy main nagios.cfg config
-  template:
-    src: nagios.cfg.j2
-    dest: /etc/nagios/nagios.cfg
-  notify: restart nagios
-
-
-# Deploy necessary config files
-- name: Deploy hosts.cfg
+- name: Deploy Nagios hosts configuration
   template:
     src: hosts.cfg.j2
     dest: /etc/nagios/servers/hosts.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
   notify: restart nagios
 
-
-- name: Deploy services.cfg
+- name: Deploy Nagios services configuration
   template:
     src: services.cfg.j2
     dest: /etc/nagios/servers/services.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
   notify: restart nagios
 
-
-# Web user for UI access
-- name: Create web user
-  command: htpasswd -b -c /etc/nagios/htpasswd.users nagiosadmin Nagios123
-  args:
-    creates: /etc/nagios/htpasswd.users
-
-- name: Deploy FULL CLEAN commands.cfg
-  copy:
-    dest: /etc/nagios/objects/commands.cfg
+- name: Deploy extra Nagios command definitions
+  template:
+    src: commands_local.cfg.j2
+    dest: /etc/nagios/objects/commands_local.cfg
     owner: nagios
     group: nagios
-    mode: '0644'
-    content: |
-      define command{
-          command_name    check-host-alive
-          command_line    /usr/lib64/nagios/plugins/check_ping -H $HOSTADDRESS$ -w 3000,80% -c 5000,100% -p 5
-      }
+    mode: "0644"
+  notify: restart nagios
 
-      define command{
-          command_name    check_ping
-          command_line    /usr/lib64/nagios/plugins/check_ping -H $HOSTADDRESS$ -w $ARG1$ -c $ARG2$ -p 5
-      }
-
-      define command{
-          command_name    check_load
-          command_line    /usr/lib64/nagios/plugins/check_load -w 15 -c 30
-      }
-
-      define command{
-          command_name    check_disk
-          command_line    /usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
-      }
-
-      define command{
-          command_name    check_users
-          command_line    /usr/lib64/nagios/plugins/check_users -w 10 -c 20
-      }
-
-      define command{
-          command_name    check_procs
-          command_line    /usr/lib64/nagios/plugins/check_procs -w 100 -c 200
-      }
-
-      define command{
-          command_name    check_load_nrpe
-          command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
-      }
-
-      define command{
-          command_name    check_disk_root_nrpe
-          command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_disk_root
-      }
-
-      define command{
-          command_name    notify-service-by-email
-          command_line    /usr/bin/printf "%b" "Service $SERVICEDESC$ on $HOSTNAME$ is $SERVICESTATE$" | mail -s "Service Alert" $CONTACTEMAIL$
-      }
-
-      define command{
-          command_name    notify-host-by-email
-          command_line    /usr/bin/printf "%b" "Host $HOSTNAME$ is $HOSTSTATE$" | mail -s "Host Alert" $CONTACTEMAIL$
-      }
-
-
-- name: Deploy full valid commands.cfg (overwrite old)
-  copy:
-    dest: /etc/nagios/objects/commands.cfg
-    owner: nagios
-    group: nagios
-    mode: '0644'
-    content: |
-      #########################################
-      # Host Alive Check
-      #########################################
-      define command{
-          command_name    check-host-alive
-          command_line    /usr/lib64/nagios/plugins/check_ping -H $HOSTADDRESS$ -w 3000,80% -c 5000,100% -p 5
-      }
-
-      #########################################
-      # ICMP PING Check (ARG1/ARG2 acceptable)
-      #########################################
-      define command{
-          command_name    check_ping
-          command_line    /usr/lib64/nagios/plugins/check_ping -H $HOSTADDRESS$ -w $ARG1$ -c $ARG2$ -p 5
-      }
-
-      #########################################
-      # LOCAL Checks
-      #########################################
-      define command{
-          command_name    check_load
-          command_line    /usr/lib64/nagios/plugins/check_load -w 15 -c 30
-      }
-
-      define command{
-          command_name    check_disk
-          command_line    /usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
-      }
-
-      define command{
-          command_name    check_users
-          command_line    /usr/lib64/nagios/plugins/check_users -w 10 -c 20
-      }
-
-      define command{
-          command_name    check_procs
-          command_line    /usr/lib64/nagios/plugins/check_procs -w 100 -c 200
-      }
-
-      #########################################
-      # NRPE Remote Commands
-      #########################################
-      define command{
-          command_name    check_load_nrpe
-          command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
-      }
-
-      define command{
-          command_name    check_disk_root_nrpe
-          command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_disk_root
-      }
-
-      #########################################
-      # EMAIL Notification Commands
-      #########################################
-      define command{
-          command_name    notify-service-by-email
-          command_line    /usr/bin/printf "%b" "Service: $SERVICEDESC$ Host: $HOSTNAME$ State: $SERVICESTATE$ Output: $SERVICEOUTPUT$" | mail -s "Service $SERVICESTATE$ - $HOSTNAME$/$SERVICEDESC$" $CONTACTEMAIL$
-      }
-
-      define command{
-          command_name    notify-host-by-email
-          command_line    /usr/bin/printf "%b" "Host: $HOSTNAME$ State: $HOSTSTATE$ Output: $HOSTOUTPUT$" | mail -s "Host $HOSTSTATE$ - $HOSTNAME$" $CONTACTEMAIL$
-      }
-
-
-##############################################
-# CLEAN UP BROKEN NAGIOS DIRECTORIES & FILES
-##############################################
-- name: Remove old spool, rw and pid files
-  file:
-    path: "{{ item }}"
-    state: absent
-  loop:
-    - /var/spool/nagios
-    - /var/lib/nagios/rw
-    - /run/nagios.lock
-
-
-##############################################
-# RECREATE REQUIRED DIRECTORIES
-##############################################
-- name: Create Nagios required directories
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: nagios
-    group: nagios
-    mode: '0775'
-  loop:
-    - /var/spool/nagios/cmd
-    - /var/spool/nagios/checkresults
-    - /var/lib/nagios/rw
-    - /var/lib/nagios
-
-
-##############################################
-# CREATE PID FILE
-##############################################
-- name: Create Nagios PID file
-  file:
-    path: /run/nagios.lock
-    state: touch
-    owner: nagios
-    group: nagios
-    mode: '0664'
-
-
-##############################################
-# CREATE FIFO PIPE
-##############################################
-- name: Create FIFO command pipe
-  command: mkfifo /var/spool/nagios/cmd/nagios.cmd
-  args:
-    creates: /var/spool/nagios/cmd/nagios.cmd
-
-
-##############################################
-# APPLY OWNERSHIP RECURSIVELY
-##############################################
-#################################
-# Fix NAGIOS DIRECTORIES
-#################################
-- name: Fix ownership of Nagios directories recursively
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: nagios
-    group: nagios
-    recurse: yes
-  loop:
-    - /var/lib/nagios
-    - /var/spool/nagios
-
-
-#################################
-# Fix PID FILE
-#################################
-- name: Fix ownership of Nagios PID file
-  file:
-    path: /run/nagios.lock
-    state: file
-    owner: nagios
-    group: nagios
-    mode: '0664'
-
-
-
-
-##############################################
-# FIX SELINUX CONTEXT
-##############################################
-- name: Apply SELinux context for spool
-  command: restorecon -Rv /var/spool/nagios
-
-- name: Apply SELinux context for lib
-  command: restorecon -Rv /var/lib/nagios
-
-
-##############################################
-# VALIDATE CONFIG BEFORE START
-##############################################
-- name: Validate Nagios configuration
-  command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
-  register: nagios_validate
-  changed_when: false
-  ignore_errors: true
-
-- name: Show validation result
-  debug:
-    var: nagios_validate.stdout_lines
-
- # STEP 3 - Fix systemd nagios.service PIDFile
-- name: Correct PIDFile location in systemd unit
+- name: Ensure commands_local.cfg is included in nagios.cfg
   lineinfile:
-    path: /usr/lib/systemd/system/nagios.service
-    regexp: '^PIDFile='
-    line: 'PIDFile=/run/nagios.lock' 
+    path: /etc/nagios/nagios.cfg
+    regexp: '^cfg_file=/etc/nagios/objects/commands_local.cfg'
+    line: 'cfg_file=/etc/nagios/objects/commands_local.cfg'
+    insertafter: '^cfg_file=/etc/nagios/objects/commands.cfg'
+  notify: restart nagios
 
-- name: Reload systemd daemon after unit change
-  command: systemctl daemon-reload
+- name: Ensure /etc/nagios/servers is included via cfg_dir
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^cfg_dir=/etc/nagios/servers'
+    line: 'cfg_dir=/etc/nagios/servers'
+  notify: restart nagios
 
 - name: Deploy Apache Nagios configuration
   template:
     src: nagios-apache.conf.j2
     dest: /etc/httpd/conf.d/nagios.conf
+    owner: root
+    group: root
+    mode: "0644"
   notify: restart apache
 
-
-# FINAL STEP
-#- name: Start Nagios safely
-  #service:
-    #name: nagios
-    #state: restarted
-    #enabled: yes
-
-- name: Ensure Nagios web directory exists
-  file:
-    path: /usr/share/nagios/html
-    state: directory
-
-- name: Allow Apache to access Nagios paths in SELinux
-  command: restorecon -Rv /usr/share/nagios/
-
-- name: Disable default nagios.conf if exists
-  file:
-    path: /etc/httpd/conf.d/nagios.conf.rpmnew
-    state: absent
-
-- name: Deploy Apache config for Nagios
+- name: Deploy Nagios configs
   template:
-    src: nagios-apache.conf.j2
-    dest: /etc/httpd/conf.d/nagios.conf
-    owner: root
-    group: root
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: nagios
+    group: nagios
     mode: '0644'
-    force: yes
+  loop:
+    - { src: 'commands.cfg.j2', dest: '/etc/nagios/objects/commands.cfg' }
+    - { src: 'hosts.cfg.j2', dest: '/etc/nagios/servers/hosts.cfg' }
+    - { src: 'services.cfg.j2', dest: '/etc/nagios/servers/services.cfg' }
   notify:
+    - restart nagios
     - restart apache
-
-- name: Remove old Nagios configuration cache
-  file:
-    path: /etc/httpd/conf.d/nagios.conf.rpmnew
-    state: absent
-
-- name: Force overwrite Apache Nagios configuration
-  copy:
-    content: |
-      Alias /nagios /usr/share/nagios/html
-
-      <Directory "/usr/share/nagios/html">
-          Options None
-          AllowOverride None
-          Require all granted
-
-          AuthType Basic
-          AuthName "Nagios Access"
-          AuthUserFile /etc/nagios/htpasswd.users
-          Require valid-user
-      </Directory>
-
-      ScriptAlias /nagios/cgi-bin /usr/lib64/nagios/cgi-bin
-
-      <Directory "/usr/lib64/nagios/cgi-bin">
-          Options ExecCGI
-          AllowOverride None
-          Require all granted
-
-          AuthType Basic
-          AuthName "Nagios Access"
-          AuthUserFile /etc/nagios/htpasswd.users
-          Require valid-user
-      </Directory>
-    dest: /etc/httpd/conf.d/nagios.conf
-    owner: root
-    group: root
-    mode: '0644'
-    force: yes
-  notify:
-    - restart apache
-
  
-- name: Ensure nagios.cmd FIFO exists
-  command: mkfifo /var/spool/nagios/cmd/nagios.cmd
+
+- name: Ensure Nagios web user file exists
+  command: htpasswd -bc /etc/nagios/htpasswd.users "{{ nagios_web_user }}" "{{ nagios_web_password }}"
   args:
-    creates: /var/spool/nagios/cmd/nagios.cmd
+    creates: /etc/nagios/htpasswd.users
+  notify: restart apache
 
-- name: Fix Nagios systemd unit ExecStartPre
-  blockinfile:
-    path: /usr/lib/systemd/system/nagios.service
-    marker: "# ANSIBLE FIX BLOCK"
-    insertafter: ExecStartPre=/usr/sbin/nagios -v /etc/nagios/nagios.cfg
-    block: |
-      ExecStartPre=/bin/sh -c "test -p /var/spool/nagios/cmd/nagios.cmd || mkfifo /var/spool/nagios/cmd/nagios.cmd"
-      ExecStartPre=/bin/sh -c "chown nagios:nagios /var/spool/nagios/cmd/nagios.cmd"
-
-#########################################
-# Fix Nagios systemd unit
-#########################################
-
-- name: Remove incorrect ExecStartPre line (bad format)
-  lineinfile:
-    path: /usr/lib/systemd/system/nagios.service
-    regexp: '^ExecStartPre=/usr/bin/test'
-    state: absent
-
-- name: Remove second incorrect ExecStartPre (if exists)
-  lineinfile:
-    path: /usr/lib/systemd/system/nagios.service
-    regexp: '^ExecStartPre=/bin/sh -c.*mkfifo'
-    state: absent
-
-- name: Remove incorrect chown ExecStartPre
-  lineinfile:
-    path: /usr/lib/systemd/system/nagios.service
-    regexp: '^ExecStartPre=/usr/bin/chown'
+- name: Remove wrong duplicate hosts file
+  file:
+    path: /etc/nagios/objects/hosts.cfg
     state: absent
 
 
-#########################################
-# Insert correct ExecStartPre block
-#########################################
-- name: Insert correct Nagios ExecStartPre lines
-  blockinfile:
-    path: /usr/lib/systemd/system/nagios.service
-    marker: "#==== NAGIOS FIX BLOCK ===="
-    insertafter: '^ExecStartPre=/usr/sbin/nagios -v /etc/nagios/nagios.cfg'
-    block: |
-      ExecStartPre=/bin/sh -c "test -p /var/spool/nagios/cmd/nagios.cmd || mkfifo /var/spool/nagios/cmd/nagios.cmd"
-      ExecStartPre=/bin/sh -c "chown nagios:nagios /var/spool/nagios/cmd/nagios.cmd"
+- name: Enable and start Apache service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
 
+- name: Validate Nagios configuration
+  command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
+  register: nagios_validation
+  changed_when: false
+  failed_when: "'Total Errors:' in nagios_validation.stdout and not 'Total Errors:   0' in nagios_validation.stdout"
 
-#########################################
-# Reload and restart
-#########################################
+- name: Show Validation Output
+  debug:
+    var: nagios_validation.stdout
 
-- name: Reload systemd daemon
-  command: systemctl daemon-reload
+- name: Ensure Nagios service is enabled
+  service:
+    name: nagios
+    enabled: yes
 
-- name: Start Nagios service
+- name: Enable and start Nagios service
   service:
     name: nagios
     state: restarted
     enabled: yes
+  when:
+    - "'Total Errors:   0' in nagios_validation.stdout"
+    - "'Things look okay' in nagios_validation.stdout"
+
+- name: Deploy local command configuration
+  template:
+    src: commands_local.cfg.j2
+    dest: /etc/nagios/objects/commands_local.cfg
+    owner: nagios
+    group: nagios
+    mode: '0644'

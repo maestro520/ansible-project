@@ -1,16 +1,14 @@
+# roles/nagios/handlers/main.yml
 ---
-# Handlers for Nagios
-
-- name: restart httpd
-  service:
-    name: httpd
-    state: restarted
 
 - name: restart nagios
   service:
     name: nagios
     state: restarted
-    enabled: yes
+  when:
+    - nagios_validation is defined
+    - "'Total Errors:   0' in nagios_validation.stdout"
+
 
 - name: restart apache
   service:
