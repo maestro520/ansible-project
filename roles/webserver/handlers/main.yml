@@ -1,5 +1,5 @@
 ---
-- name: restart nrpe
+- name: restart_nginx
   ansible.builtin.service:
-    name: nrpe
+    name: nginx
     state: restarted

@@ -1,23 +1,24 @@
-Alias /nagios /usr/share/nagios/htdocs
+Alias /nagios /usr/share/nagios/html
+ScriptAlias /nagios/cgi-bin /usr/lib64/nagios/cgi-bin
 
-<Directory "/usr/share/nagios/htdocs">
+<Directory "/usr/share/nagios/html">
     Options None
     AllowOverride None
-    
+    Require all granted
+
     AuthType Basic
-    AuthName "Nagios Access"
+    AuthName "Nagios Login"
     AuthUserFile /etc/nagios/htpasswd.users
     Require valid-user
 </Directory>
 
-ScriptAlias /nagios/cgi-bin /usr/lib64/nagios/cgi-bin
-
 <Directory "/usr/lib64/nagios/cgi-bin">
     Options ExecCGI
     AllowOverride None
-    
+    Require all granted
+
     AuthType Basic
-    AuthName "Nagios Access"
+    AuthName "Nagios Login"
     AuthUserFile /etc/nagios/htpasswd.users
     Require valid-user
 </Directory>

@@ -3,13 +3,64 @@
     name: nginx
     state: present
 
-- name: Copy default index.html
+# Create directories for each page
+- name: Create web folders
+  ansible.builtin.file:
+    path: "/usr/share/nginx/html/{{ item }}"
+    state: directory
+    owner: nginx
+    group: nginx
+    mode: "0755"
+  loop:
+    - main
+    - app1
+    - app2
+    - app3
+
+# Default page
+- name: Deploy main index page
   ansible.builtin.copy:
-    dest: /usr/share/nginx/html/index.html
-    content: "<h1>Welcome to prdx-webserver101</h1>"
+    dest: /usr/share/nginx/html/main/index.html
+    content: "<h1>whats up guys Welcome to prdx-webserver101 MAIN PAGE</h1>"
     owner: nginx
     group: nginx
     mode: 0644
+
+# Port 8081 page
+- name: Deploy app1 page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/app1/index.html
+    content: "<h1>Welcome to my PAGE 1 (port 8081)</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+# Port 8082 page
+- name: Deploy app2 page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/app2/index.html
+    content: "<h1>My name is Jahongir this is my PAGE 2 (port 8082)</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+# Port 8083 page
+- name: Deploy app3 page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/app3/index.html
+    content: "<h1>and this is my PAGE 3 (port 8083)</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+- name: Deploy nginx configuration
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_nginx
 
 - name: Enable and start nginx
   ansible.builtin.service:

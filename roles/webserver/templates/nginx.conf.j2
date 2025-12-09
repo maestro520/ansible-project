@@ -1,0 +1,47 @@
+user nginx;
+worker_processes auto;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    sendfile on;
+    keepalive_timeout 65;
+
+    # Page for default port 80
+    server {
+        listen 80;
+        server_name _;
+        root /usr/share/nginx/html/main;
+        index index.html;
+    }
+
+    # Page for port 8081
+    server {
+        listen 8081;
+        server_name _;
+        root /usr/share/nginx/html/app1;
+        index index.html;
+    }
+
+    # Page for port 8082
+    server {
+        listen 8082;
+        server_name _;
+        root /usr/share/nginx/html/app2;
+        index index.html;
+    }
+
+    # Page for port 8083
+    server {
+        listen 8083;
+        server_name _;
+        root /usr/share/nginx/html/app3;
+        index index.html;
+    }
+}
