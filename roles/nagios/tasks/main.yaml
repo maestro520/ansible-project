@@ -112,6 +112,42 @@
     state: started
     enabled: yes
 
+- name: Ensure Nagios spool structure exists correctly
+  block:
+
+    - name: Remove any incorrect FIFO or directory
+      file:
+        path: /var/spool/nagios
+        state: absent
+
+    - name: Create nagios spool cmd folder
+      file:
+        path: /var/spool/nagios/cmd
+        state: directory
+        owner: nagios
+        group: nagios
+        mode: "0775"
+
+    - name: Ensure FIFO pipe exists
+      command: mkfifo /var/spool/nagios/cmd/nagios.cmd
+      args:
+        creates: /var/spool/nagios/cmd/nagios.cmd
+
+    - name: Fix permissions for FIFO
+      file:
+        path: /var/spool/nagios/cmd/nagios.cmd
+        owner: nagios
+        group: nagios
+        mode: "0660"
+
+- name: Ensure checkresults directory exists
+  file:
+    path: /var/spool/nagios/checkresults
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: "0775"
+
 - name: Validate Nagios configuration
   command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
   register: nagios_validation
@@ -126,6 +162,33 @@
   service:
     name: nagios
     enabled: yes
+
+# Clean and recreate correct FIFO before service start
+- name: Remove existing nagios.cmd if it is not FIFO
+  file:
+    path: /var/spool/nagios/cmd/nagios.cmd
+    state: absent
+  ignore_errors: true
+
+- name: Ensure nagios cmd directory exists
+  file:
+    path: /var/spool/nagios/cmd
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: "0775"
+
+- name: Create FIFO pipe for nagios.cmd
+  command: mkfifo /var/spool/nagios/cmd/nagios.cmd
+  args:
+    creates: /var/spool/nagios/cmd/nagios.cmd
+
+- name: Fix permissions on nagios.cmd FIFO
+  file:
+    path: /var/spool/nagios/cmd/nagios.cmd
+    owner: nagios
+    group: nagios
+    mode: "0660"
 
 - name: Enable and start Nagios service
   service:
