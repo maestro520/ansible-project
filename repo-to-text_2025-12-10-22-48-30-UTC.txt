@@ -11,6 +11,7 @@ Directory Structure:
 │   ├── ./.git/COMMIT_EDITMSG
 │   ├── ./.git/config
 │   ├── ./.git/description
+│   ├── ./.git/FETCH_HEAD
 │   ├── ./.git/HEAD
 │   ├── ./.git/hooks
 │   │   ├── ./.git/hooks/applypatch-msg.sample
@@ -57,9 +58,11 @@ Directory Structure:
 │   │   ├── ./.git/objects/07
 │   │   │   ├── ./.git/objects/07/018a20e4121ec14193fb5a42e606d20b770487
 │   │   │   ├── ./.git/objects/07/514e80533c77ad62f5fdddfa881b710abeaa09
+│   │   │   ├── ./.git/objects/07/533f3ba12fffa4880d22baaaf02720f60565a5
 │   │   │   └── ./.git/objects/07/7f1551acd13219494b875ff997041ed1093e00
 │   │   ├── ./.git/objects/08
-│   │   │   └── ./.git/objects/08/0ac4d40a3e08195f9cd9577a6409f0ad286d43
+│   │   │   ├── ./.git/objects/08/0ac4d40a3e08195f9cd9577a6409f0ad286d43
+│   │   │   └── ./.git/objects/08/c77ee5308e74933256717f05554e80206ebdac
 │   │   ├── ./.git/objects/09
 │   │   │   └── ./.git/objects/09/766cc2208b0a1246a93201793d0881c91edc49
 │   │   ├── ./.git/objects/0a
@@ -74,11 +77,14 @@ Directory Structure:
 │   │   ├── ./.git/objects/11
 │   │   │   └── ./.git/objects/11/42062fb0413adb71d110cc9a1f1042503795f0
 │   │   ├── ./.git/objects/13
+│   │   │   ├── ./.git/objects/13/0b5a740a740f946516e65449b98f88c57ef173
 │   │   │   ├── ./.git/objects/13/7a7d4cc2f3c3c56abf5878a5c07f0a604cd927
 │   │   │   ├── ./.git/objects/13/a1f1ee72bc6c987fd08aa01e026e19e06c4fba
 │   │   │   └── ./.git/objects/13/c8a3df0bae1d6fe9907b177c0649f4b5822432
 │   │   ├── ./.git/objects/14
 │   │   │   └── ./.git/objects/14/47a9168820690eee40fed81881bf5de2e9f715
+│   │   ├── ./.git/objects/16
+│   │   │   └── ./.git/objects/16/938280177c0dffbc1485f8d8c25873517ae70e
 │   │   ├── ./.git/objects/18
 │   │   │   └── ./.git/objects/18/f719c2ffdce4a100453ee3bfe59e720b960498
 │   │   ├── ./.git/objects/19
@@ -98,6 +104,8 @@ Directory Structure:
 │   │   │   └── ./.git/objects/22/d57b55f7ba30862a8a35495f9430db92c4238d
 │   │   ├── ./.git/objects/23
 │   │   │   └── ./.git/objects/23/cd205bbe71b41bb13c1bd9f0ad270a995233ef
+│   │   ├── ./.git/objects/24
+│   │   │   └── ./.git/objects/24/388c28beb6a78af0230b0eebb26e7e908fc123
 │   │   ├── ./.git/objects/25
 │   │   │   ├── ./.git/objects/25/709aff60c2fbecd57efe486d44561d9efe2e2d
 │   │   │   └── ./.git/objects/25/b4dc28c1b30d39e16998906c73fbca4b4ea9d6
@@ -122,7 +130,8 @@ Directory Structure:
 │   │   │   └── ./.git/objects/2e/b0421d8b51669592ed8377d73a1d4dba8a2098
 │   │   ├── ./.git/objects/2f
 │   │   │   ├── ./.git/objects/2f/68b1d8b97067e91dce3ffedb69d5587cfc921f
-│   │   │   └── ./.git/objects/2f/d6d10996f15c90ff27c5164781f1ca59350fe8
+│   │   │   ├── ./.git/objects/2f/d6d10996f15c90ff27c5164781f1ca59350fe8
+│   │   │   └── ./.git/objects/2f/fcc35e982672f084602a387c7455ab32ba4a15
 │   │   ├── ./.git/objects/34
 │   │   │   ├── ./.git/objects/34/46b2302d749564cb735fdf0f28f8b22fd09242
 │   │   │   ├── ./.git/objects/34/8d3c159da6e1c7f473c6317fe51f58a4c628b2
@@ -150,6 +159,7 @@ Directory Structure:
 │   │   ├── ./.git/objects/47
 │   │   │   └── ./.git/objects/47/dfa05d63e41cf1769ea6f17fc4c78e303de7c1
 │   │   ├── ./.git/objects/48
+│   │   │   ├── ./.git/objects/48/144c13fe0e768c7e1ab2ac3cf573f7543e72fa
 │   │   │   ├── ./.git/objects/48/2af4849305dd5cdee7df0d1026d9c3a5606a2b
 │   │   │   ├── ./.git/objects/48/5a973b95cd19e25cd95613f4b03a78e3a27ec0
 │   │   │   └── ./.git/objects/48/cf842a3088bcb859370c5a236fead3337d979e
@@ -159,10 +169,13 @@ Directory Structure:
 │   │   │   └── ./.git/objects/4a/bff014b4f6c82d5471c640242d744661c3d005
 │   │   ├── ./.git/objects/4c
 │   │   │   ├── ./.git/objects/4c/65a277817a6e5748fe6c8d7746d494f56fa2c8
+│   │   │   ├── ./.git/objects/4c/bdf8ea51a20e0f90a79eef8037e5aecea7f526
 │   │   │   └── ./.git/objects/4c/d309aa5a4b76d8faeced75a853a62e0fe60a9e
 │   │   ├── ./.git/objects/4d
 │   │   │   ├── ./.git/objects/4d/66eab24c21e8aeb0d129d1d86b77a16ddc92d9
 │   │   │   └── ./.git/objects/4d/6a82bad21ba8cc8df046e51a78895869bc988e
+│   │   ├── ./.git/objects/50
+│   │   │   └── ./.git/objects/50/b76194342760edccdf08039a702e1848dc4c58
 │   │   ├── ./.git/objects/51
 │   │   │   └── ./.git/objects/51/eea53061cb9f126f7f5259ddebce47412d6078
 │   │   ├── ./.git/objects/52
@@ -201,12 +214,17 @@ Directory Structure:
 │   │   │   ├── ./.git/objects/62/7195d9db69ec3eddb208d96dc20ea9f2230f96
 │   │   │   └── ./.git/objects/62/ef2ad36d8e7a07c4d319bf18abc910eb17b651
 │   │   ├── ./.git/objects/63
-│   │   │   └── ./.git/objects/63/0232a7f00751890804d60c4ad8808189f758a9
+│   │   │   ├── ./.git/objects/63/0232a7f00751890804d60c4ad8808189f758a9
+│   │   │   ├── ./.git/objects/63/427d1613ab24739a97a53ae143e6baf5fe40bc
+│   │   │   └── ./.git/objects/63/4ac3c04a6e125f8acca33da27a96ccff0ac2e8
 │   │   ├── ./.git/objects/65
+│   │   │   ├── ./.git/objects/65/20a8086a1cada001a84512e5c96f7a43859971
 │   │   │   ├── ./.git/objects/65/749d4bca5d3232997192fd38b4d1c2340dcb53
 │   │   │   └── ./.git/objects/65/fb0995e40a8e7402f98f6a62ab8521e22e4776
 │   │   ├── ./.git/objects/66
 │   │   │   └── ./.git/objects/66/3a93a7dc3afeb6fed97528654e8e6afe41ebac
+│   │   ├── ./.git/objects/68
+│   │   │   └── ./.git/objects/68/c736af85d5286027a8b34dbd3791237cd655db
 │   │   ├── ./.git/objects/69
 │   │   │   └── ./.git/objects/69/9296a806658543f756543ad0315dfa3c1c1891
 │   │   ├── ./.git/objects/6b
@@ -238,6 +256,8 @@ Directory Structure:
 │   │   ├── ./.git/objects/75
 │   │   │   └── ./.git/objects/75/67128db5fd897e4bd2be59d7f02904b9048a3f
 │   │   ├── ./.git/objects/76
+│   │   │   ├── ./.git/objects/76/222e3c0b5c45c23056a429463889d64ca5d675
+│   │   │   ├── ./.git/objects/76/892cc2dbb21f02a7d469034bf4e0b31b8ca24d
 │   │   │   └── ./.git/objects/76/e24c1b2a828236ca7ee74323904a8cf7d70bdc
 │   │   ├── ./.git/objects/77
 │   │   │   ├── ./.git/objects/77/76092500ee519376dc9126d4ec3b14147cb844
@@ -246,6 +266,8 @@ Directory Structure:
 │   │   │   └── ./.git/objects/79/578f0e3011b8e99646a595f5ecdfc2025a8841
 │   │   ├── ./.git/objects/7a
 │   │   │   └── ./.git/objects/7a/5a4e67cfba927ae70fa348d740111ff25db864
+│   │   ├── ./.git/objects/7b
+│   │   │   └── ./.git/objects/7b/15105589d16ea83ef826683077c88064f0b086
 │   │   ├── ./.git/objects/7c
 │   │   │   ├── ./.git/objects/7c/6fc96ad42935216ad607338e264fe9c62f0e3f
 │   │   │   └── ./.git/objects/7c/7bff3c7010f81632ebd6da24015048f68bd77f
@@ -256,11 +278,15 @@ Directory Structure:
 │   │   │   └── ./.git/objects/7e/cb3848ae2afa0f82739546f659f7d1f94ee831
 │   │   ├── ./.git/objects/7f
 │   │   │   └── ./.git/objects/7f/300557f9d6fafa7ed63e683e100619f6bcc1a7
+│   │   ├── ./.git/objects/80
+│   │   │   └── ./.git/objects/80/f054cc48b78f8b0409ece370b226be649bd2b1
 │   │   ├── ./.git/objects/81
-│   │   │   └── ./.git/objects/81/a23109c2611f15d98bf6c28031bc599c4a9eb5
+│   │   │   ├── ./.git/objects/81/a23109c2611f15d98bf6c28031bc599c4a9eb5
+│   │   │   └── ./.git/objects/81/fd7235ee6b2df16daadac326a4a76aad6ac8f2
 │   │   ├── ./.git/objects/83
 │   │   │   └── ./.git/objects/83/fff4aae35b39d339c7862d9e2116e68a20abb7
 │   │   ├── ./.git/objects/85
+│   │   │   ├── ./.git/objects/85/0c02f3b7659e92b5007de97a9441801655dfa9
 │   │   │   └── ./.git/objects/85/e3bc1eafa203f2f9c85e800a230715e828f37d
 │   │   ├── ./.git/objects/86
 │   │   │   └── ./.git/objects/86/aaaeb4dc7b61f4ecdb06e99e6b24f1cfcf1c3c
@@ -299,10 +325,13 @@ Directory Structure:
 │   │   │   ├── ./.git/objects/96/82d77993ae649d0e8167f088ead14a64bf706c
 │   │   │   └── ./.git/objects/96/c7fc5a576ca770cacdba9e2de8d8768cc6937b
 │   │   ├── ./.git/objects/97
+│   │   │   ├── ./.git/objects/97/1ebe6e31bd0e20a671876bc22ac8ef3f773721
 │   │   │   ├── ./.git/objects/97/9f24bd61d7da8e7935dd3976a5a4222a7c9ccb
 │   │   │   └── ./.git/objects/97/9f84255b6069d63c719a691fccc25635edf707
 │   │   ├── ./.git/objects/98
 │   │   │   └── ./.git/objects/98/63e3741bf4dbc993fa2a85fa3428c84dfdcd78
+│   │   ├── ./.git/objects/99
+│   │   │   └── ./.git/objects/99/e00e09ca51cac34068793fb76d475434890194
 │   │   ├── ./.git/objects/9a
 │   │   │   ├── ./.git/objects/9a/c1ae6390f1768ce9f161a79dce0f79e8dade26
 │   │   │   └── ./.git/objects/9a/d23a528d4b15d63e203a48261afd277c1f3c78
@@ -323,6 +352,7 @@ Directory Structure:
 │   │   ├── ./.git/objects/a4
 │   │   │   ├── ./.git/objects/a4/181761d2863df21146165b6e297c7fe0c35423
 │   │   │   ├── ./.git/objects/a4/57854e3d2bb1916bdd7224da2fa0c1f032128e
+│   │   │   ├── ./.git/objects/a4/5ccb90d1d93b62e4566e58b542b3ac5b2bf156
 │   │   │   └── ./.git/objects/a4/f04eaeb605a49deecec378dd7f6eb3b751c7f3
 │   │   ├── ./.git/objects/a5
 │   │   │   └── ./.git/objects/a5/2db9eec705698e3dd7a84c1ddf9c24e4d4b45d
@@ -342,7 +372,8 @@ Directory Structure:
 │   │   │   └── ./.git/objects/aa/85b43aea98ffea2c099e372f1a971604d276ae
 │   │   ├── ./.git/objects/ab
 │   │   │   ├── ./.git/objects/ab/421e7e689bff3f6aff52c863f276319b47092e
-│   │   │   └── ./.git/objects/ab/7eb3ee74a8892e60c641616b86fe80ba81f442
+│   │   │   ├── ./.git/objects/ab/7eb3ee74a8892e60c641616b86fe80ba81f442
+│   │   │   └── ./.git/objects/ab/9d4c74fd15b88842fac02c24ef80c81ce599a4
 │   │   ├── ./.git/objects/ac
 │   │   │   ├── ./.git/objects/ac/38fd05e2572159d69375f10698ca20039b72d5
 │   │   │   └── ./.git/objects/ac/4e0f3a4d2c39410b8b9beac1f18f2e10c4862a
@@ -356,9 +387,14 @@ Directory Structure:
 │   │   │   └── ./.git/objects/b3/702c283ffd1ec0ec2aa0133169475089b176f0
 │   │   ├── ./.git/objects/b5
 │   │   │   ├── ./.git/objects/b5/60f2612815d2caa11f19084f7412927fb9524d
+│   │   │   ├── ./.git/objects/b5/7d65905b2a4ded0c2a9ab729480a88237d51f1
 │   │   │   └── ./.git/objects/b5/b8d4396cc0219274c3e5d34eb7627f46ab1c92
 │   │   ├── ./.git/objects/b6
 │   │   │   └── ./.git/objects/b6/86bccabc90d2c45d114b0ca10a69b2650e136b
+│   │   ├── ./.git/objects/b8
+│   │   │   └── ./.git/objects/b8/835924b5c579896cf2543a7cbd135192b1f216
+│   │   ├── ./.git/objects/b9
+│   │   │   └── ./.git/objects/b9/f3eed01eaae9e2b0f1abc52271f30fe3de8b6f
 │   │   ├── ./.git/objects/bd
 │   │   │   ├── ./.git/objects/bd/22f05a909f89a275710ef31592ad18390b1bd6
 │   │   │   └── ./.git/objects/bd/a75d501f5268cfe40a43acc2ac51c09bd4e0b4
@@ -391,17 +427,21 @@ Directory Structure:
 │   │   ├── ./.git/objects/cc
 │   │   │   └── ./.git/objects/cc/fef5bd2d460c2de0ed5ca47d1812d0e513dd08
 │   │   ├── ./.git/objects/cd
+│   │   │   ├── ./.git/objects/cd/43fe5ca39fdae5e5d8fa5bdeab5ce485c4c277
 │   │   │   └── ./.git/objects/cd/b89e43c5734e201c11ebe83eea9a34c33baf06
 │   │   ├── ./.git/objects/cf
 │   │   │   ├── ./.git/objects/cf/0370dcb63a226728e36cd687a7862df8c0cab1
-│   │   │   └── ./.git/objects/cf/46e69a967af1fa144054282240784dd63d40ca
+│   │   │   ├── ./.git/objects/cf/46e69a967af1fa144054282240784dd63d40ca
+│   │   │   └── ./.git/objects/cf/5ecf85dafaf4dcfa49ed31f553ba7ad16e77ef
 │   │   ├── ./.git/objects/d0
-│   │   │   └── ./.git/objects/d0/ea6d34696d9fe10322c9806f3f4c53786a9383
+│   │   │   ├── ./.git/objects/d0/ea6d34696d9fe10322c9806f3f4c53786a9383
+│   │   │   └── ./.git/objects/d0/f0fbcb88768778cf67c1f7649846c1757cbae4
 │   │   ├── ./.git/objects/d1
 │   │   │   └── ./.git/objects/d1/9eb1123e0d46efe366c6a75025df5cf301c7a3
 │   │   ├── ./.git/objects/d2
 │   │   │   └── ./.git/objects/d2/6b027cb2a20c93a4dcbc089a8bdb65d52f4e43
 │   │   ├── ./.git/objects/d3
+│   │   │   ├── ./.git/objects/d3/ca032c2706968d5c87f42ef79807ff80fabf8a
 │   │   │   └── ./.git/objects/d3/ca67d671d58fe9b111c92686df3ba26fe0f84d
 │   │   ├── ./.git/objects/d4
 │   │   │   └── ./.git/objects/d4/02156eaf935dffde105e8adc5b66c684abc394
@@ -411,7 +451,8 @@ Directory Structure:
 │   │   │   ├── ./.git/objects/d6/046a4e71ce55d60b5f62186b61e336ddcc9c19
 │   │   │   ├── ./.git/objects/d6/6f4ea8af27244e9366c2c24e6e565b3c9d8063
 │   │   │   ├── ./.git/objects/d6/95446985ba72fbcb51e2e9a005601f9423490e
-│   │   │   └── ./.git/objects/d6/ef8ebec9f82cc00265b4fb4ca4d8e1ef88dafd
+│   │   │   ├── ./.git/objects/d6/ef8ebec9f82cc00265b4fb4ca4d8e1ef88dafd
+│   │   │   └── ./.git/objects/d6/fbc4afde4e2f7b97a214b34671e8cea4bdbcef
 │   │   ├── ./.git/objects/d7
 │   │   │   ├── ./.git/objects/d7/45433c4f5308493a19f02e05eb01c76f2bf438
 │   │   │   ├── ./.git/objects/d7/9188becd3f0d980ea23676ffb3a1d4cf9992a0
@@ -422,10 +463,13 @@ Directory Structure:
 │   │   │   └── ./.git/objects/d8/3ab666cef401eb30c8a3bcc4f8df47a5157b38
 │   │   ├── ./.git/objects/d9
 │   │   │   └── ./.git/objects/d9/b5e943ab9cd1563011d5d54b8e0c7d900393f6
+│   │   ├── ./.git/objects/da
+│   │   │   └── ./.git/objects/da/07ca3af200299628d49984c6ae3048a3965cf7
 │   │   ├── ./.git/objects/dc
 │   │   │   ├── ./.git/objects/dc/93c83a752abe2aa60059cb274d32d61ea541a4
 │   │   │   └── ./.git/objects/dc/9ae5acfe7a4ac2ca12726126614be606600a60
 │   │   ├── ./.git/objects/dd
+│   │   │   ├── ./.git/objects/dd/216e9477c4f3a03abc1d517a6a1571857ebd6c
 │   │   │   └── ./.git/objects/dd/ff9451884a06443ea260745151992d00aa88c2
 │   │   ├── ./.git/objects/df
 │   │   │   └── ./.git/objects/df/b898397952558067d1ab646fa69d666e8b4716
@@ -461,6 +505,8 @@ Directory Structure:
 │   │   │   └── ./.git/objects/ed/58c7bc46fc2b1ca2e040a15b921b8d702227eb
 │   │   ├── ./.git/objects/ee
 │   │   │   └── ./.git/objects/ee/9f9e8b10b1f0d8015469c3903c0006d6779e4f
+│   │   ├── ./.git/objects/ef
+│   │   │   └── ./.git/objects/ef/69478b11265e6c62714fba3a292e77ac2127af
 │   │   ├── ./.git/objects/f1
 │   │   │   └── ./.git/objects/f1/c58cebb883aae46a0933a7572cc67a548f8a06
 │   │   ├── ./.git/objects/f2
@@ -540,13 +586,13 @@ Directory Structure:
     │   └── ./roles/haproxy/templates
     │       └── ./roles/haproxy/templates/haproxy.cfg.j2
     ├── ./roles/nagios
+    │   ├── ./roles/nagios/defaults
+    │   │   └── ./roles/nagios/defaults/main.yml
     │   ├── ./roles/nagios/handlers
     │   │   └── ./roles/nagios/handlers/main.yml
     │   ├── ./roles/nagios/tasks
-    │   │   └── ./roles/nagios/tasks/main.yaml
+    │   │   └── ./roles/nagios/tasks/main.yml
     │   ├── ./roles/nagios/templates
-    │   │   ├── ./roles/nagios/templates/commands.cfg.j2
-    │   │   ├── ./roles/nagios/templates/commands_local.cfg.j2
     │   │   ├── ./roles/nagios/templates/hosts.cfg.j2
     │   │   ├── ./roles/nagios/templates/nagios-apache.conf.j2
     │   │   └── ./roles/nagios/templates/services.cfg.j2
@@ -632,6 +678,7 @@ haproxy
 ftp
 nfs
 docker
+
 </content>
 
 <content full_path="playbooks/site.yaml">
@@ -1855,289 +1902,407 @@ command[check_users]=/usr/lib64/nagios/plugins/check_users -w 5 -c 10
 
 </content>
 
-<content full_path="roles/nagios/tasks/main.yaml">
-# roles/nagios/tasks/main.yaml
+<content full_path="roles/nagios/handlers/main.yml">
 ---
-
-- name: Install Nagios server and dependencies
-  yum:
-    name:
-      - nagios
-      - nagios-plugins
-      - nagios-plugins-ping
-      - nagios-plugins-load
-      - nagios-plugins-disk
-      - nagios-plugins-procs
-      - nagios-plugins-users
-      - httpd
-      - php
-      - php-cli
-      - git
-      - unzip
-    state: present
-
-
-- name: Ensure Nagios additional config directory exists
-  file:
-    path: /etc/nagios/servers
-    state: directory
-    owner: nagios
-    group: nagios
-    mode: "0755"
-
-- name: Deploy Nagios hosts configuration
-  template:
-    src: hosts.cfg.j2
-    dest: /etc/nagios/servers/hosts.cfg
-    owner: nagios
-    group: nagios
-    mode: "0644"
-  notify: restart nagios
-
-- name: Deploy Nagios services configuration
-  template:
-    src: services.cfg.j2
-    dest: /etc/nagios/servers/services.cfg
-    owner: nagios
-    group: nagios
-    mode: "0644"
-  notify: restart nagios
-
-- name: Deploy extra Nagios command definitions
-  template:
-    src: commands_local.cfg.j2
-    dest: /etc/nagios/objects/commands_local.cfg
-    owner: nagios
-    group: nagios
-    mode: "0644"
-  notify: restart nagios
-
-- name: Ensure commands_local.cfg is included in nagios.cfg
-  lineinfile:
-    path: /etc/nagios/nagios.cfg
-    regexp: '^cfg_file=/etc/nagios/objects/commands_local.cfg'
-    line: 'cfg_file=/etc/nagios/objects/commands_local.cfg'
-    insertafter: '^cfg_file=/etc/nagios/objects/commands.cfg'
-  notify: restart nagios
-
-- name: Ensure /etc/nagios/servers is included via cfg_dir
-  lineinfile:
-    path: /etc/nagios/nagios.cfg
-    regexp: '^cfg_dir=/etc/nagios/servers'
-    line: 'cfg_dir=/etc/nagios/servers'
-  notify: restart nagios
-
-- name: Deploy Apache Nagios configuration
-  template:
-    src: nagios-apache.conf.j2
-    dest: /etc/httpd/conf.d/nagios.conf
-    owner: root
-    group: root
-    mode: "0644"
-  notify: restart apache
-
-- name: Deploy Nagios configs
-  template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: nagios
-    group: nagios
-    mode: '0644'
-  loop:
-    - { src: 'commands.cfg.j2', dest: '/etc/nagios/objects/commands.cfg' }
-    - { src: 'hosts.cfg.j2', dest: '/etc/nagios/servers/hosts.cfg' }
-    - { src: 'services.cfg.j2', dest: '/etc/nagios/servers/services.cfg' }
-  notify:
-    - restart nagios
-    - restart apache
- 
-
-- name: Ensure Nagios web user file exists
-  command: htpasswd -bc /etc/nagios/htpasswd.users "{{ nagios_web_user }}" "{{ nagios_web_password }}"
-  args:
-    creates: /etc/nagios/htpasswd.users
-  notify: restart apache
-
-- name: Remove wrong duplicate hosts file
-  file:
-    path: /etc/nagios/objects/hosts.cfg
-    state: absent
-
-
-- name: Enable and start Apache service
+- name: restart httpd
   service:
     name: httpd
-    state: started
-    enabled: yes
-
-- name: Validate Nagios configuration
-  command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
-  register: nagios_validation
-  changed_when: false
-  failed_when: "'Total Errors:' in nagios_validation.stdout and not 'Total Errors:   0' in nagios_validation.stdout"
-
-- name: Show Validation Output
-  debug:
-    var: nagios_validation.stdout
-
-- name: Ensure Nagios service is enabled
-  service:
-    name: nagios
-    enabled: yes
-
-- name: Enable and start Nagios service
-  service:
-    name: nagios
     state: restarted
-    enabled: yes
-  when:
-    - "'Total Errors:   0' in nagios_validation.stdout"
-    - "'Things look okay' in nagios_validation.stdout"
-
-- name: Deploy local command configuration
-  template:
-    src: commands_local.cfg.j2
-    dest: /etc/nagios/objects/commands_local.cfg
-    owner: nagios
-    group: nagios
-    mode: '0644'
-
-</content>
-
-<content full_path="roles/nagios/handlers/main.yml">
-# roles/nagios/handlers/main.yml
----
 
 - name: restart nagios
   service:
     name: nagios
     state: restarted
-  when:
-    - nagios_validation is defined
-    - "'Total Errors:   0' in nagios_validation.stdout"
-
-
-- name: restart apache
-  service:
-    name: httpd
-    state: restarted
-
-</content>
-
-<content full_path="roles/nagios/templates/nagios-apache.conf.j2">
-# roles/nagios/templates/nagios-apache.conf.j2
-
-ScriptAlias /nagios/cgi-bin "/usr/lib64/nagios/cgi-bin/"
-
-<Directory "/usr/lib64/nagios/cgi-bin/">
-    Options ExecCGI
-    AllowOverride None
-    Require all granted
-
-    AuthName "Nagios Access"
-    AuthType Basic
-    AuthUserFile /etc/nagios/htpasswd.users
-    Require valid-user
-</Directory>
-
-Alias /nagios "/usr/share/nagios/html"
-
-<Directory "/usr/share/nagios/html">
-    Options None
-    AllowOverride None
-    Require all granted
-
-    AuthName "Nagios Access"
-    AuthType Basic
-    AuthUserFile /etc/nagios/htpasswd.users
-    Require valid-user
-</Directory>
-
-</content>
-
-<content full_path="roles/nagios/templates/commands_local.cfg.j2">
-# roles/nagios/templates/commands_local.cfg.j2
-###############################################################################
-# Extra Nagios Command Definitions (managed by Ansible)
-###############################################################################
-
-#define command{
-   # command_name    check_load_nrpe
-   # command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
-#}
-
-define command{
-    command_name    check_disk_root_nrpe
-    command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_disk_root
-}
-
-define command{
-    command_name    notify-service-by-email
-    command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nService: $SERVICEDESC$\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $SERVICESTATE$\n\nInfo:\n$SERVICEOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | mail -s "** $NOTIFICATIONTYPE$ alert - $HOSTALIAS$/$SERVICEDESC$ is $SERVICESTATE$ **" $CONTACTEMAIL$
-}
-
-define command{
-    command_name    notify-host-by-email
-    command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $HOSTSTATE$\n\nInfo:\n$HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | mail -s "** $NOTIFICATIONTYPE$ alert - Host $HOSTALIAS$ is $HOSTSTATE$ **" $CONTACTEMAIL$
-}
-
-</content>
-
-<content full_path="roles/nagios/templates/hosts.cfg.j2">
-{% for host in groups['clients'] %}
-define host{
-    use                     linux-server
-    host_name               {{ host }}
-    alias                   {{ host }}
-    address                 {{ hostvars[host].ansible_host }}
-}
-{% endfor %}
-</content>
-
-<content full_path="roles/nagios/templates/services.cfg.j2">
-{% for host in groups['clients'] %}
-
-define service{
-        use                     generic-service
-        host_name               {{ host }}
-        service_description     Disk Root /
-        check_command           check_disk_root_nrpe
-}
-
-define service{
-        use                     generic-service
-        host_name               {{ host }}
-        service_description     Load
-        check_command           check_load_nrpe
-}
-
-{% endfor %}
-</content>
-
-<content full_path="roles/nagios/templates/commands.cfg.j2">
-define command{
-    command_name check-host-alive
-    command_line /usr/lib64/nagios/plugins/check_ping -H $HOSTADDRESS$ -w 3000.0,80% -c 5000.0,100% -p 5
-}
-
-define command{
-    command_name check_disk_root_nrpe
-    command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_disk
-}
-
-define command{
-    command_name check_load_nrpe
-    command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_load
-}
 
 </content>
 
 <content full_path="roles/nagios/vars/main.yml">
-# roles/nagios/vars/main.yml
 ---
-
 nagios_web_user: nagiosadmin
-nagios_web_password: "NagiosStrongP@ssw0rd"   # <-- CHANGE THIS
+nagios_web_password: "Nagios123"
+
+</content>
+
+<content full_path="roles/nagios/tasks/main.yml">
+---
+# Clean Nagios Core install + config via Ansible
+# Target: Rocky Linux 9, Nagios Core 4.4.14
+
+- name: Install base packages (web + build + firewalld)
+  yum:
+    name:
+      - httpd
+      - php
+      - gcc
+      - glibc
+      - glibc-common
+      - wget
+      - unzip
+      - httpd-tools
+      - gd
+      - gd-devel
+      - perl
+      - openssl
+      - openssl-devel
+      - firewalld
+    state: present
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 1) Clean any old /usr/local/nagios install
+# ───────────────────────────────────────────────────────────────
+
+- name: Stop old Nagios service if it exists
+  service:
+    name: nagios
+    state: stopped
+  ignore_errors: true
+  tags: [nagios]
+
+- name: Remove old /usr/local/nagios tree (clean install)
+  file:
+    path: /usr/local/nagios
+    state: absent
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 2) Download, compile and install Nagios Core 4.4.14
+# ───────────────────────────────────────────────────────────────
+
+- name: Download Nagios Core 4.4.14 source
+  get_url:
+    url: https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.14.tar.gz
+    dest: /tmp/nagios-4.4.14.tar.gz
+    mode: '0644'
+  tags: [nagios]
+
+- name: Extract Nagios Core source
+  unarchive:
+    src: /tmp/nagios-4.4.14.tar.gz
+    dest: /tmp/
+    remote_src: yes
+  tags: [nagios]
+
+- name: Compile and install Nagios Core 4.4.14
+  shell: |
+    set -e
+    cd /tmp/nagios-4.4.14
+    ./configure
+    make all
+    make install-groups-users
+    make install
+    make install-daemoninit
+    make install-commandmode
+    make install-config
+  args:
+    creates: /usr/local/nagios/bin/nagios
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 3) Apache integration + web user
+# ───────────────────────────────────────────────────────────────
+
+- name: Install Apache Nagios config (nagios.conf)
+  shell: |
+    set -e
+    cd /tmp/nagios-4.4.14
+    make install-webconf
+  args:
+    creates: /etc/httpd/conf.d/nagios.conf
+  notify: restart httpd
+  tags: [nagios]
+
+- name: Enable Apache CGI module
+  replace:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^#(LoadModule cgi_module modules/mod_cgi.so)'
+    replace: 'LoadModule cgi_module modules/mod_cgi.so'
+  notify: restart httpd
+  tags: [nagios]
+
+- name: Create Nagios web user (nagiosadmin / Nagios123)
+  command: htpasswd -bc /usr/local/nagios/etc/htpasswd.users nagiosadmin Nagios123
+  args:
+    creates: /usr/local/nagios/etc/htpasswd.users
+  notify: restart httpd
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 4) NRPE + core plugins on Nagios server
+# ───────────────────────────────────────────────────────────────
+
+- name: Install NRPE plugin and core Nagios plugins
+  yum:
+    name:
+      - nagios-plugins-nrpe
+      - nagios-plugins-ping
+      - nagios-plugins-disk
+      - nagios-plugins-load
+      - nagios-plugins-procs
+      - nagios-plugins-users
+    state: present
+  tags: [nagios]
+
+- name: Ensure check_nrpe command is defined
+  blockinfile:
+    path: /usr/local/nagios/etc/objects/commands.cfg
+    marker: "# {mark} ANSIBLE MANAGED NRPE COMMAND"
+    block: |
+      define command{
+          command_name    check_nrpe
+          command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+      }
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Fix plugin path in commands.cfg (libexec -> /usr/lib64/nagios/plugins)
+  replace:
+    path: /usr/local/nagios/etc/objects/commands.cfg
+    regexp: '/usr/local/nagios/libexec'
+    replace: '/usr/lib64/nagios/plugins'
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Set $USER1$ to /usr/lib64/nagios/plugins
+  replace:
+    path: /usr/local/nagios/etc/resource.cfg
+    regexp: '^\$USER1\$=.*'
+    replace: '$USER1$=/usr/lib64/nagios/plugins'
+  notify: restart nagios
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 5) hosts.cfg + services.cfg via cfg_dir
+# ───────────────────────────────────────────────────────────────
+
+- name: Enable cfg_dir=/usr/local/nagios/etc/servers
+  replace:
+    path: /usr/local/nagios/etc/nagios.cfg
+    regexp: '^#cfg_dir=/usr/local/nagios/etc/servers'
+    replace: 'cfg_dir=/usr/local/nagios/etc/servers'
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Ensure /usr/local/nagios/etc/servers directory exists
+  file:
+    path: /usr/local/nagios/etc/servers
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: "0755"
+  tags: [nagios]
+
+- name: Deploy unified hosts.cfg
+  template:
+    src: hosts.cfg.j2
+    dest: /usr/local/nagios/etc/servers/hosts.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Deploy unified services.cfg
+  template:
+    src: services.cfg.j2
+    dest: /usr/local/nagios/etc/servers/services.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 6) Firewall + services + validation
+# ───────────────────────────────────────────────────────────────
+
+- name: Ensure firewalld is enabled and started
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+  tags: [nagios]
+
+- name: Open HTTP and HTTPS in firewalld
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  loop:
+    - http
+    - https
+  tags: [nagios]
+
+- name: Reload firewalld
+  service:
+    name: firewalld
+    state: reloaded
+  tags: [nagios]
+
+
+- name: Validate Nagios configuration
+  command: /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+  register: nagios_validation
+  changed_when: false
+  failed_when: "'Total Errors:   0' not in nagios_validation.stdout"
+  tags: [nagios]
+
+- name: Show validation output
+  debug:
+    var: nagios_validation.stdout
+  tags: [nagios]
+
+- name: Enable and start httpd and nagios services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop:
+    - httpd
+    - nagios
+  tags: [nagios]
+
+</content>
+
+<content full_path="roles/nagios/templates/hosts.cfg.j2">
+# Managed by Ansible (hosts.cfg)
+
+define host{
+    use             linux-server
+    host_name       prdx-ansible101
+    alias           Ansible Master
+    address         192.168.220.200
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-nsprimary101
+    alias           DNS Server
+    address         192.168.220.202
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-ntp101
+    alias           NTP Server
+    address         192.168.220.201
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-db101
+    alias           Database Server
+    address         192.168.220.204
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-webserver101
+    alias           Web Server
+    address         192.168.220.205
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-haproxy101
+    alias           Load Balancer
+    address         192.168.220.211
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-nagios101
+    alias           Nagios Server
+    address         192.168.220.206
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-ftp101
+    alias           FTP Server
+    address         192.168.220.203
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-nfs101
+    alias           NFS Server
+    address         192.168.220.210
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-dprimary101
+    alias           Docker Manager
+    address         192.168.220.207
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-dworker101
+    alias           Docker Worker 1
+    address         192.168.220.208
+}
+
+define host{
+    use             linux-server
+    host_name       prdx-dworker102
+    alias           Docker Worker 2
+    address         192.168.220.209
+}
+</content>
+
+<content full_path="roles/nagios/templates/services.cfg.j2">
+# Managed by Ansible (services.cfg)
+
+# Load via NRPE
+define service{
+    use                     generic-service
+    host_name               prdx-ansible101,prdx-nsprimary101,prdx-ntp101,prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-nagios101,prdx-ftp101,prdx-nfs101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
+    service_description     Load
+    check_command           check_nrpe!check_load
+}
+
+# Disk root via NRPE
+define service{
+    use                     generic-service
+    host_name               prdx-ansible101,prdx-nsprimary101,prdx-ntp101,prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-nagios101,prdx-ftp101,prdx-nfs101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
+    service_description     Disk Root /
+    check_command           check_nrpe!check_disk_root
+}
+</content>
+
+<content full_path="roles/nagios/templates/nagios-apache.conf.j2">
+ScriptAlias /nagios/cgi-bin "/usr/local/nagios/sbin/"
+<Directory "/usr/local/nagios/sbin/">
+    AllowOverride None
+    Options ExecCGI
+    Require all granted
+    AuthType Basic
+    AuthName "Nagios Access"
+    AuthUserFile /usr/local/nagios/etc/htpasswd.users
+    Require valid-user
+</Directory>
+
+Alias /nagios "/usr/local/nagios/share"
+<Directory "/usr/local/nagios/share">
+    AllowOverride None
+    Require all granted
+    AuthType Basic
+    AuthName "Nagios Access"
+    AuthUserFile /usr/local/nagios/etc/htpasswd.users
+    Require valid-user
+</Directory>
+
+</content>
+
+<content full_path="roles/nagios/defaults/main.yml">
+---
+nagios_version: "4.5.9"
+nagios_admin_user: nagiosadmin
+nagios_admin_pass: "Nagios123"
+nagios_source_url: "https://github.com/NagiosEnterprises/nagioscore/archive/nagios-{{ nagios_version }}.tar.gz"
 
 </content>
 
