@@ -1,0 +1,2396 @@
+<repo-to-text>
+Directory: ansible
+
+Directory Structure:
+<directory_structure>
+.
+.
+├── ./ansible.cfg
+├── ./.git
+│   ├── ./.git/branches
+│   ├── ./.git/COMMIT_EDITMSG
+│   ├── ./.git/config
+│   ├── ./.git/description
+│   ├── ./.git/HEAD
+│   ├── ./.git/hooks
+│   │   ├── ./.git/hooks/applypatch-msg.sample
+│   │   ├── ./.git/hooks/commit-msg.sample
+│   │   ├── ./.git/hooks/fsmonitor-watchman.sample
+│   │   ├── ./.git/hooks/post-update.sample
+│   │   ├── ./.git/hooks/pre-applypatch.sample
+│   │   ├── ./.git/hooks/pre-commit.sample
+│   │   ├── ./.git/hooks/pre-merge-commit.sample
+│   │   ├── ./.git/hooks/prepare-commit-msg.sample
+│   │   ├── ./.git/hooks/pre-push.sample
+│   │   ├── ./.git/hooks/pre-rebase.sample
+│   │   ├── ./.git/hooks/pre-receive.sample
+│   │   ├── ./.git/hooks/push-to-checkout.sample
+│   │   ├── ./.git/hooks/sendemail-validate.sample
+│   │   └── ./.git/hooks/update.sample
+│   ├── ./.git/index
+│   ├── ./.git/info
+│   │   └── ./.git/info/exclude
+│   ├── ./.git/logs
+│   │   ├── ./.git/logs/HEAD
+│   │   └── ./.git/logs/refs
+│   │       ├── ./.git/logs/refs/heads
+│   │       │   └── ./.git/logs/refs/heads/main
+│   │       └── ./.git/logs/refs/remotes
+│   │           └── ./.git/logs/refs/remotes/origin
+│   │               └── ./.git/logs/refs/remotes/origin/main
+│   ├── ./.git/objects
+│   │   ├── ./.git/objects/00
+│   │   │   └── ./.git/objects/00/0b19c28def8754c097544441cd67621d590102
+│   │   ├── ./.git/objects/01
+│   │   │   └── ./.git/objects/01/42ebe8258aa8cdadf66ae8ff399a97efa7d22e
+│   │   ├── ./.git/objects/02
+│   │   │   ├── ./.git/objects/02/04ba3aefdf302f053f3c2d248f6993ffc14046
+│   │   │   ├── ./.git/objects/02/1ad2e67ffa6b3c8f86ac33a13089db8ed08fa0
+│   │   │   └── ./.git/objects/02/ae60d9c0fe0455e30ba1a448dbcef15d382769
+│   │   ├── ./.git/objects/03
+│   │   │   ├── ./.git/objects/03/32b332bf28686b4920c4f924907b91fe5cfe95
+│   │   │   └── ./.git/objects/03/64b412de0732d048466f55f664ea7bde4d1390
+│   │   ├── ./.git/objects/04
+│   │   │   └── ./.git/objects/04/ef49b02416fe2f68c187a902365b679f8c476c
+│   │   ├── ./.git/objects/06
+│   │   │   └── ./.git/objects/06/0a61339af52838e95e61334871254638ffbb02
+│   │   ├── ./.git/objects/07
+│   │   │   ├── ./.git/objects/07/018a20e4121ec14193fb5a42e606d20b770487
+│   │   │   ├── ./.git/objects/07/514e80533c77ad62f5fdddfa881b710abeaa09
+│   │   │   └── ./.git/objects/07/7f1551acd13219494b875ff997041ed1093e00
+│   │   ├── ./.git/objects/08
+│   │   │   └── ./.git/objects/08/0ac4d40a3e08195f9cd9577a6409f0ad286d43
+│   │   ├── ./.git/objects/09
+│   │   │   └── ./.git/objects/09/766cc2208b0a1246a93201793d0881c91edc49
+│   │   ├── ./.git/objects/0a
+│   │   │   └── ./.git/objects/0a/2501bb7e3bb78876db3360a65d37cd5bfdd476
+│   │   ├── ./.git/objects/0d
+│   │   │   ├── ./.git/objects/0d/3c3ae181af5e043b28aaab004f5b452a125d4a
+│   │   │   └── ./.git/objects/0d/479cd0bb70b0bf737165b19d9c71dbfbae450c
+│   │   ├── ./.git/objects/0e
+│   │   │   └── ./.git/objects/0e/702d8a3b01bf7c53f121f794e0fd0a6ba34f41
+│   │   ├── ./.git/objects/10
+│   │   │   └── ./.git/objects/10/9bab5c0009e156ebfbee202ec4f5904169f8ca
+│   │   ├── ./.git/objects/11
+│   │   │   └── ./.git/objects/11/42062fb0413adb71d110cc9a1f1042503795f0
+│   │   ├── ./.git/objects/13
+│   │   │   ├── ./.git/objects/13/7a7d4cc2f3c3c56abf5878a5c07f0a604cd927
+│   │   │   ├── ./.git/objects/13/a1f1ee72bc6c987fd08aa01e026e19e06c4fba
+│   │   │   └── ./.git/objects/13/c8a3df0bae1d6fe9907b177c0649f4b5822432
+│   │   ├── ./.git/objects/14
+│   │   │   └── ./.git/objects/14/47a9168820690eee40fed81881bf5de2e9f715
+│   │   ├── ./.git/objects/18
+│   │   │   └── ./.git/objects/18/f719c2ffdce4a100453ee3bfe59e720b960498
+│   │   ├── ./.git/objects/19
+│   │   │   └── ./.git/objects/19/79c46428e56c72f266372953e3d490a341e286
+│   │   ├── ./.git/objects/1a
+│   │   │   └── ./.git/objects/1a/40c2ad6decd33588ce813660655204ff0465e7
+│   │   ├── ./.git/objects/1d
+│   │   │   └── ./.git/objects/1d/b7c60e2b2d0ac1432bb6c40a805f6f79ab749d
+│   │   ├── ./.git/objects/1f
+│   │   │   └── ./.git/objects/1f/f6b41ab34e091b2d31dd4542b02247598dda67
+│   │   ├── ./.git/objects/20
+│   │   │   └── ./.git/objects/20/7b8ec8703fdc396026aca48776a65d5d7b4868
+│   │   ├── ./.git/objects/22
+│   │   │   └── ./.git/objects/22/d57b55f7ba30862a8a35495f9430db92c4238d
+│   │   ├── ./.git/objects/23
+│   │   │   └── ./.git/objects/23/cd205bbe71b41bb13c1bd9f0ad270a995233ef
+│   │   ├── ./.git/objects/25
+│   │   │   ├── ./.git/objects/25/709aff60c2fbecd57efe486d44561d9efe2e2d
+│   │   │   └── ./.git/objects/25/b4dc28c1b30d39e16998906c73fbca4b4ea9d6
+│   │   ├── ./.git/objects/27
+│   │   │   ├── ./.git/objects/27/9c8ff5821d4feaa7c2942c7f0ea74909ff06d7
+│   │   │   └── ./.git/objects/27/e552b7007b71c60af27e2865b34fe3734a028f
+│   │   ├── ./.git/objects/28
+│   │   │   └── ./.git/objects/28/7b175e9e98f04f07b34b98b830ad2186c0b789
+│   │   ├── ./.git/objects/2a
+│   │   │   ├── ./.git/objects/2a/78e9808d9db01b6d5fd38a35428a486d09ccd9
+│   │   │   └── ./.git/objects/2a/b00ac189922ffab470de69f02f79c7bf0d8008
+│   │   ├── ./.git/objects/2b
+│   │   │   └── ./.git/objects/2b/2c9a90d80da73db0f919bc6c8bf30da3c26211
+│   │   ├── ./.git/objects/2c
+│   │   │   ├── ./.git/objects/2c/4ddfa84ebd79276e208183583d34a6ec982650
+│   │   │   └── ./.git/objects/2c/7e40860635619af8caa20aef7c13f9bac6ca43
+│   │   ├── ./.git/objects/2d
+│   │   │   ├── ./.git/objects/2d/2ab9388be3953df3a1527e16be163fda12a37e
+│   │   │   └── ./.git/objects/2d/c2d60f973927366f1a39632c9beef5e42f3fbd
+│   │   ├── ./.git/objects/2e
+│   │   │   └── ./.git/objects/2e/b0421d8b51669592ed8377d73a1d4dba8a2098
+│   │   ├── ./.git/objects/2f
+│   │   │   ├── ./.git/objects/2f/68b1d8b97067e91dce3ffedb69d5587cfc921f
+│   │   │   └── ./.git/objects/2f/d6d10996f15c90ff27c5164781f1ca59350fe8
+│   │   ├── ./.git/objects/34
+│   │   │   ├── ./.git/objects/34/46b2302d749564cb735fdf0f28f8b22fd09242
+│   │   │   ├── ./.git/objects/34/8d3c159da6e1c7f473c6317fe51f58a4c628b2
+│   │   │   └── ./.git/objects/34/eeee672cdc50dcd37f3e2372bdb008ab82722a
+│   │   ├── ./.git/objects/35
+│   │   │   ├── ./.git/objects/35/38ace5af36e9a815a99fac3e9fd979cc660cf9
+│   │   │   └── ./.git/objects/35/f5e1ab2a618bb8dbdea6c1c9b48558ac95e006
+│   │   ├── ./.git/objects/3a
+│   │   │   └── ./.git/objects/3a/78ccfd936e5ac914de582809a739bdc9424943
+│   │   ├── ./.git/objects/3b
+│   │   │   ├── ./.git/objects/3b/40a0c538bbc51f9ceda09d4c601294e1695559
+│   │   │   ├── ./.git/objects/3b/482ec4637f632d812f6ff228ad9e086862e7ee
+│   │   │   └── ./.git/objects/3b/4d7a74bbefa0a193e470be816181ba82aeff68
+│   │   ├── ./.git/objects/3c
+│   │   │   └── ./.git/objects/3c/f1e6c1ee2804845a33665b6c8509de40b16383
+│   │   ├── ./.git/objects/3f
+│   │   │   └── ./.git/objects/3f/c68ebd31f91713ba5cf905e233f410d99ba110
+│   │   ├── ./.git/objects/42
+│   │   │   └── ./.git/objects/42/e143fdbd0ef56088242e18d0795626adf7ff83
+│   │   ├── ./.git/objects/43
+│   │   │   └── ./.git/objects/43/5f784969abe661970b1f2b273f73d0d9b556c1
+│   │   ├── ./.git/objects/45
+│   │   │   ├── ./.git/objects/45/002c4329a271fc28a742dd067fd773ea57d57a
+│   │   │   └── ./.git/objects/45/c32a821d90a3b90c9324d505690b1cb03b4e48
+│   │   ├── ./.git/objects/47
+│   │   │   └── ./.git/objects/47/dfa05d63e41cf1769ea6f17fc4c78e303de7c1
+│   │   ├── ./.git/objects/48
+│   │   │   ├── ./.git/objects/48/2af4849305dd5cdee7df0d1026d9c3a5606a2b
+│   │   │   ├── ./.git/objects/48/5a973b95cd19e25cd95613f4b03a78e3a27ec0
+│   │   │   └── ./.git/objects/48/cf842a3088bcb859370c5a236fead3337d979e
+│   │   ├── ./.git/objects/49
+│   │   │   └── ./.git/objects/49/31639b6b2aa88b9d9db8c5dfce0f3431d06a51
+│   │   ├── ./.git/objects/4a
+│   │   │   └── ./.git/objects/4a/bff014b4f6c82d5471c640242d744661c3d005
+│   │   ├── ./.git/objects/4c
+│   │   │   └── ./.git/objects/4c/65a277817a6e5748fe6c8d7746d494f56fa2c8
+│   │   ├── ./.git/objects/4d
+│   │   │   ├── ./.git/objects/4d/66eab24c21e8aeb0d129d1d86b77a16ddc92d9
+│   │   │   └── ./.git/objects/4d/6a82bad21ba8cc8df046e51a78895869bc988e
+│   │   ├── ./.git/objects/51
+│   │   │   └── ./.git/objects/51/eea53061cb9f126f7f5259ddebce47412d6078
+│   │   ├── ./.git/objects/52
+│   │   │   └── ./.git/objects/52/cd3d27bbbdfd0a8c9935093085dec804d0d4fe
+│   │   ├── ./.git/objects/54
+│   │   │   └── ./.git/objects/54/677dec70f3b7546ad8d7a40630f11c2cc15789
+│   │   ├── ./.git/objects/55
+│   │   │   ├── ./.git/objects/55/03517a41b14e235f0f0b55b60f9285b428753f
+│   │   │   └── ./.git/objects/55/f0024a207114bd1063c65aad90033d329e5d11
+│   │   ├── ./.git/objects/56
+│   │   │   ├── ./.git/objects/56/038d6154cdd2b0fa0238d0130d9de99024bdc4
+│   │   │   └── ./.git/objects/56/edaaa7e0705e47f2061e82a5ad6e2eac60f9d3
+│   │   ├── ./.git/objects/57
+│   │   │   └── ./.git/objects/57/a3593e9e2a67bc84bbe4b8757550d0a13e6032
+│   │   ├── ./.git/objects/58
+│   │   │   └── ./.git/objects/58/78f32e9977573e401df0c555b716cf7482274f
+│   │   ├── ./.git/objects/59
+│   │   │   ├── ./.git/objects/59/1ebfed6bd7e30156efd72e952bb3da1e4f7fce
+│   │   │   ├── ./.git/objects/59/4e777b283637f01a33837f435ac4a1a40157b2
+│   │   │   └── ./.git/objects/59/69b2c83e0dbcdcb2e12a17a14c3e1f78813a5a
+│   │   ├── ./.git/objects/5a
+│   │   │   ├── ./.git/objects/5a/22b596070b96a7bece3bd17e907b4985d2a04e
+│   │   │   └── ./.git/objects/5a/413c4e6b5e14998932e05f1416c01d4a879a56
+│   │   ├── ./.git/objects/5d
+│   │   │   ├── ./.git/objects/5d/5472fbb1180405c3e8f93652baad34ab650d8e
+│   │   │   ├── ./.git/objects/5d/a5a11245fd39b72f192718e6ef7cf008ae0048
+│   │   │   └── ./.git/objects/5d/f1dc10ebe3cac2982c3bb1a7e2efbcb121c278
+│   │   ├── ./.git/objects/60
+│   │   │   └── ./.git/objects/60/6661c6f140447a84319a1cb04833373cfa9b25
+│   │   ├── ./.git/objects/61
+│   │   │   ├── ./.git/objects/61/4dedcfddaaca7cef2bbee17c3de3e9ea2662dd
+│   │   │   └── ./.git/objects/61/975513931a75f378a8db25f8bd659dc6ef3cb6
+│   │   ├── ./.git/objects/62
+│   │   │   ├── ./.git/objects/62/7195d9db69ec3eddb208d96dc20ea9f2230f96
+│   │   │   └── ./.git/objects/62/ef2ad36d8e7a07c4d319bf18abc910eb17b651
+│   │   ├── ./.git/objects/63
+│   │   │   └── ./.git/objects/63/0232a7f00751890804d60c4ad8808189f758a9
+│   │   ├── ./.git/objects/65
+│   │   │   ├── ./.git/objects/65/749d4bca5d3232997192fd38b4d1c2340dcb53
+│   │   │   └── ./.git/objects/65/fb0995e40a8e7402f98f6a62ab8521e22e4776
+│   │   ├── ./.git/objects/66
+│   │   │   └── ./.git/objects/66/3a93a7dc3afeb6fed97528654e8e6afe41ebac
+│   │   ├── ./.git/objects/69
+│   │   │   └── ./.git/objects/69/9296a806658543f756543ad0315dfa3c1c1891
+│   │   ├── ./.git/objects/6b
+│   │   │   └── ./.git/objects/6b/c44ca64f2a567ad201abad325aec3beb29a37c
+│   │   ├── ./.git/objects/6c
+│   │   │   ├── ./.git/objects/6c/8d6ffae6d684a15d4c07023ba304e726e45e00
+│   │   │   ├── ./.git/objects/6c/a3b73f43d081d7cd4dd831efd0888c25b9771b
+│   │   │   └── ./.git/objects/6c/d284a295beab9d92c2e1e33326a84b8643ac8c
+│   │   ├── ./.git/objects/6f
+│   │   │   ├── ./.git/objects/6f/194e5115efc879aef733c04b157d3c7639ef0b
+│   │   │   └── ./.git/objects/6f/d6d862c08a65f73a6844d057a45c499b40a56e
+│   │   ├── ./.git/objects/70
+│   │   │   ├── ./.git/objects/70/3fe8a73b2fb6ebba47ba0be535395c9cf302e4
+│   │   │   ├── ./.git/objects/70/474c76a98591ef3aca4dee5e3e3c009c7d67ba
+│   │   │   ├── ./.git/objects/70/4845c027a7ba7b8cfdc446d9871cab8ee46f3e
+│   │   │   ├── ./.git/objects/70/6f3ff2050bf0a3b13c977186f84d167cd65136
+│   │   │   ├── ./.git/objects/70/89e01498400456bcd69d80b666a8b44026041d
+│   │   │   └── ./.git/objects/70/e883a8136f900818b88f6b56d276035b3932f0
+│   │   ├── ./.git/objects/71
+│   │   │   ├── ./.git/objects/71/56a87491d1c9a569fc0d00ce2691167fe04ef9
+│   │   │   └── ./.git/objects/71/ad64110d56e36a728a2ee762889fb2f3910c76
+│   │   ├── ./.git/objects/72
+│   │   │   └── ./.git/objects/72/8936b9f08c5220f841f52b37289e0d38423c59
+│   │   ├── ./.git/objects/73
+│   │   │   ├── ./.git/objects/73/194bd14811de7a776ea5d4d3a63ecaffecc34a
+│   │   │   └── ./.git/objects/73/5727a220cb2d8e62f687b456419ff979c376d7
+│   │   ├── ./.git/objects/74
+│   │   │   └── ./.git/objects/74/0cf2fda5f31cff551caa51d41a1ad54adb108c
+│   │   ├── ./.git/objects/75
+│   │   │   └── ./.git/objects/75/67128db5fd897e4bd2be59d7f02904b9048a3f
+│   │   ├── ./.git/objects/76
+│   │   │   └── ./.git/objects/76/e24c1b2a828236ca7ee74323904a8cf7d70bdc
+│   │   ├── ./.git/objects/77
+│   │   │   └── ./.git/objects/77/76092500ee519376dc9126d4ec3b14147cb844
+│   │   ├── ./.git/objects/79
+│   │   │   └── ./.git/objects/79/578f0e3011b8e99646a595f5ecdfc2025a8841
+│   │   ├── ./.git/objects/7a
+│   │   │   └── ./.git/objects/7a/5a4e67cfba927ae70fa348d740111ff25db864
+│   │   ├── ./.git/objects/7c
+│   │   │   ├── ./.git/objects/7c/6fc96ad42935216ad607338e264fe9c62f0e3f
+│   │   │   └── ./.git/objects/7c/7bff3c7010f81632ebd6da24015048f68bd77f
+│   │   ├── ./.git/objects/7d
+│   │   │   └── ./.git/objects/7d/ce989566c5a17a3b3e4eda23ee7109f2764874
+│   │   ├── ./.git/objects/7e
+│   │   │   ├── ./.git/objects/7e/90db5285b0a649b76496cf3e6208c6f62423b6
+│   │   │   └── ./.git/objects/7e/cb3848ae2afa0f82739546f659f7d1f94ee831
+│   │   ├── ./.git/objects/7f
+│   │   │   └── ./.git/objects/7f/300557f9d6fafa7ed63e683e100619f6bcc1a7
+│   │   ├── ./.git/objects/81
+│   │   │   └── ./.git/objects/81/a23109c2611f15d98bf6c28031bc599c4a9eb5
+│   │   ├── ./.git/objects/83
+│   │   │   └── ./.git/objects/83/fff4aae35b39d339c7862d9e2116e68a20abb7
+│   │   ├── ./.git/objects/85
+│   │   │   └── ./.git/objects/85/e3bc1eafa203f2f9c85e800a230715e828f37d
+│   │   ├── ./.git/objects/86
+│   │   │   └── ./.git/objects/86/aaaeb4dc7b61f4ecdb06e99e6b24f1cfcf1c3c
+│   │   ├── ./.git/objects/88
+│   │   │   └── ./.git/objects/88/3b798ceff3c6b61096830b70a3e0a7491bed8c
+│   │   ├── ./.git/objects/89
+│   │   │   ├── ./.git/objects/89/1383d084c6b0e84addac88170434b2df3e1d8d
+│   │   │   └── ./.git/objects/89/1c801174aaf09362a318938abbb7333c61f32c
+│   │   ├── ./.git/objects/8a
+│   │   │   ├── ./.git/objects/8a/3fcf95ee31c1bf86308219db5cd50b0bb73c89
+│   │   │   ├── ./.git/objects/8a/98352d5a59b243ce3e39d701e180491f82c6cc
+│   │   │   └── ./.git/objects/8a/de17349ee7421e3839cd881aa53f6147f17e12
+│   │   ├── ./.git/objects/8b
+│   │   │   ├── ./.git/objects/8b/1d5919a1690430a807aad3ec9fc2229a912294
+│   │   │   ├── ./.git/objects/8b/aabeabff7a9064f8e04c9c808390c9b4b8cb9c
+│   │   │   └── ./.git/objects/8b/f5b13dd5460bbb45c7b4371ece716148943808
+│   │   ├── ./.git/objects/8d
+│   │   │   └── ./.git/objects/8d/4a83b233f865a92236c81dd1923383b2ca7614
+│   │   ├── ./.git/objects/8e
+│   │   │   ├── ./.git/objects/8e/069036b88c8b2fa35c1002cab1096baf1437a1
+│   │   │   └── ./.git/objects/8e/0accf14eb93ab6bd392f2e7363e2636c2c5e7e
+│   │   ├── ./.git/objects/8f
+│   │   │   └── ./.git/objects/8f/805b7d56ce9266c0e2197256eb93a896dd079d
+│   │   ├── ./.git/objects/90
+│   │   │   └── ./.git/objects/90/5d85abd89671c5ab232a95b618d2a2d7af009b
+│   │   ├── ./.git/objects/92
+│   │   │   ├── ./.git/objects/92/532ebb88b60803d0ad48bb7c0b919c86b5c4c1
+│   │   │   └── ./.git/objects/92/8b435c2b1e7981a2c8b9b2636920bedbee8bb6
+│   │   ├── ./.git/objects/93
+│   │   │   ├── ./.git/objects/93/66c7e12c07b8aa04d588525c7f729185c6d582
+│   │   │   ├── ./.git/objects/93/76000c2fe5303a1d2a59601cf7c1fed1afd237
+│   │   │   └── ./.git/objects/93/e721ed673d94d14a8aecd72f77cd0cdeb79457
+│   │   ├── ./.git/objects/94
+│   │   │   └── ./.git/objects/94/eb52b35704ac3cf7031efff45b27ba109bbd9a
+│   │   ├── ./.git/objects/96
+│   │   │   ├── ./.git/objects/96/82d77993ae649d0e8167f088ead14a64bf706c
+│   │   │   └── ./.git/objects/96/c7fc5a576ca770cacdba9e2de8d8768cc6937b
+│   │   ├── ./.git/objects/97
+│   │   │   ├── ./.git/objects/97/9f24bd61d7da8e7935dd3976a5a4222a7c9ccb
+│   │   │   └── ./.git/objects/97/9f84255b6069d63c719a691fccc25635edf707
+│   │   ├── ./.git/objects/98
+│   │   │   └── ./.git/objects/98/63e3741bf4dbc993fa2a85fa3428c84dfdcd78
+│   │   ├── ./.git/objects/9a
+│   │   │   ├── ./.git/objects/9a/c1ae6390f1768ce9f161a79dce0f79e8dade26
+│   │   │   └── ./.git/objects/9a/d23a528d4b15d63e203a48261afd277c1f3c78
+│   │   ├── ./.git/objects/9b
+│   │   │   └── ./.git/objects/9b/f78c2b822eb1d12e545ad61d2f7280eed92c23
+│   │   ├── ./.git/objects/9c
+│   │   │   └── ./.git/objects/9c/94885545b36620cd9b3567e06f5eb6c0412328
+│   │   ├── ./.git/objects/9d
+│   │   │   ├── ./.git/objects/9d/38490b2aa76074d2dbaea0637a9000612043e9
+│   │   │   └── ./.git/objects/9d/ca0760541667fd6f82bd9eb1ebd5213dd0cb3d
+│   │   ├── ./.git/objects/a0
+│   │   │   └── ./.git/objects/a0/d03dc0e0ba3f19b484d4516b38db52615434c5
+│   │   ├── ./.git/objects/a2
+│   │   │   └── ./.git/objects/a2/c21e3409fe95ecee239c7bd1b5cc07d55f51fb
+│   │   ├── ./.git/objects/a3
+│   │   │   ├── ./.git/objects/a3/13983384aa263cee2df56a24141ed6497aea68
+│   │   │   └── ./.git/objects/a3/c8a8b21e2b7c95eccf07621009c99209616017
+│   │   ├── ./.git/objects/a4
+│   │   │   ├── ./.git/objects/a4/181761d2863df21146165b6e297c7fe0c35423
+│   │   │   ├── ./.git/objects/a4/57854e3d2bb1916bdd7224da2fa0c1f032128e
+│   │   │   └── ./.git/objects/a4/f04eaeb605a49deecec378dd7f6eb3b751c7f3
+│   │   ├── ./.git/objects/a5
+│   │   │   └── ./.git/objects/a5/2db9eec705698e3dd7a84c1ddf9c24e4d4b45d
+│   │   ├── ./.git/objects/a6
+│   │   │   └── ./.git/objects/a6/b59106573fe81654dbf7b1c412874df53aaebc
+│   │   ├── ./.git/objects/a7
+│   │   │   ├── ./.git/objects/a7/164ea219d44530a047d18459e1cf919937af1f
+│   │   │   └── ./.git/objects/a7/abc7bd430fe1a526820f2cbf9654d8bf3a34c4
+│   │   ├── ./.git/objects/a8
+│   │   │   ├── ./.git/objects/a8/1dcce6c8f10df4ae5baf8c4039fc537bfbe337
+│   │   │   ├── ./.git/objects/a8/37da219e5285c2e47209129811abfda19b5723
+│   │   │   ├── ./.git/objects/a8/3f8323fa0427315ab4657d0296011e925c4a1e
+│   │   │   └── ./.git/objects/a8/8186f15cf4fa5928c22df7a2b44186fa6fa86c
+│   │   ├── ./.git/objects/a9
+│   │   │   └── ./.git/objects/a9/be295305c5e4df1e52c99ac573362da561c370
+│   │   ├── ./.git/objects/aa
+│   │   │   └── ./.git/objects/aa/85b43aea98ffea2c099e372f1a971604d276ae
+│   │   ├── ./.git/objects/ab
+│   │   │   ├── ./.git/objects/ab/421e7e689bff3f6aff52c863f276319b47092e
+│   │   │   └── ./.git/objects/ab/7eb3ee74a8892e60c641616b86fe80ba81f442
+│   │   ├── ./.git/objects/ac
+│   │   │   ├── ./.git/objects/ac/38fd05e2572159d69375f10698ca20039b72d5
+│   │   │   └── ./.git/objects/ac/4e0f3a4d2c39410b8b9beac1f18f2e10c4862a
+│   │   ├── ./.git/objects/ad
+│   │   │   └── ./.git/objects/ad/f84fb7c37f43d4af8fa6f3955464d10d0e5b38
+│   │   ├── ./.git/objects/ae
+│   │   │   └── ./.git/objects/ae/b4671fe715f0f2d45e17045d6fcb63e3ef5020
+│   │   ├── ./.git/objects/af
+│   │   │   └── ./.git/objects/af/61098012d08283fd1cf25504fd56eed80bf5ee
+│   │   ├── ./.git/objects/b3
+│   │   │   └── ./.git/objects/b3/702c283ffd1ec0ec2aa0133169475089b176f0
+│   │   ├── ./.git/objects/b5
+│   │   │   ├── ./.git/objects/b5/60f2612815d2caa11f19084f7412927fb9524d
+│   │   │   └── ./.git/objects/b5/b8d4396cc0219274c3e5d34eb7627f46ab1c92
+│   │   ├── ./.git/objects/b6
+│   │   │   └── ./.git/objects/b6/86bccabc90d2c45d114b0ca10a69b2650e136b
+│   │   ├── ./.git/objects/bd
+│   │   │   ├── ./.git/objects/bd/22f05a909f89a275710ef31592ad18390b1bd6
+│   │   │   └── ./.git/objects/bd/a75d501f5268cfe40a43acc2ac51c09bd4e0b4
+│   │   ├── ./.git/objects/be
+│   │   │   ├── ./.git/objects/be/a66a3692956c1023b7f6230543eb493402b863
+│   │   │   └── ./.git/objects/be/fbbaeff984cf9d0b70eb31b432d1e46adea127
+│   │   ├── ./.git/objects/bf
+│   │   │   └── ./.git/objects/bf/dc869bb99e2f17bb62a3e4256f0e68ab8c4984
+│   │   ├── ./.git/objects/c0
+│   │   │   ├── ./.git/objects/c0/279f526d4ed9f47a273e36843d0ab4f48b8a66
+│   │   │   ├── ./.git/objects/c0/68e768a593fe4a95930ff534ba3c8b6b322c78
+│   │   │   └── ./.git/objects/c0/731102b9fc9f088d8103b2038efaca2b5c0963
+│   │   ├── ./.git/objects/c1
+│   │   │   └── ./.git/objects/c1/8cafe5fada56780c822126e5c6ea8f63f67a0a
+│   │   ├── ./.git/objects/c2
+│   │   │   └── ./.git/objects/c2/f2da58038211cad378bbf34f62f27a88da54aa
+│   │   ├── ./.git/objects/c3
+│   │   │   └── ./.git/objects/c3/2b21f25881b842f07d32177ec00d47a9af0a54
+│   │   ├── ./.git/objects/c4
+│   │   │   └── ./.git/objects/c4/51a45fc1dcd5f022d246607b2db3b349726c4e
+│   │   ├── ./.git/objects/c5
+│   │   │   └── ./.git/objects/c5/b64365664578b78d3cf6a5bebc04efd283d11e
+│   │   ├── ./.git/objects/c6
+│   │   │   └── ./.git/objects/c6/c16d2093afa974eb8fc8e55d570fab15186f7f
+│   │   ├── ./.git/objects/c8
+│   │   │   └── ./.git/objects/c8/b1046b23aa98e7583fafb3f9e97a440d7c35d2
+│   │   ├── ./.git/objects/ca
+│   │   │   └── ./.git/objects/ca/3bae26177d723f3a50a72af69b98b9c9809334
+│   │   ├── ./.git/objects/cc
+│   │   │   └── ./.git/objects/cc/fef5bd2d460c2de0ed5ca47d1812d0e513dd08
+│   │   ├── ./.git/objects/cd
+│   │   │   └── ./.git/objects/cd/b89e43c5734e201c11ebe83eea9a34c33baf06
+│   │   ├── ./.git/objects/cf
+│   │   │   ├── ./.git/objects/cf/0370dcb63a226728e36cd687a7862df8c0cab1
+│   │   │   └── ./.git/objects/cf/46e69a967af1fa144054282240784dd63d40ca
+│   │   ├── ./.git/objects/d0
+│   │   │   └── ./.git/objects/d0/ea6d34696d9fe10322c9806f3f4c53786a9383
+│   │   ├── ./.git/objects/d1
+│   │   │   └── ./.git/objects/d1/9eb1123e0d46efe366c6a75025df5cf301c7a3
+│   │   ├── ./.git/objects/d2
+│   │   │   └── ./.git/objects/d2/6b027cb2a20c93a4dcbc089a8bdb65d52f4e43
+│   │   ├── ./.git/objects/d3
+│   │   │   └── ./.git/objects/d3/ca67d671d58fe9b111c92686df3ba26fe0f84d
+│   │   ├── ./.git/objects/d4
+│   │   │   └── ./.git/objects/d4/02156eaf935dffde105e8adc5b66c684abc394
+│   │   ├── ./.git/objects/d5
+│   │   │   └── ./.git/objects/d5/d03239e49f12eae928b6f077fe58a8c3099cc9
+│   │   ├── ./.git/objects/d6
+│   │   │   ├── ./.git/objects/d6/046a4e71ce55d60b5f62186b61e336ddcc9c19
+│   │   │   ├── ./.git/objects/d6/6f4ea8af27244e9366c2c24e6e565b3c9d8063
+│   │   │   ├── ./.git/objects/d6/95446985ba72fbcb51e2e9a005601f9423490e
+│   │   │   └── ./.git/objects/d6/ef8ebec9f82cc00265b4fb4ca4d8e1ef88dafd
+│   │   ├── ./.git/objects/d7
+│   │   │   ├── ./.git/objects/d7/45433c4f5308493a19f02e05eb01c76f2bf438
+│   │   │   ├── ./.git/objects/d7/9188becd3f0d980ea23676ffb3a1d4cf9992a0
+│   │   │   ├── ./.git/objects/d7/e0394c93e8fcd4ebb4468cb5d85c20e3f2dd7c
+│   │   │   └── ./.git/objects/d7/f3c09202ced4a2bd0292185a4c0bb395c7a4c3
+│   │   ├── ./.git/objects/d8
+│   │   │   ├── ./.git/objects/d8/243ae8c0274cb0f236cfb3aca4f71c6d7fe9b7
+│   │   │   └── ./.git/objects/d8/3ab666cef401eb30c8a3bcc4f8df47a5157b38
+│   │   ├── ./.git/objects/d9
+│   │   │   └── ./.git/objects/d9/b5e943ab9cd1563011d5d54b8e0c7d900393f6
+│   │   ├── ./.git/objects/dc
+│   │   │   ├── ./.git/objects/dc/93c83a752abe2aa60059cb274d32d61ea541a4
+│   │   │   └── ./.git/objects/dc/9ae5acfe7a4ac2ca12726126614be606600a60
+│   │   ├── ./.git/objects/dd
+│   │   │   └── ./.git/objects/dd/ff9451884a06443ea260745151992d00aa88c2
+│   │   ├── ./.git/objects/df
+│   │   │   └── ./.git/objects/df/b898397952558067d1ab646fa69d666e8b4716
+│   │   ├── ./.git/objects/e2
+│   │   │   ├── ./.git/objects/e2/721b9bd9d4eec656c5fe9304f646fdb199b220
+│   │   │   ├── ./.git/objects/e2/9eee471fd5cac813cbc0041cd4b0b2dc934962
+│   │   │   ├── ./.git/objects/e2/a349143dbdc411645b62aae035976fba49b03d
+│   │   │   └── ./.git/objects/e2/eae4fc8caafd6f79efbf5c8fc96cd81e64885f
+│   │   ├── ./.git/objects/e3
+│   │   │   ├── ./.git/objects/e3/0b2b91fd53a49664909880571f17413a7d89ea
+│   │   │   └── ./.git/objects/e3/5c6d867ca4f4236e7962e7ff934866145217f8
+│   │   ├── ./.git/objects/e6
+│   │   │   ├── ./.git/objects/e6/62502ca29742c7de3f802966f31c0674ded04d
+│   │   │   └── ./.git/objects/e6/e52f9b97b4c2f7c5da4ab061f29c1d120333b9
+│   │   ├── ./.git/objects/e7
+│   │   │   └── ./.git/objects/e7/dbf97f715a5a8705ae6d54458e20154476a104
+│   │   ├── ./.git/objects/e8
+│   │   │   ├── ./.git/objects/e8/0eb89ee6152af46c2b7d3434671846015e9bfe
+│   │   │   └── ./.git/objects/e8/c7faa8c51603ce730e94d01d225abfa85ff3dd
+│   │   ├── ./.git/objects/e9
+│   │   │   ├── ./.git/objects/e9/0236b8150c13cb401732abf9ab752f3f71c87f
+│   │   │   └── ./.git/objects/e9/0d465382e32e10e3ef7a88b9204e6eb0f04539
+│   │   ├── ./.git/objects/ea
+│   │   │   ├── ./.git/objects/ea/0501ddd9ce3e3d37ab62104a9aee8620dfee8d
+│   │   │   └── ./.git/objects/ea/56fc00f72b0015edb39bf5dbe3b7897e7d8459
+│   │   ├── ./.git/objects/eb
+│   │   │   └── ./.git/objects/eb/fed44bd77ca6884d2adc015f8613583de3a085
+│   │   ├── ./.git/objects/ec
+│   │   │   ├── ./.git/objects/ec/0b2fe4a6c5fcc2778c407e27423d41a7cd7077
+│   │   │   ├── ./.git/objects/ec/23d2fb4ac45316a1b88209b8fe0f9e81b5e3c4
+│   │   │   └── ./.git/objects/ec/854f36db4575f661b80acfef06f2f4fc54cb03
+│   │   ├── ./.git/objects/ed
+│   │   │   └── ./.git/objects/ed/58c7bc46fc2b1ca2e040a15b921b8d702227eb
+│   │   ├── ./.git/objects/ee
+│   │   │   └── ./.git/objects/ee/9f9e8b10b1f0d8015469c3903c0006d6779e4f
+│   │   ├── ./.git/objects/f1
+│   │   │   └── ./.git/objects/f1/c58cebb883aae46a0933a7572cc67a548f8a06
+│   │   ├── ./.git/objects/f2
+│   │   │   └── ./.git/objects/f2/49f4a7e4a5a8086917f66762136cd198c2a88f
+│   │   ├── ./.git/objects/f4
+│   │   │   └── ./.git/objects/f4/e216de2be651015b248c1f8d97e949a35fc78b
+│   │   ├── ./.git/objects/f7
+│   │   │   └── ./.git/objects/f7/05b55244a77bb3d1bf46aaf400da909b1f31b1
+│   │   ├── ./.git/objects/f8
+│   │   │   └── ./.git/objects/f8/1ef2541d9da332ba9011e0532e80c290e44b39
+│   │   ├── ./.git/objects/f9
+│   │   │   └── ./.git/objects/f9/684877278b640d2441c96674d078b4e64bd09a
+│   │   ├── ./.git/objects/fc
+│   │   │   ├── ./.git/objects/fc/1dbb3fb5bffbaf19be01de2b22037715f2fee8
+│   │   │   └── ./.git/objects/fc/7c4da24c0fd76dcf754e9386491d66d3ca14cf
+│   │   ├── ./.git/objects/fd
+│   │   │   └── ./.git/objects/fd/97118cd0b24c4335306ef37bbd78c8c75ad154
+│   │   ├── ./.git/objects/fe
+│   │   │   └── ./.git/objects/fe/3712ff94eb92fc2f655655249f773c5c8954d3
+│   │   ├── ./.git/objects/ff
+│   │   │   └── ./.git/objects/ff/dc905eeb7fe7ccaac6d0af7e01f5c8cc4d3245
+│   │   ├── ./.git/objects/info
+│   │   └── ./.git/objects/pack
+│   └── ./.git/refs
+│       ├── ./.git/refs/heads
+│       │   └── ./.git/refs/heads/main
+│       ├── ./.git/refs/remotes
+│       │   └── ./.git/refs/remotes/origin
+│       │       └── ./.git/refs/remotes/origin/main
+│       └── ./.git/refs/tags
+├── ./inventory
+│   └── ./inventory/hosts.ini
+├── ./nagios_project
+│   ├── ./nagios_project/files
+│   │   ├── ./nagios_project/files/clients.cfg
+│   │   ├── ./nagios_project/files/nrpe_local.cfg
+│   │   └── ./nagios_project/files/services.cfg
+│   └── ./nagios_project/nagios_setup.yaml
+├── ./playbooks
+│   ├── ./playbooks/check_docker.yml
+│   └── ./playbooks/site.yaml
+└── ./roles
+    ├── ./roles/common
+    │   └── ./roles/common/tasks
+    │       ├── ./roles/common/tasks/fix_dns.yaml
+    │       └── ./roles/common/tasks/main.yaml
+    ├── ./roles/database
+    │   ├── ./roles/database/handlers
+    │   │   └── ./roles/database/handlers/main.yml
+    │   ├── ./roles/database/tasks
+    │   │   ├── ./roles/database/tasks/main.yaml
+    │   │   └── ./roles/database/tasks/phpmyadmin.yml
+    │   ├── ./roles/database/templates
+    │   │   └── ./roles/database/templates/my.cnf.j2
+    │   └── ./roles/database/vars
+    │       └── ./roles/database/vars/main.yml
+    ├── ./roles/dns
+    │   ├── ./roles/dns/files
+    │   │   └── ./roles/dns/files/ziyotek.local.db
+    │   ├── ./roles/dns/tasks
+    │   │   └── ./roles/dns/tasks/main.yaml
+    │   └── ./roles/dns/templates
+    │       └── ./roles/dns/templates/named.conf.j2
+    ├── ./roles/docker
+    │   └── ./roles/docker/tasks
+    │       └── ./roles/docker/tasks/main.yaml
+    ├── ./roles/docker_worker
+    │   ├── ./roles/docker_worker/files
+    │   │   ├── ./roles/docker_worker/files/image.jpg
+    │   │   └── ./roles/docker_worker/files/index.html
+    │   ├── ./roles/docker_worker/tasks
+    │   │   └── ./roles/docker_worker/tasks/main.yaml
+    │   └── ./roles/docker_worker/templates
+    │       └── ./roles/docker_worker/templates/index.html.j2
+    ├── ./roles/ftp
+    │   └── ./roles/ftp/tasks
+    │       └── ./roles/ftp/tasks/main.yaml
+    ├── ./roles/haproxy
+    │   ├── ./roles/haproxy/defaults
+    │   │   └── ./roles/haproxy/defaults/main.yaml
+    │   ├── ./roles/haproxy/tasks
+    │   │   └── ./roles/haproxy/tasks/main.yaml
+    │   └── ./roles/haproxy/templates
+    │       └── ./roles/haproxy/templates/haproxy.cfg.j2
+    ├── ./roles/nagios
+    │   ├── ./roles/nagios/handlers
+    │   │   └── ./roles/nagios/handlers/main.yml
+    │   ├── ./roles/nagios/tasks
+    │   │   └── ./roles/nagios/tasks/main.yaml
+    │   ├── ./roles/nagios/templates
+    │   │   ├── ./roles/nagios/templates/commands.cfg.j2
+    │   │   ├── ./roles/nagios/templates/commands_local.cfg.j2
+    │   │   ├── ./roles/nagios/templates/hosts.cfg.j2
+    │   │   ├── ./roles/nagios/templates/nagios-apache.conf.j2
+    │   │   └── ./roles/nagios/templates/services.cfg.j2
+    │   └── ./roles/nagios/vars
+    │       └── ./roles/nagios/vars/main.yml
+    ├── ./roles/nfs
+    │   ├── ./roles/nfs/handlers
+    │   │   └── ./roles/nfs/handlers/main.yaml
+    │   └── ./roles/nfs/tasks
+    │       └── ./roles/nfs/tasks/main.yaml
+    ├── ./roles/nrpe
+    │   ├── ./roles/nrpe/defaults
+    │   │   └── ./roles/nrpe/defaults/main.yml
+    │   ├── ./roles/nrpe/handlers
+    │   │   └── ./roles/nrpe/handlers/main.yml
+    │   ├── ./roles/nrpe/tasks
+    │   │   └── ./roles/nrpe/tasks/main.yml
+    │   └── ./roles/nrpe/templates
+    │       └── ./roles/nrpe/templates/nrpe.cfg.j2
+    ├── ./roles/ntp
+    │   ├── ./roles/ntp/tasks
+    │   │   └── ./roles/ntp/tasks/main.yaml
+    │   └── ./roles/ntp/templates
+    │       └── ./roles/ntp/templates/chrony.conf.j2
+    └── ./roles/webserver
+        ├── ./roles/webserver/handlers
+        │   └── ./roles/webserver/handlers/main.yml
+        ├── ./roles/webserver/tasks
+        │   └── ./roles/webserver/tasks/main.yaml
+        └── ./roles/webserver/templates
+            └── ./roles/webserver/templates/nginx.conf.j2
+
+</directory_structure>
+
+<content full_path="ansible.cfg">
+[defaults]
+inventory = /ansible/inventory/hosts.ini
+remote_user = ansible
+host_key_checking = False
+retry_files_enabled = False
+roles_path = /ansible/roles
+</content>
+
+<content full_path="inventory/hosts.ini">
+[ansible]
+prdx-ansible101.ziyotek.local ansible_host=192.168.220.200
+
+[dns]
+prdx-nsprimary101.ziyotek.local ansible_host=192.168.220.202
+
+[ntp]
+prdx-ntp101.ziyotek.local ansible_host=192.168.220.201
+
+[database]
+prdx-db101.ziyotek.local ansible_host=192.168.220.204
+
+[webserver]
+prdx-webserver101.ziyotek.local ansible_host=192.168.220.205
+
+[haproxy]
+prdx-haproxy101.ziyotek.local ansible_host=192.168.220.211
+
+[nagios]
+prdx-nagios101.ziyotek.local ansible_host=192.168.220.206
+
+[ftp]
+prdx-ftp101.ziyotek.local ansible_host=192.168.220.203
+
+[nfs]
+prdx-nfs101.ziyotek.local ansible_host=192.168.220.210
+
+[docker]
+prdx-dprimary101.ziyotek.local ansible_host=192.168.220.207
+prdx-dworker101.ziyotek.local ansible_host=192.168.220.208
+prdx-dworker102.ziyotek.local ansible_host=192.168.220.209
+
+[clients:children]
+dns
+ntp
+database
+webserver
+haproxy
+ftp
+nfs
+docker
+</content>
+
+<content full_path="playbooks/site.yaml">
+---
+- hosts: dns
+  become: yes
+  roles:
+    - dns
+
+- hosts: ntp
+  become: yes
+  roles:
+    - ntp
+
+- hosts: database
+  become: yes
+  roles:
+    - database
+
+- hosts: webserver
+  become: yes
+  roles:
+    - webserver
+
+- name: Configure NRPE (monitoring agent)
+  hosts: "clients:!nagios:!ansible"
+  become: true
+  roles:
+    - nrpe    
+
+- hosts: nagios
+  become: yes
+  roles:
+    - nagios
+
+- hosts: ftp
+  become: yes
+  roles:
+    - ftp
+
+- hosts: nfs
+  become: yes
+  roles:
+    - nfs
+
+- hosts: docker
+  become: yes
+  roles:
+    - docker
+
+- name: Setup HAProxy for Docker Workers
+  hosts: haproxy
+  become: yes
+  vars:
+    docker_workers:
+      - 192.168.220.208
+      - 192.168.220.209
+  roles:
+    - haproxy
+
+- name: Deploy site content on Docker workers
+  hosts: docker
+  become: yes
+  roles:
+    - { role: docker_worker, tags: ['deploy_site'] }
+
+
+</content>
+
+<content full_path="playbooks/check_docker.yml">
+---
+- name: Check docker workers
+  hosts: docker
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Check running containers
+      ansible.builtin.command: docker ps
+      register: docker_ps
+
+    - debug:
+        var: docker_ps.stdout
+
+    - name: Check if container is listening on 8080
+      ansible.builtin.command: ss -ltnp
+      register: ss_output
+
+    - debug:
+        var: ss_output.stdout
+</content>
+
+<content full_path="roles/common/tasks/main.yaml">
+- name: Update all packages
+  ansible.builtin.yum:
+    name: "*"
+    state: latest
+
+- name: Install basic utilities
+  ansible.builtin.yum:
+    name:
+      - vim
+      - git
+      - wget
+      - curl
+      - net-tools
+      - epel-release
+    state: present
+
+</content>
+
+<content full_path="roles/common/tasks/fix_dns.yaml">
+---
+- name: Set DNS to public servers
+  nmcli:
+    conn_name: ens160
+    ipv4.dns: "8.8.8.8 1.1.1.1"
+    ipv4.ignore-auto-dns: yes
+    state: present
+
+- name: Restart network connection
+  nmcli:
+    conn_name: ens160
+    state: up
+
+- name: Verify DNS resolution
+  shell: ping -c 1 mirrors.rockylinux.org
+  register: ping_result
+  ignore_errors: yes
+
+- name: Fail if DNS still not working
+  fail:
+    msg: "DNS is not resolving mirrors.rockylinux.org"
+  when: ping_result.rc != 0
+
+</content>
+
+<content full_path="roles/dns/tasks/main.yaml">
+- name: Install BIND
+  ansible.builtin.yum:
+    name:
+      - bind
+      - bind-utils
+    state: present
+
+- name: Ensure /var/named directory exists
+  ansible.builtin.file:
+    path: /var/named
+    state: directory
+    owner: named
+    group: named
+    mode: 0755
+
+- name: Copy named.conf
+  ansible.builtin.template:
+    src: named.conf.j2
+    dest: /etc/named.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy zone file for ziyotek.local
+  ansible.builtin.copy:
+    src: ziyotek.local.db
+    dest: /var/named/ziyotek.local.db
+    owner: named
+    group: named
+    mode: 0644
+
+- name: Enable and start named
+  ansible.builtin.service:
+    name: named
+    state: started
+    enabled: yes
+
+</content>
+
+<content full_path="roles/dns/templates/named.conf.j2">
+options {
+    listen-on port 53 { any; };
+    directory       "/var/named";
+    dump-file       "/var/named/data/cache_dump.db";
+    statistics-file "/var/named/data/named_stats.txt";
+    memstatistics-file "/var/named/data/named_mem_stats.txt";
+    allow-query     { any; };
+    recursion yes;
+};
+
+zone "ziyotek.local" IN {
+    type master;
+    file "ziyotek.local.db";
+    allow-update { none; };
+};
+
+</content>
+
+<content full_path="roles/dns/files/ziyotek.local.db">
+$TTL 86400
+@   IN  SOA ns1.ziyotek.local. admin.ziyotek.local. (
+        2025112701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400 )    ; Minimum TTL
+
+@       IN  NS      ns1.ziyotek.local.
+
+ns1     IN  A       192.168.220.101
+www     IN  A       192.168.220.201
+ftp     IN  A       192.168.220.202
+
+</content>
+
+<content full_path="roles/ntp/tasks/main.yaml">
+- name: Install chrony
+  ansible.builtin.yum:
+    name: chrony
+    state: present
+
+- name: Copy chrony configuration
+  ansible.builtin.template:
+    src: chrony.conf.j2
+    dest: /etc/chrony.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Open NTP port in firewalld
+  ansible.builtin.firewalld:
+    service: ntp
+    permanent: yes
+    state: enabled
+    immediate: yes
+
+- name: Restart chronyd
+  ansible.builtin.service:
+    name: chronyd
+    state: restarted
+    enabled: yes
+
+</content>
+
+<content full_path="roles/ntp/templates/chrony.conf.j2">
+server 0.pool.ntp.org iburst
+server 1.pool.ntp.org iburst
+server 2.pool.ntp.org iburst
+
+allow 192.168.220.0/24
+
+local stratum 10
+
+driftfile /var/lib/chrony/drift
+makestep 1.0 3
+rtcsync
+
+</content>
+
+<content full_path="roles/database/tasks/main.yaml">
+---
+- name: Install MariaDB server
+  yum:
+    name: mariadb-server
+    state: present
+
+- name: Start and enable MariaDB
+  systemd:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Copy MariaDB client config
+  template:
+    src: my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Ensure root password is set
+  mysql_user:
+    name: root
+    host: localhost
+    password: "{{ db_root_password }}"
+    login_unix_socket: /var/lib/mysql/mysql.sock
+    check_implicit_admin: yes
+    state: present
+
+- name: Remove anonymous users
+  mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+    login_user: root
+    login_password: "{{ db_root_password }}"
+
+- name: Remove test database
+  mysql_db:
+    name: test
+    state: absent
+    login_user: root
+    login_password: "{{ db_root_password }}"
+
+- name: Reload privileges
+  command: mysqladmin flush-privileges
+
+# ---------------------------------------------------
+# Install Apache + PHP + phpMyAdmin
+# ---------------------------------------------------
+- name: Install required packages for phpMyAdmin
+  yum:
+    name:
+      - httpd
+      - php
+      - php-mysqlnd
+      - php-fpm
+      - php-json
+      - php-mbstring
+      - phpmyadmin
+    state: present
+
+- name: Ensure correct phpMyAdmin Apache config
+  copy:
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf
+    content: |
+      Alias /phpMyAdmin /usr/share/phpMyAdmin
+      <Directory /usr/share/phpMyAdmin/>
+          AddDefaultCharset UTF-8
+          DirectoryIndex index.php
+          Require all granted
+      </Directory>
+  notify: Restart Apache
+  
+- name: Allow phpMyAdmin for all hosts
+  lineinfile:
+    path: /etc/httpd/conf.d/phpMyAdmin.conf
+    regexp: 'Require ip'
+    line: '    Require all granted'
+  notify: restart_apache
+
+- name: Ensure Apache is installed
+  package:
+    name: httpd
+    state: present
+  notify: Restart Apache safely
+
+- name: Fix phpMyAdmin Apache configuration for Apache 2.4+
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf.d/phpMyAdmin.conf
+    state: present
+    regexp: '^\s*Require all granted'
+    line: '    Require all granted'
+  notify:
+    - Restart Apache safely
+
+- import_tasks: phpmyadmin.yml
+
+- name: Ensure phpMyAdmin is installed
+  dnf:
+    name: phpMyAdmin
+    state: present
+  become: yes
+
+- name: Backup existing phpMyAdmin Apache config if exists
+  copy:
+    src: /etc/httpd/conf.d/phpMyAdmin.conf
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf.bak
+    remote_src: yes
+  ignore_errors: yes
+  become: yes
+
+- name: Deploy correct phpMyAdmin Apache config
+  copy:
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf
+    content: |
+      Alias /phpMyAdmin /usr/share/phpMyAdmin
+
+      <Directory /usr/share/phpMyAdmin/>
+          AddDefaultCharset UTF-8
+          DirectoryIndex index.php
+          Require all granted
+      </Directory>
+  notify: Restart Apache
+  become: yes
+
+- name: Ensure Apache can read phpMyAdmin files under SELinux
+  command: setsebool -P httpd_read_user_content 1
+  become: yes
+
+- name: Set correct SELinux context for phpMyAdmin
+  command: chcon -R -t httpd_sys_content_t /usr/share/phpMyAdmin
+  become: yes
+
+ 
+
+</content>
+
+<content full_path="roles/database/tasks/phpmyadmin.yml">
+- name: Ensure EPEL repository is installed
+  dnf:
+    name: epel-release
+    state: present
+
+- name: Install phpMyAdmin
+  dnf:
+    name: phpMyAdmin
+    state: present
+
+- name: Backup existing phpMyAdmin.conf if exists
+  copy:
+    remote_src: yes
+    src: /etc/httpd/conf.d/phpMyAdmin.conf
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf.bak
+  ignore_errors: yes
+
+- name: Ensure correct phpMyAdmin Apache config
+  copy:
+    dest: /etc/httpd/conf.d/phpMyAdmin.conf
+    content: |
+      Alias /phpMyAdmin /usr/share/phpMyAdmin
+
+      <Directory /usr/share/phpMyAdmin>
+          Options Indexes FollowSymLinks
+          AllowOverride None
+          Require all granted
+      </Directory>
+
+- name: Ensure httpd is started and enabled
+  systemd:
+    name: httpd
+    state: started
+    enabled: yes
+
+</content>
+
+<content full_path="roles/database/templates/my.cnf.j2">
+[client]
+user=root
+password={{ db_root_password }}
+
+</content>
+
+<content full_path="roles/database/vars/main.yml">
+---
+db_root_password: "Root@123"
+
+</content>
+
+<content full_path="roles/database/handlers/main.yml">
+---
+- name: Restart Apache safely
+  block:
+    - name: Validate Apache configuration
+      command: apachectl configtest
+      register: apache_check
+      failed_when: apache_check.rc != 0
+      changed_when: false
+      
+- name: Restart Apache
+  systemd:
+    name: httpd
+    state: restarted
+    enabled: yes
+  become: yes
+
+
+</content>
+
+<content full_path="roles/webserver/tasks/main.yaml">
+- name: Install Nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+
+# Create directories for each page
+- name: Create web folders
+  ansible.builtin.file:
+    path: "/usr/share/nginx/html/{{ item }}"
+    state: directory
+    owner: nginx
+    group: nginx
+    mode: "0755"
+  loop:
+    - main
+    - app1
+    - app2
+    - app3
+
+# Default page
+- name: Deploy main index page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/main/index.html
+    content: "<h1>whats up guys Welcome to prdx-webserver101 MAIN PAGE</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+# Port 8081 page
+- name: Deploy app1 page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/app1/index.html
+    content: "<h1>Welcome to my PAGE 1 (port 8081)</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+# Port 8082 page
+- name: Deploy app2 page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/app2/index.html
+    content: "<h1>My name is Jahongir this is my PAGE 2 (port 8082)</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+# Port 8083 page
+- name: Deploy app3 page
+  ansible.builtin.copy:
+    dest: /usr/share/nginx/html/app3/index.html
+    content: "<h1>and this is my PAGE 3 (port 8083)</h1>"
+    owner: nginx
+    group: nginx
+    mode: 0644
+
+- name: Deploy nginx configuration
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_nginx
+
+- name: Enable and start nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: yes
+
+</content>
+
+<content full_path="roles/webserver/templates/nginx.conf.j2">
+user nginx;
+worker_processes auto;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    sendfile on;
+    keepalive_timeout 65;
+
+    # Page for default port 80
+    server {
+        listen 80;
+        server_name _;
+        root /usr/share/nginx/html/main;
+        index index.html;
+    }
+
+    # Page for port 8081
+    server {
+        listen 8081;
+        server_name _;
+        root /usr/share/nginx/html/app1;
+        index index.html;
+    }
+
+    # Page for port 8082
+    server {
+        listen 8082;
+        server_name _;
+        root /usr/share/nginx/html/app2;
+        index index.html;
+    }
+
+    # Page for port 8083
+    server {
+        listen 8083;
+        server_name _;
+        root /usr/share/nginx/html/app3;
+        index index.html;
+    }
+}
+
+</content>
+
+<content full_path="roles/webserver/handlers/main.yml">
+---
+- name: restart_nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+
+</content>
+
+<content full_path="roles/haproxy/tasks/main.yaml">
+---
+- name: Stop conflicting services if they exist
+  ansible.builtin.shell: |
+    if systemctl list-unit-files | grep -q "^{{ item }}.service"; then
+      systemctl stop {{ item }}
+      systemctl disable {{ item }}
+    fi
+  loop:
+    - httpd
+    - nginx
+  args:
+    executable: /bin/bash
+
+- name: Install HAProxy
+  ansible.builtin.yum:
+    name: haproxy
+    state: present
+
+- name: Deploy HAProxy configuration
+  ansible.builtin.template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Validate HAProxy configuration
+  ansible.builtin.command: haproxy -c -f /etc/haproxy/haproxy.cfg
+
+- name: Enable and start HAProxy
+  ansible.builtin.systemd:
+    name: haproxy
+    state: started
+    enabled: yes
+
+</content>
+
+<content full_path="roles/haproxy/templates/haproxy.cfg.j2">
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    daemon
+    maxconn 2048
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    option  httpclose
+    timeout connect 5000ms
+    timeout client  50000ms
+    timeout server  50000ms
+
+frontend http_front
+    bind *:80
+    default_backend docker_back
+
+backend docker_back
+    balance roundrobin
+    option httpchk GET /index.html
+    http-check send hdr Host docker.local
+{% for worker in docker_workers %}
+    server docker{{ loop.index }} {{ worker }}:8080 check
+{% endfor %}
+</content>
+
+<content full_path="roles/haproxy/defaults/main.yaml">
+docker_workers:
+  - 192.168.220.208
+  - 192.168.220.209
+</content>
+
+<content full_path="roles/ftp/tasks/main.yaml">
+- name: Install vsftpd
+  ansible.builtin.yum:
+    name: vsftpd
+    state: present
+
+- name: Enable and start vsftpd
+  ansible.builtin.service:
+    name: vsftpd
+    state: started
+    enabled: yes
+
+</content>
+
+<content full_path="roles/nfs/tasks/main.yaml">
+---
+- name: Install NFS utilities
+  package:
+    name: nfs-utils
+    state: present
+
+- name: Ensure NFS share directory exists
+  file:
+    path: /srv/nfs_share
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: "0755"
+
+- name: Configure NFS exports
+  lineinfile:
+    path: /etc/exports
+    regexp: "^/srv/nfs_share "
+    line: "/srv/nfs_share *(rw,sync,no_root_squash)"
+    state: present
+    create: yes
+  notify: Restart NFS services
+
+- name: Ensure NFS server services are enabled and started
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop:
+    - nfs-server
+    - rpcbind
+
+</content>
+
+<content full_path="roles/nfs/handlers/main.yaml">
+---
+- name: Restart NFS services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - nfs-server
+    - rpcbind
+
+</content>
+
+<content full_path="roles/docker/tasks/main.yaml">
+---
+# Remove conflicting Podman Docker package
+- name: Remove podman-docker to avoid conflict
+  package:
+    name: podman-docker
+    state: absent
+
+# Add Docker CE official repository
+- name: Add Docker CE repository
+  yum_repository:
+    name: docker-ce
+    description: Docker CE Repository
+    baseurl: https://download.docker.com/linux/centos/9/x86_64/stable/
+    gpgcheck: yes
+    gpgkey: https://download.docker.com/linux/centos/gpg
+    state: present
+
+# Install Docker CE packages
+- name: Install Docker CE packages
+  package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+
+# Ensure Docker service is running
+- name: Start and enable Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+# Install required utilities
+- name: Install required utilities
+  package:
+    name:
+      - curl
+      - wget
+      - tar
+    state: present
+
+# Create app build directory
+- name: Create app build directory
+  file:
+    path: /tmp/docker_app
+    state: directory
+    mode: "0755"
+
+# Download lab-app.tgz
+- name: Download lab-app.tgz
+  get_url:
+    url: https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/CUR-TF-200-ACACAD/studentdownload/lab-app.tgz
+    dest: /tmp/docker_app/lab-app.tgz
+    mode: "0644"
+
+# Create folder for extracted lab-app
+- name: Create lab-app directory for extraction
+  file:
+    path: /tmp/docker_app/lab-app
+    state: directory
+    mode: "0755"
+
+# Extract lab-app into the folder
+- name: Extract lab-app
+  unarchive:
+    src: /tmp/docker_app/lab-app.tgz
+    dest: /tmp/docker_app/lab-app
+    remote_src: yes
+
+- name: Create Dockerfile
+  copy:
+    dest: /tmp/docker_app/Dockerfile
+    content: |
+      FROM rockylinux:9
+
+      RUN dnf install -y httpd php php-mysqli mariadb && dnf clean all
+
+      COPY lab-app /var/www/html/
+      RUN chown -R apache:apache /var/www/html
+
+      EXPOSE 80
+      CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
+# Build Docker image
+- name: Build Docker image
+  command: docker build -t lab-app:latest /tmp/docker_app
+  args:
+    creates: /var/lib/docker/image/overlay2/repositories.json
+
+# Initialize Docker Swarm on manager node
+- name: Initialize Docker Swarm on manager
+  shell: docker swarm init --advertise-addr 192.168.220.207
+  register: swarm_init
+  failed_when: false
+  when: inventory_hostname == "prdx-dprimary101.ziyotek.local"
+
+# Get Swarm join token for worker nodes
+- name: Get Swarm worker token from manager
+  shell: docker swarm join-token worker -q
+  register: worker_token_output
+  when: inventory_hostname == "prdx-dprimary101.ziyotek.local"
+
+# Join worker node to Swarm
+- name: Workers join Docker Swarm
+  shell: |
+    docker swarm join \
+      --token {{ hostvars['prdx-dprimary101.ziyotek.local'].worker_token_output.stdout }} \
+      {{ hostvars['prdx-dprimary101.ziyotek.local'].ansible_host }}:2377 \
+    || true
+  when:
+    - inventory_hostname != "prdx-dprimary101.ziyotek.local"
+
+
+# Deploy Docker service with 3 replicas (manager only)
+- name: Deploy Docker service on manager
+  shell: |
+    docker service ls | grep lab_app_web || \
+    docker service create --name lab_app_web --replicas 3 -p 80:80 lab-app:latest
+  when: inventory_hostname == "prdx-dprimary101.ziyotek.local"
+</content>
+
+<content full_path="roles/docker_worker/tasks/main.yaml">
+---
+# -----------------------
+# 1) Создаём каталог site
+# -----------------------
+- name: Ensure /opt/site exists
+  ansible.builtin.file:
+    path: /opt/site
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  become: yes
+
+# ------------------------------------
+# 2) Разворачиваем index.html + картинку
+# ------------------------------------
+- name: Deploy index.html for this worker
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /opt/site/index.html
+    owner: root
+    group: root
+    mode: "0644"
+  become: yes
+
+- name: Copy image.jpg to site
+  ansible.builtin.copy:
+    src: image.jpg
+    dest: /opt/site/image.jpg
+    owner: root
+    group: root
+    mode: "0644"
+  become: yes
+
+# ---------------------------------------------------------
+# 3) УДАЛЯЕМ конфликтующие пакеты (podman-docker / виртуальный docker)
+#    Это нужно сделать *до* установки docker-ce
+# ---------------------------------------------------------
+- name: Remove podman-docker to avoid conflicts
+  ansible.builtin.package:
+    name: podman-docker
+    state: absent
+  become: yes
+
+- name: Remove virtual 'docker' package (if present) to avoid conflicts
+  ansible.builtin.package:
+    name: docker
+    state: absent
+  become: yes
+
+- name: Clean dnf metadata and cache (help resolver)
+  ansible.builtin.command:
+    cmd: dnf clean all
+  become: yes
+
+- name: Make dnf cache
+  ansible.builtin.command:
+    cmd: dnf makecache
+  become: yes
+
+# ---------------------------------------------------------
+# 4) УСТАНАВЛИВАЕМ Docker CE (containerd + docker-ce + cli)
+#    (если у вас уже есть официальный Docker repo — ok)
+#    Если репозитория нет — добавьте после (см. примечания).
+# ---------------------------------------------------------
+- name: Install required packages for Docker CE (docker-ce, docker-ce-cli, containerd)
+  ansible.builtin.package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+  become: yes
+
+# --------------------------------------------
+# 5) Устанавливаем python3-pip (если нужно) и docker Python SDK
+#    community.docker modules требуют python docker SDK на целевой машине
+# --------------------------------------------
+- name: Ensure python3-pip is installed
+  ansible.builtin.package:
+    name: python3-pip
+    state: present
+  become: yes
+
+- name: Ensure python docker SDK (docker python package) is installed via pip
+  ansible.builtin.pip:
+    name: docker
+    state: present
+    executable: /usr/bin/pip3
+  become: yes
+
+# ---------------------------------------------------------
+# 6) Запускаем/включаем сервисы containerd и docker
+#    containerd часто требуется до docker
+# ---------------------------------------------------------
+- name: Ensure containerd is started and enabled
+  ansible.builtin.systemd:
+    name: containerd
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Ensure docker service is started and enabled
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
+
+# ---------------------------------------------------------
+# 7) Загружаем образ и запускаем контейнер с монтированием /opt/site
+#    Используем community.docker модуль (убедитесь, что коллекция установлена на контроллере)
+# ---------------------------------------------------------
+- name: Pull httpd image
+  community.docker.docker_image:
+    name: httpd
+    tag: "2.4"
+    source: pull
+  become: yes
+
+- name: Run httpd container with site mounted
+  community.docker.docker_container:
+    name: docker_worker_site
+    image: httpd:2.4
+    state: started
+    restart_policy: always
+    ports:
+      - "8080:80"
+    volumes:
+      - /opt/site:/usr/local/apache2/htdocs:ro
+  become: yes
+
+# -----------------------------------
+# Остановить и отключить системный Apache (httpd),
+# чтобы он не занимал порт и не показывал тестовую страницу
+# -----------------------------------
+- name: Stop system Apache httpd if installed
+  ansible.builtin.service:
+    name: httpd
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+  become: yes
+
+- name: Disable Rocky Linux welcome page (optional safety)
+  ansible.builtin.file:
+    path: /etc/httpd/conf.d/welcome.conf
+    state: absent
+  ignore_errors: yes
+  become: yes
+
+- name: Ensure site directory exists
+  file:
+    path: /var/www/html
+    state: directory
+
+- name: Deploy index.html
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    mode: '0644'
+
+- name: Deploy image.jpg
+  copy:
+    src: image.jpg
+    dest: /var/www/html/image.jpg
+    mode: '0644'
+
+</content>
+
+<content full_path="roles/docker_worker/files/image.jpg">
+ÿØÿà JFIF  x x  ÿá ZExif  MM *           J        Q       Q      tQ      t        ±ÿÛ C 		
+
+
+
+	ÿÛ CÿÀ  ~0" ÿÄ           	
+ÿÄ µ   } !1AQa"q2¡#B±ÁRÑð$3br	
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùúÿÄ        	
+ÿÄ µ  w !1AQaq"2B¡±Á	#3RðbrÑ
+$4á%ñ&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ   ? ý½ÓÖîT2VXðF;ãÔU1¶lr±2»¿¹8ÿ tÔº.ª$²9å {>+JwÙãÉÝïÓ¥xìû-Î_Uð´> w!²¼oVÇÊGsLÏlÇÍüi¤ßx~Yþ71²àÈCppGN6àq÷E{;X°¥¯2õçÕãÝKð'/µ]zâ+-&Ê#,.¤¤k`Ô2I¨ã¹IÙ-ÊÛåHóyo¥ºÒ¬¥¸ácH ÀåAÏÐN0O½\(O³°TedbdÏ
+óÆGåzíðÇö/>¯¢Beb6Gp'<ªþã/ÚDÑ<ErºQX·£Ë*+B³Ê:·;xùqÁ99Íx¸£)¥OÚÏzÝýË_ÀôéäøÊ²ä'M>ý}±Öå½'F%ÀÉ$ºæG~{?
+Ð£áD{©<ùöè?OzøÅ?à¢O¼e¢hZjÓí°´kò²Ým(¤.Põ,£êÀ
+înGãv±û=Ëqð/UÓôÙ\Ewö{«{kÔ¡Ë% iÔÄIV@ÉB2¡ôøË)ªãÉSâµÞ×»IZéÝô"¶I¤6èokÚÉïä}Ma«ÄÁ³¯ú@\²Güç[Þö.î àuÀÏÿ \WËðO|gñÇìé§ßüpÒ´]#ÇÖ÷r4ÖÖh Ù,Êñ¬ÇÅc;q·9Qô¹ú´"9ÒEXÊ¤|ÃjøeE}
+ôëCÚR×U³³¶ó'NIûÉ§ÙîVñßÿ á3
+TlË´MÉWSFNõ¼WYÑî4Nk+¨ÌwìUÇcèG¨=}×ø»@¬
+ºàî=8ÈþµÏ|Føyì÷ÆÉ§l6G!+ð¯ßÁís^®ÉîÏcÁÍò¿l½­?ó<?¥)¬jMÎ-­ÜOð27QéøÈ5Xsï^ï5ÖÈ8YÙ­òç­sÓÿ ×Xä¶ñ,Z&¥jÞ±$ä[Y@e*²«62T¬3qT¼Qy¬øQUüW­xSáúÜmn§ÿ ¹aÏÕ*èQ«^¢£B.r}mýÈËV¯îM%÷³¨iKm¯×þ>Úø+_ðíå¿wâO	kðÜ¼½²Ö[y!$?¨ü­Ã8Ç5èº]÷|g¥­þák})¹Ôµwû²/f¸uïÃTâ)ÏRTkÅÆQvi«4×FÃNq­$RNé§³LÞS·@ÅyÏÄÝoC ÿ ÂÔÒîüUx²[/ØÇqgæ"3W`aHá8¨¾
+~Ð·´{{EÑuOÄ[Í´°¶2µ7°*¥ó+Ö:^ksÕ¶ò:Ó¼å<S©kDÅ·~DË»ì÷·ëPqÛdaçØ¡®sDøª&øá8t^ø£Ã¾)q}¦òÂ;imæÎ"áNÂàO½v¼)aþ¶éKÙ].k>[½ö8V?	õ©*±ö¶osYní¿SÔHÇN(ÎzEÉåLzW#gj
+a§#©æn})Ê#üØÇ¤G rIÍ~2~ÔðVß?i¯¾Ñ¼}ö=#Añ>§§XÛÿ biÒyCw,q¦ç·,ØU,I8ä\ ÿ ÊþÑãþj0ÿ Áÿ ÈÕú³:´ãR5)Ù¤÷_ûtõ#ÖNëñÿ #÷`¶O© §jü(ÿ É~Ò'ñq~÷Oøi|ÿ äµ'ü>Oö øX¤Áÿ ÇþKV¿ñsOùùOïÿ  ?ìJÝ×ãþGîÂ¹Ï9§pkðÁdÿ i qÿ ç±ý¥ôÆsÿ Þø,¯í#³þJ6ã?Ø_ÿ #S^fóòß/þ@?±+w_ù»àéFìWá7ü>_öÎácüiü_Xÿ Áÿ oÿ _µWí5®ø{Ç¾,îgáFìË+]­Ý¤jû¡áeqqótÈáÌx0Áag«88Á]ÙÊÿ +Å~fU²Ôàç&¬½Èý)4	Å&v_ybçÐb8ÇQ¦ ç¹ ,zv'ÙåÙ´!×$$î2+]¯ÚáQ2HèTf¹ëIW|AN|Ø'Û¯NØ Æ®ßk^\Vâ6p¦?*LñpÏ5òçégKgxuvJ»èkÆ?oê^8ý56Ù^MB	!º4Ë5âÄê] [ifÇr£¹é.¦V!¹±/¹x#Ôÿ ÕÂ|MñáOÔµ{~Í§[É2§@¶>§ò¼[SÃà¥FZº¯µ/Ìæ«¥9ÓWÕÌüéø{ ©í®YF@#§§ø×gYÚ-ü¥õõÌí¾{<ÙûÌÄ3Z5üÕZnSm½aãjjû?|)¥øâß./¬,®®,u(Úi WÜ³¨mFW  q×Ïÿ ¶OüûDðÄio®¼S­øÆ7Z$PË¯jzU¶kom*9âq-é»"C¸¬Q Ç ×»é:èÚ­µä_ë-%Yê¤ü«ó×Æ_ðNzí'<5ðûYøáíSâ>©¶Ún5âCöMPe/
+©X£7VVr£1è~£á}*+V!s8%Ê½[ÿ /Äøþ1ÃV«BÔ/ÌÝô¿*Z-7·~ÇìGìñ{Uñæ¯ámJÚ]JÓIÔ¼o«Ýi7÷u>sw¬¢Ñå,4@Ì¢I}­$ó_@Øéÿ ÙC5iÿ R¬ÄíéÓcÐ¯ÿ gO?Gøó¯[µÀ¹"¸V[p¬ÉóÜ¹÷¯­|;c­¦Å4¨qScüñ+ì8;.J2$¤Òéfö^ðOÎpøßªÞö]ûé¿Þ ñ*cç*²§9èWiõõÈ­Tñ
+®©<O
+ð¬@Óÿ =aë7/½£<°Â8ÎxíÇ°ªZbMm©E$Ñ¬b a÷nÁlÿ èG}òGQÝ]W¾ZøëKùÊÅwæÇ%}ªùv¯Ö´jRZÞDb>
+ö#±¸=}¦^aWg=k;âm¼g¤ac¹p2c>ÕOqø×~ìýÉlxYT«/ii~gËWsaã¿'x/u\A±:2} ¨,++â×<áoºjhÚqªk:jK=ËæYVCØ#Ö¬ø³ÇQü+ý©ôØ|Ce/ö4Z4\¼iæ;yÍ,d*õp SáºRü/økåÛ¬~Ñ':¾µÜÞmÎwGÝ_Rý78PÄó6¦¥ÇNm-ï;ìO®ûÎ+øyq4¨arú§M§æqJI®H´ýéjÒË®ÇÍ?|9ªh³Vs©ÙM§;8ædÙ/]¹8ÉÅ{ÇÏÚ]É«nL¹ð¬Ik9òÖXå{ ?!^eñKáÄ%ý¨<coâ½GÇMáM j¶.n<ÔóÄEüTJ¾+²½ñg¾$|6ðªé:æµâOÃ<ripfXåmÊdxÎý£ç9â¾:ÇWÏ3:ÚT½êü±»¶Èý'rÌ7dÔrêµ¯
+1QæQ¿ãcÆ4'Pñ_Ç¼5¤Ü]kÅóþHc9Vfc ë^»û$ßI£|pøÑ§ØË¶xôýWOµ&åJE+SõløÕÏW×gö~ñ	Ó¯õßÏil%KÓ<7sakv cGL´¹ÉéÖ°ÿ f[|øá{èâ¸¾ÐumKBè?4N²Äê'qP*2@í\OÀÖLU)A&¼½úÇàó3¥­Ý5xÉ;][£=OâV¿ào	üÒ¿²ô6ëXÖtÕææBee%¾_ïq×=ëý|+¨éw/5;)¬û~â;ycÆêFp½vå@ÉÇ$W ü5ørøFô!§ÀîÌu}n¹ºÚXcî<gBóÍ7ÂÆOÛþö¯ê.oéâîÞV¸ÇËG$,Tò<vü+ï¸0uð2e59)9Í»èîc®:iÐü;Ã¯	³\¯:çUâª8¸Æ4¹TZ·½++·ñ=½ZGÐ@üÇß¥9Tô_OÒ¤=«óÏÞ¹\ÒîNAæ3(þt¿mÙ@ý´>/r?äuÖôºjÙý?`¯¿ðPÏ÷þøoe§]j:VÚä·×kkoo t%$î  	ä¥ñfÃKÕà©¾,µÖ|1¬x×I¸ø£}çôt¾Ö¢mV@ö°ùüÉ(»yËy¯Òÿ Ø³Â~øûQ~ÑöÞø5ãÏÚPøy9ðÿ ¾Ðº³ùòæí|éd-Elf&ÀÎsý	ÎçÀEQ¿ÈnÖ_
+Õ]>½¼Ï­W
+jÛØíüÿ îý¢üðûöaÐÛá'Ã+Çýµ]®OOLÒJmûû9µ·fLéKâüWöñ¿ÀßÚWÁñü)øgc'íâÈ¼OúøÕøwËºä@ìcÏå\oÝ<Ö;zøMöþûÿ ßF¾õøUð3áæ¹ÿ ñÆ¹}ñs@Ó|dÞ;²Öãðä²§ÚÄÉ5vþ^ÿ 5^Ë>õB Èññ¹E|+YUrWðç»=ôªö½ºm¡¤ãg~½{÷?M,ÿ eïÚÏöÕÓ~.7ÀÍk§ü/|{I19¶ù¿Ùøº&+Ë?'ñò×Î¿¿àÿ ´Äßø'GÂï±xá¾{ðãZ¾ÕßÄ«âåMSí2Ü¹ÁöPShÔ·Ù/¿*Áu~	xàÞ¿ð0x+âñcø{c ÜfÍc°8¡ºcnC¹U'#ÉnNxðÿ ø$åäÁL~U'ÆÚb9ä}$~5ÏË«ýIf*År®d9ý$·©ýénºß["aMòs§ø>3Éþ5|#×¿gß^"ðGmÃÄ^¿NÔ YUXØ«meÈe=AA¯²?àÞ©ý´<OÈÿ *ëÿ K¬+Ùlßßuÿ þØº¿?g_|Yaâýdi<Ðít²£&9CÉ´ï¾6ù$8éâ¿ðoÓûiø¯ü7}ÿ éþÂ½\×6xÌ¼¥5}¬ÛIéfÝ½lÇ©Ï¡û&E'SßÖÓ
+¾µø71ò¼ºÛzk#7N*l
+@0qëG0Õ3¹ðÖÉ%F!?zÑÈÏóuüAs©ù.XÈñ\ýÓ×?eèìEc#[9à8íUÀ³¹xWp)Úð±þ|çÛ¨ô¯¾è:Ü_øÚoøZ½ûÍúØYÉrÚþöêä*òÑiI¿2ôÿ ø*ÄÚ§âÞµÒ´¿øHÅ3Þ[$f{Ægàå3±¸¯Ð¿:íöáqk!xnU×+¸#¡=ëÈu/Â~%Ö.5-_ÁzÆ©xÜ_ÚÅöK»:o>güM9xÄ0Ü°øºNkÙÇßH¶åwË³~{«#ì²£ÛS*ºº+ém/Øð-ÿ ìî7ÊÞÞõÒÈäôk¯ÿ õJ¯´ö=)¢ýô3úÓìþxNÚ-â` û¢[Eb¿5ùöþ
+Zó5ò>öå$æÕ{ák·z¯înõ9ãH./tÏj:(Ô£DÆ.âµàªMÎ2UT@¯bü(½|A©?²ÙüÍMÃÚÉsâ;²;(5?Íuàøº9ºZ®-éutÿ C,^**áÌuþg|qý©|Eû+h1x¿Ã+\5ävSYÏnÆÕmXì@¬¬ @<Þ¾Úÿ rþÖûV|O\èW¾2Ï$-o+I0K7ÆI8deçnOjð5ÕÛËàÍ?WdWoµÆYyRba³ ×°~Î¶¡âÝzýL[ZØÙ,pCa!@ Â+éø(ÕÎð¸|<%í%9sJí'£Ï½ÞªÇÌqV§	âäQKEu¯GÓÐú!fâÞCÅ*øÇÞæ¹ïøZOµù¶nÒ¡2Ìxç$zpGâ*¥ö¡:BñÈ²Û2è½n>þ.«;ÚY2Nãdúýkú©.§ç)X» jæ[HÓîª##¶Üû+nÃS	rËIÉ?Ö±cK{©[ÏÄÍ^%À,{ß9§_i÷ZaVWY¿Þ_OqéI¢á¿¶«á/ë_ðëSZB³ÛÞêðÒn!.3ÄÅ×d2+äÝcJðû>xª&ø©aEó5¥êr\_mF
+±G6ð6Ldt¯Ð/ü$ð·ÅëkuñFaªµ¸Ù³'·?ç­r×ÿ °ÏÂÆ¼RÐîû:@ätükÍÎ0U(SÂ×t]ÛWwÓm%]ÚîÏOÕJ±ROn£ÿ 3æßÙàÄzÕ<'ÿ üWºÌãWÕl5¨OgMãË]¬yQy#_TÁÿ fÏÇ¥xwLµI£ÿ YrèyÜõbÇOaÅq_ <á¿¿>/CáÝ*ÏGÊêÆÖ(­×jª½S>?í£5i|6ð¤¿<[%ÝÆ]áAì3_½e8JQÁÆU4¦£JÚ9JII_É&[-^íÌÜM¯,Æt¡­NiB=¢¢Ü]¼ÛM·»ÑlÏÄ½wÅÑ0kslãC>WÌÿ ´ÇÁÈtý,mã6£gæ´P<Ll£G+ôBøY§XY*y
+ÄN+øÏð+Mñ7¯ 0§<-6AýiâºrxJ¿w-ùú®¡ÇSóL?.:Wí#ªÿ /GÕu?5¥±ðû>ø°ÍñVÂßÄfáÏN]RKí¨¬qK¼)GÝº2r§¯Eý4ü5¹Ò¬í?áVñ
+7-¸/®ÚFóF»GÊyÏ\WûüðWÅ/ZµÆ±áÍ6öîËW¹µÉ,Ê?JúÁ³_|â85mÃú}¡k¸E<Q É¹J¶ÑükòEËq¸b1.ªsvM5ËiKEy>éh¢´Z¹Ë3£ÂQ:\­Å7®÷KÉ~7ßs¸VÝ*P0½G½FPÇéÍéö]È®M÷ºQj|f¦º¡¬?u(ôø*÷î¦ñÇÃÈmþ*^Èþ'O¨Õd&ñcBÌCçÚ;q_¨¿±¿£üDý³h6ÿ ¹øé¥MðâÚçÆWgÚj©wÁäÇË¼Î9o7ùâk=kSÿ Áë6þÑ<?â_Oñré4í']Um3R¸:»à¹UL.ØVÉ_«ÿ ­|uà/ÛÓöâÃ_þÖ-gÙ®¿áð?ö=ýªÝÎCJP«oövªàÍ~½ÕÃA__f¿ûÇºæû»£é*µÈ½?Èü÷öýÇì	ñÇ¶´¼^ øáÙvèz:Ú#íÌeaûÊ©üÂÌ<è"c$_¹³GüöpðìýàÛø-ðÛY=Õæ¿Õü=k¨^ÞHÑ+<Í*3³3zàg   wðUOºüÛÇß	-ÿ fxkÅ^+ºÙk;Ë%½ÌdNZéæºG±gÍÑFàÿ ´¿³Oüö^ñ'ìÿ àû«ßðõòé6°Ýéº «Ò%WÁL¬Ü¤«c Íx¼R³iR/´k]¾-¾æXim/¿õ±â¿ð__ø&çÀÿ Á7|Wã?ü6ð_|AáKí.[]O@ÑáÓÝR}BÚÖQ*À«æ§;­2©¯~þÂÿ ²ìùÿ  ýæøWûKÂU¨Í¬iwÃKK­ý¾ì\.ÔûU H­<ÎTÀ¼}Xàûþ
+ûrü=ý·d?ü4ðÚõk_]é³G«Í6îÞÛP·»fM¯æ:H°÷ó^/ðÚÛÂ¿moø¶Oø'@Ôt6?Ù	£hðY.¶ñI$j203dq âjæy/	cs¼ÁTT°´«Öºæ!K)'«åµI>§Á¯rUaòZ5]JÕªÆ¢®¢ç%É½,Õ+¿#Ê?kiÞñGí¦Ü~ÕÂkËÏëf¶úY¸On°·QTApA·8áBdäf¾ÿ wrß¶¯?ìI»ÿ Òý>¿G?h¿ÙoS×¾ü[Óü ü-ÖõWwÚ¦¡ã®ï´ûX­K;#ÊÚ" (vÊÌÀã
+>-ÿ BþÊ~&ýà¦^+ðoçÒçÕWáä×ÁôéÚXLr_ØùTçå9¯Ï<>ñ×¸Ï'­Éq_í£$£Q(¨©](«Ù½ù¦»;ªf./Bn´tÚêÖ¯Þ~§c \ÃJ¨r7}hØ£ >cãÉüóDhKéRÀ¿*rÄNqNCTÛ:=9d¶&ùa1§?üª¬öêÁÄ»ñn?,þ"º[Jk+X£¢áFòw$ç px¦¹Ãua"³ Í¸é_?mOº¾55/ºÅïj1iÔ¾>F]«¿\ðN2¯Jáãÿ ~|@)ó·Ãz-ë°üÌb¾ýï3¡ê(HÍ»¨~xÞ:þ¥|û\|(ðíW®üLñÂEm¡øÏS×¼KãG»º=oP	g6Vq´&ãæu\ ADÿ ÄÈxÇ«fÎPä\ñÙ&ôR÷£»~êWm½ìù.!ñ/6áÊ\¹|#VRnÐnÒvZ¸ÚÙk&ùbïd÷þ7|ÕgíFÂÛÄ2ØG&¥ÉbêBIGç\RëvL8»¶ÿ ¿½Wâ ]_önø×q,²i²0wÍksùæoá½=Ï6vß`Wñ?¼9áþ'Åäø^nJN)]ßxE¿Å³÷þÎ1®MÌk¤¥Q]ýì®u«1ÿ /vß÷õÆ¢Än¢?CåVÿ áÓ¿çÎûæ¬"égmøÆ|'5?Àú_|ÈÆö1ñfì?ÇôGì«§Üi¾S	-W<aºùhpr;¶ïÀZàþü,>1ÕÞ³ép03È«·#äSê}{Â¾»Ó ãµUHU
+Çð}1ü«úÁn®óÚôÜbTï»oG%¶]'Õ·Øø+Ì×'Ô¡+·¬¼»/^¦¥¥ìwÊeR«ËnëïT£Ì5eBÃ*	;dÔgð¬fÖLHàFØl Bûç¨ýjÞ·ÔêÕöçoE(úWôgçíwgµ¬½GÝaÎß§¨­[;ÅØòÁQYü½öö~yUäãéþ5vÛËååV ã ¼0;ÏÐxû^§±'P|½Ûöòsßá»o¡·I@mÛÈÿ é]ÃßÚx{Àz¡©ÝAac§K$·7Ö5ffcÀP9Éí__µwÁ}â/Áÿ üVø[á9<%ðßÁ½ü×sÝø¾æ[ØmÞXÒiË?1`%prKþë8RoSµGI^)K<ÒÑEûñwnÖIKK·d?0ã>8ÅäªøjQ¬ýöãÌã.Xjä½É&½Üu²WrHúCöñ,?¿i[5+{[?ØÃ¡åPðÝÆ#f ýÖHÂÐ±Åzwì¹©ÁX¨lÆ¼þ7ã=ëáíNòUâÏÊé!P× ã~xOãÂº?th-¼a¥ÜÂôÛ0ÞÛ~Mü`esõ®^ãìoÆd¨ÊL4ý¹Q$´º8ßÝZÉ;ê|ÿ ð6cG0¥à©
+«Å?z.ú»=Ózèïvô?N,ncäÅx'üWö£Òÿ fOÙßY¿hÎ³«[Éa¤ÛýäÓÈ¥TêB¸ã°5àóþÞõÝ>m7Hø1&¨Æ
+«íCíQ!ÇRªqß­y¦û|Bø¯ñF|lÔ¦Õ/­ðö¶QäÚÚ (è×zê¥.¯µ«R3kU¾k¾kD»ë~êw,6;EQteìå%kw²Ý¾Ú[ÌÛý~Ýxà]¡¾O.÷T¯f\cüö` íNµ²Î%T5
+ª½ §´$ôÅyu*9ÉÎoW«ùANaìäGZ6î'©,{O0óÎ9¨º+©P{
+G¥JÐ{w¦´$w¢äò³ó¨Á¶>>~Ø:ÄzûÀ¿ð­¼Sã{­róO\¹·ÕæÒåÔVT+jñ¤­p7ðH©éö×Áïø#*~Ëþ-ê?,áÓ|ñádþ´µÔõ¹ïo¢Õ¥BÓHÒÛm°Ä>Wf7ÉÜýu7|-á_Ù:{ß]ÛYxPiÛêo4´.6@TÜÀí~bHWçüûÅ<9á)|à}âf¢hD³Ü\ß_Ú¼Ï+j´²?D¨à«g 'èYDñ½¬Eg®Xû·WQøÓæÓ¤]­£ÂâN/Äåµ)Q£IUæIÉ)¸Ê1º\ÍrIrô»[z$õ·ÂZ×ì[ã_ø&oìí©}³à¯¾)|Qâç¯nõ/Ïâ]:×L·Ó,.a{HÙU@KÉ7JÉ»1là«
+Äÿ ðPïþ/ÿ yx³à\ß²>£Ïâ}F;ßímÂ3éVáeMæÅ-ÈkÝmù£åaò¼þÿ ÁE¾0|zø5ûcü,Ð<ûJYx/Ã?üaqáûmOi­áq¢¼ÞtàËqæÌÛ¶¹M¦ePHÛ_7|Cý»ÿ j|	ý¦ücí]§_Ü~Ï^.ÂöÖàM	OqÛ	Ã&½!ÚLùL7pHß©:µ£	Iµ$Üª-y¹VÐ¶Ò×k®Úw
+II¤þóI¸ñÆûøKá]ëÉ%ûé6ÚTëÒ9sn`Â!;@Àà+¸ýô=gá÷Æ}Xñ©èZ=§öíFÕí­ Ý»¤prÌª2y,R+Ô|1ñÓÄþýª£økãßö?|Aâ/Yü@ÄVú=°C$­Y´6ÎQÊFJÍH
+ß¶§³ögñ+Çú/þC_Ì|wôâ|_¯sL²,6hãxÊn^ÃÕk$c6ìôçLø%à6Uaêñæ9ÔÂsb½Qås¥z¼î¢Üm}ìîz¿|¿ó7ø_ÿ °ñUò×ÀÏi^?ÿ âøÖãH¿´Ô­­~­³Mm2ËñdÄRGFò7ÅZÃÜjzÁUFÍ;ãQêjÏüóâû¯ÿ ÁB|q«Þ¶ëÿ ^Jüð¿éú~ öð¯¯á/¢Eá~>¶yÌjâ*ºS§Ë8Á$¤âïxë}4G¯Â.ç<e¬ñx8Q£ZIÉ¹K²¾KwÞÇì«P
+TåsN§zúdU ëiè¤úÒâdv5êREØuä° KÎsF9À¿kfÍ{ìÎvc
+GCÍRÕ­£Öqr¡P7`ñõÇô®Z÷ÅRhz`º`%SqkexP¥®$6mÄarXGN<ªtß,w>²­hÓqé6»á­sáO¼-âYuìÿ [Kìé¼«S¿~ îíyrEw_¾2|=ø3à}?Ã>Ño´½GAom1íAÏ$ùfcXXI$×xsÇ5Ò. ÔíG'Ùu;=J8]XþÏ<¢9Y{36£¢Üèx¼ûáæÉFÜg>ÙÈëÞºáVö¥x^ö»µö¾ö½´<º.¥wk÷Zú^ÛÛU{_[íI-Ç{O»´¶eµò¡2ªrYÚÇ±\së^3¨|"Õ¬U}DVÛ4&qÎìwºuóê³DÆèÏ7G"äzg çgÏ&²<W¦k=¶20ýÙÑ¾GáZüÓ|0ÉsüT±¸¸ÊekÊµìUÓæZ$ÇÕåAË¨,=x+èÕíwwµº³Ãÿ ³ÿ ¼BÑtØ!'d·ÑcòROé]nû.%Õþ­i$Ò¤¼¸Øóòî'$ç°¼¯Å2ñ´H®îÖ;¢@û,Ê9@ÉìHªð»qá}RkKnaxaþÚ°mBH¡ó¼ÙÌÏöD[yÜ»ýÅ,828s?mV2©my$ÒZêÒQ^ì·M{¯³³ÅñÖ6´y Ô[ÓÝß§vÝýèíÝwGÑâMI+D(òãË 	ÇAøÕ?XYa¤`½Ðÿ ­y·Âß·öTWêÒÍc:yª²88êG×èæNº¶K¹Ì &èã>¸8#ëþúl°ª¡Oeò±äQÅûEzÌë [{ù¶JÔ·¹=?\Ô.bÁä; \,g#°É#Ë\÷öUÚ´n¹Õ¾nzñ:óÓ¯ÓuHµ=ªH&U%×Ì3õÏz	%vyâÞæ¬D»H¬La$Ò¦´ÖäRÂ3¿oþ¯5]¡¶9²ÇÐzó¿ÚçÂ~ñMÕãêlÖ^&_	Mt,-ãÕÄ_c6Çx~ïqîó>JVvr¶I}í¥êÒ(++ï·ü~Íã¿xkãOÃCÁþ/±Öõ"óPþdÓîVÝgXö0F¤©(wüA @ðÿ ÅÃº¥¡^ÙéÖ1-½µ½º[G¢à*¨P1ÐWø«âà
+Þjw÷pÃe§ÄÓÜyd1U^¿(9c)¾ñfãKï-¦Û¤ïi#;1Ê±ç±<óÚ½b=0ò~âm¥­¯h¦Ò½¯n[ü¼Y&âg_Äi]«^×m&í{_ß3øáû=iÿ kÅø¬ÙÜ=2ÞÒÂÚçañ³fö¯ZÒ®¿²¼¿±	BíuR>R Î1ÿ Öªz¬,ddT²+ÝòÊ¬ÊOQÀ©áØ£ñ Õb<¹gxhêí´pmá[?Ã×{W»V¿cÓ¥ìéÁSnæÂj1j§í(«ÂÞ¦2qëî1R%ºjeG?(#p;Ò°µyí$Y#eI§Ï5§¡jÿ n!*¬vín¼GSw/#ÄÞÓ¯Xâ%µ¸'%âû§Ü¨À#éô®]ðµï¤o> båíÏo¡¯KøñHø{¡Ýi-å¹Í
+Ç½I".<±ÐuíXº§tkÙø)ÚãEÕ6E
+íÜòbzOôÕG8oª<ÜV
+Mn¿­Ï=£­QÖ~4x_ÓF¡¤^¯1uÊ+«Swzê)mfÓ$©nYÕRß-/üEeãÙëzMÌWÚN K{¨ø¥R2aÇJôaZ-ÙèüÏ¦Q½µKªÔ»5ÏxÏâ®à-B;=OQ´¶½Î}KÈy6ÊâòFr;h|ÈÌ³¹Xâ¥ÙAÍ`[þÓ~¼ñíÇ¢Ô4ù5;K©O$z¾%0ø/z·ÕI¥¡ã%@2Û´þ¿%vþä~±Ïkþæío¾ëï=Wá÷ÆoxCMñæ®^§5)/¡°óÚ]È¯"ÆÓ l¨T
+Þ¸`2Ë^¶µ7"@«e«Q1ý÷_ë¿¶¼5ãÁáË«Õ_K:ÜfK«Ksojnb¹Þ	£ÜÅhäl8zÅ(Kk/|4ñ¦j·)w«]YXÛ*@Y^{Ènç¶·@^;¢	8V	Ð6³ÄN¬cE¶ãÝ4¹t]/5Ëç%Ëº±Í5:3hÅ)Owm_,yµ}m{Ê:í©ù§ÿ iÿ lüvý­ÿ à¡ÿ >"x3áÝÍç<K{o%÷Öo$©(×!æ±1À¯Ïü/öÿ ¢eÿ ÿ ÉUû¥§|mÐµ»ÝBÚÞòÅ&Ò®Òè^ê:xIÍÛµÌñ«·îdá' Ïàï^ñÆ¬½äöj¶Ñ¬"^ØÏ¿È¼HÙ£Ú_*O.x£-¶±Á¯¢Ãñ.(Rad[ê¬û]U×cÔ&¬cd´Zuèìïèô~z1Á¿j%WOeñ
+ÜµWÕþøuûké³¶­ð÷ÅGá8SNÔ.<Q¥-Õ¯*HFûIó	zý$¿øÛá«-nîÃû_JóìoFr×­÷¦p¶m5Ä±Ä.ZÝÂþkDJÃ#Á´ç¼§^ÝéÚ¶¶7ï¦¼×Ú¾§E<êÌ¤@÷¥Â«Â]Jº³++#;ÆÐÍ«a«æ8Zu*aªBµ)8¾ju!(Êæº÷¹n¶Òi§b§Ô¶_Ã­SÖÒ¢Ô×ùy¼ÕV±ø¿ñþ	+ûZüOÖ÷UøxÒ¶wøJB=~ÕÇó¯¨¿àðNÿ _²GíQ¯øâÿ áÑo|)q¦Ãqý­eu¾áï,äTÛÎÃ)$cåë3÷ÃÚûÁ¼Uw£iÓjêV:´úÕ½õÚßÁ¼Ó[HeêÀ?28]oþÒÞøñoéI¬CfuÀQ^wwf]Xðatëû­ØÚÈ[ÕÇñ3Fp«ÊÔìÖþòæZó=\}åÞ:ìsÐpô5Å;E+Y'Êôò³Ñêz BÝ;SÔæ¹¹>%XEu©ÄZa¤Oök/õ+--yqÉº?µÏ=²(ó#¦íÈê³øgâFâoë:¼Ð6­ WP+«{¡le9ãðI"e¡'vvÈ§½|ß+³Ñ¿øËR©¥-V¶ÿ üô: ¸ÒçùRí&ûTÜÕ"¶­§_ÉbÖ©râ!`ÃÎGs{ó^cûB|>]KÀou}4Ú}Õ¤ÑÈÆÈÂî ò9=s^¯|òêîÕÖXØíØÍÂº®6õÀ8c3ïX)µ´ñçu"úâåmæEË+qü`Gk	WØ×oåiÛÑÖ6·ÃÔ£üÉ«ú£ówÇ¾2¿ømñÇº5ìWÚ^âï:Cq+6×ÆZg(	åÚµÐf mYÁÂ³gãçôïZgõ¿¼ºÖgÍ[Æ6ÌÆÎK«Îv¡åµöÚÉoå3)Vcì?røö$Ó&M"ÿ K×µ½?ZÑï®u-;ÄZ}ÓÛßÚÏ:ºK Y]ddUb­ó	×gÿ Áðþ¿ñ&Oj^4ñ~³­Ãm%­Ë^^LæöÖ[¶InìÒÈ×Nó:7ÊÓ~ðåk:~æ4#¤9oçÉZ)¯H¿.OKeZåG¬\Ô¾\Ô_u6¼ùúYßåÚ/Å~"ññR]Î§®|
+Öu¹4xaÚ<:Õ¯ãÒ ÔÞ<D®!QPDÌ%&2'_´ð/íQâxa|]â^è³Þü½ñÆáÚêxÔtÿ Í¤É¨Á§IqmlñCbq4KrmgÔÍÞí¯ÿ Á+¼1{ñÓYÄ$²[6Ó#ÓÕ¤¦ÑîMÔ°ÃåIsûç­(ÞAnjÿ \i×ü?â'Å^#]kÃfH´[>òHgÐÃÈÒ³üÙ<M#lÆYä'%oR¬g>hè¯+iµÝw¥­·µ§³_ÃZ«&¹)à«¨¤åwîßûÉ*:;ßGìäÓøÞí?¿á£ øÙ&·q¢x¯U×­á¦«{¨ÜÍáûOZÜÞãWVöW0ÀÎcUå²¶,f{¾ñwñàOì-<WiñÅÞJÓüG³úv×W¼kzt¿³,móNìo"2²H°´2ýJ¿â×5«ü[âøªòlÚÜj:¤®òÝB@M²;6ç\*àÐ/LUïÙâwÁsx^Ïâglü<esáÔ®#°Hc$mËØÄÃnìæ¦¤£8ÚßÕë½·/ñUÛN°U"Ü¯müíuEj¶½ºz;ëØùwáoícáo gñ/¼Nl|§Ü¥í®ðöËZ´×ßWÐéVºÆ¥ouez-kÌQIw6mãÿ ìyñóPø®|,ð½ã/êQ|okëÛM.ÇÂöºµýöÝé³\Ï©´ÖÓé96\+i/`¼q
+OïöT²øO¢Í§|>ñü¥êJSÓt{àµÔM¦DeI2¹p<t®CIýæ³ðáðþñâ4)o tûRâAvY.DQÈ¨²«"0p»*r¢º=£]o÷?²×héË{«&N\Ë
+êB)'ÿ ¯ªìÝõµµ³»IDñø'¿íSãü6ø"5­ï®<k¦xV×õYîæ0ë÷Þ8ä3Â"2.Pª6äDUý´øºÚ²0BÚw¨mÊu<w9ü+æ¯ÙÏöð×ìë·öV¡®ÞÙiÑËm¦^h4åÚY"6lFGwe]¹gf Mz×ÂtªI¤Ü-ÚÊr«Üç¡{uàÖ±y¥)jÛoñÓîVEûFåÑ_ú×úìu¾>ø¯¤|ð³âÍNöâ=?ÃöSj&(Æ³t
+	9ÀøÏ_ðÆ§ãÚQð|ß|·~>¿ð¬·Zì¬>7¸Ô?¶¡Íýö6)¨¬}¨j»0§÷Uï¾-ðïn|?w§Ë¥jëÄë F-«/Bê9â¼¿Ãß³§øgPÓf³½RÔõQ¯MªÍ:¿YâèLyçænÜnÎyª©Î*´N÷kux¸®^ÚRzý¥¶3:Üñz«Y=®¤¥v½bSÏ|?ûcüBø©ªü¶IðÖ§§|I´¸P°½Ò£MVòßÄ3X¶L=½ÌÐÚû3Ã'¨3Ì'x?Ç1Çjzáuí_ÅkD×þI¯p²-$¡ô«»1°îS¬[ ô~Íáþ¯i'Ähv^-½ÿ _µµÔ®Vjê@¡æ¹Q&&¶¨.ùc]6¹û/xcÄúbXÝj5Â1Ô¥ÖPÌ8aæ©(ä*ûxÕº¨5ÔÝ¤­Ì¹Ú}9E$ïîÇ]âú0Ý¦ô|©«î¨¤Ý­ï5>emÒédxoì)ñ\øªü3ðÏõËäÔ?hÍS\oè¾U¸6B{Û+©R{{$ÚiadeµGdw>7ì;ûgxïTðì»£ÌÖ:¿ÆbûMñíáynî­ï<OqeÀìKÛI[ÄRÀÑÈ ÜËj¿KÙ¶Ù¼:t_ø÷Æþðù¹Kßì½3T¸É.P«%À$U«F.àUNr2þÁ=üðÃön­ëb-"EHq+Ñd´êöß?îNÆ`cÚD¿Þæ)¥Ëî&´ïvû½[ëkè*UiW)®kMÝ§µ¤ï­V²º²ÕµÌüÃÿ ¶×ÄÛÏ
+lõOYÜYxÏÂú«j¾(¼µ³_·_Ùê×VM§ÛyÐÊ-®!+bÆØÇ)}Oq8¢Ïÿ ·
+|;Ó4Ý7]øã¸Õ>Ùøµl-¼§íkÙ´y.î«Ë©}²8­¯¼ÈM.X¤\ÜÉ7¶|?ýô_>Ôt	ø·ÄÞÑ<@Íýµ§Ø^I·½<¹Ì!ÂÊ2§xlG5³áÿ ÙN×Áþÿ sJñÇô\;Éu C} ÓnÙÛ{1ÀvòFkT[¥8KW.¿)._(®eg¯Â­%Ö¹XÎ:%}/×2Rÿ M+/y¤ù}ÓÈ¾þÔ~-~ÒÞð¶´úôKßxsÄ¶q5Î°÷:9º»Ô­¦d7(÷iR0Fµ´~¥øCªIyÿ óø$Í3ÊÓ\YïbÄvÜO~¥bø+þ	Ûø&='ÂüUiáKk¿í1 iú±[[ÜLÏ0·*,+3UÉbNI5ëçáF´­4¿,Ú/ÍË°±Áäÿ <Vx/hæ¶»+¶É5ä¬­ï¡/déÍëÊû´oÖMs?6÷woóÂ~ðÿ |'ð>ûR¸ñ¯âÿ _ßxHÐ´ËHß[ÃPê®/äµ²4ÑÆ¬ÂÎä,TÅ~~Àü[ðËö`Òl¼fR}rþæ{û°±ì^gÊªIÂ-´p+càïì½á¿^.²Õtßµ-íRÛÇ§Ë
+ÈFð¸Èç8ÆkÜü\¤S<0~µZ¼ü½£{y^×ûùcM,uàð~Ã½\·ù7o»ýúÞÈü»ÿ ªèRxóâ§¼;oq{§XiÏàý{XÃÃV¯ªÉ¨\Æ¼&çÒ$¹xÆcjòªjþÑß¾x;ÂÝ¶âkH<)¬Å«Ë¢²ê·qù6ì[<ðÇäÀ3GÁûÕõ÷í	û*h?ü]¢kâëPÐ|SáiLºV·c#Cye!V¤22¤®Ã8c?ÄðOÛxOøÆ:ßµÓn4ùîïI{ËA¸Ço$¥Ë¼HÒHêJîp]Ä¦ª~-t_»öi¯-]ùõ²å©7(¨ý©'×ãSiúlº(«isóFð>¯á­xx?AÒ|A´ÚòxgVÖ#Xµ/j7Å¦¿~ÆÞ-â°ÛÜyp§!-K4¥jöÿ ¶éñ~¥ð·SÒ®â¼µ¾øðþ8&pÞwØlu| $D5=ü`}ª<ýêý@ø£ðCøÏàÍM¿i­n¼=<:eì»¸²ä)":£)*TzóíWþ	ï¢|AñPñücâød²µ¾Ögy.-#G2*Ç#»µÙ`'©&º¨ã¢ªÆ¬¿¸ý¹YÖºómòÛD«±çârz6­ïµë:^ÊÏÑ{×Õ·£î|?áUÓu%_¹	¦æ)×-ú¯Ë»#gÛø!<þý¥~xoÃ&{âxJÄøvõtµáÍÅõ¾§<·#¼ÈJN¯/Ø?°Þ³ðÒþâ÷Á;ñf>­tf¾K¿Ô¥ÃÓªJ¾cÎÀ±nKc©¬ÿ ²7¾øXÕ&¿ñ¹u%åþ¡xé7Êí$²¹bIwvff'%I9¨ÃÓå§É{ªwÿ ·!éêàÿ ¸ÙÞëêq©Ï8Ù§Q¥ÓßÞ¾v·tô³ø»ÃþÓ>*~Òÿ õÿ ê7VþÓãñ>v×7.¢ßÄ­­j7s[LäîI¤ÓJ$b7ÚÃ|¸'ý±þü!ø­à9|0|Sâ¸¼5¯x®ÚÒÖOXA«ÉxÒiDI[¸!åÇÛ¥}}¨þÈðiõ?ø7Å>#ð·®E¤Ú%ÔÇQH÷ÖS©pG*!K¶:©ð×ö(Ñ>xÉ5±©^ß]Eµi×jKxå·, àË#;3¹Ë1bI$×eKþóNy)z?i]Ò³Qí¢ië~h-i·ö^«P»}ÝÓwwtÙñìùã?kÿ ï|eã}.ÞÂì¹ÔutÓ¦a{¤YÃ§Ë:²é§Q7¼B.@­"ÁCü1s}uqk§Ûü2{-l×Qq%Þ½¬ÞÙí¨Ylïb1rÛeDíßþÎÑxâ<^0Ð¼A­ø;Å	hÖ©hó½µÄÖìÊÍ<l¬P²!*N	E$d
+wÀßÙHø%«k:¤¦·â»Ôu¯âîWbï#±%$I$æ°í¹¡-zrQöIyÝ{×{=,÷4§{ÝïË(éÚuUFü¬×-º­n¶>Xý®?jÇàËí[Ñü;«¦­fÚYÙÐkÚÓH%Òôùb,±ùFßeíôEÜG
+­¾&J}·þ	ÙðNÿ 
+gÕµÏMâøºâMg^¿íg{©ÛÍÎÞ.Äà p W}âýçdÕô/>9ðÄJÓÉ¦éºµÍµíR¢³a@Éà
+ê<áýîîïT×/5ûûÒ×w[iFægbØU dô v©¨¯(µªJÊý.3íyIt·º¢±»Ö²kVîíå~Uè}ýç'³²èwc½+0ì1H@=©6Ó.Ìâ´_FËå4Ínò}Jn ô$`céW®g:¡ìTðã ÓØu¥µ½hÞáf 0Lß½Ã?Bâ©Ùi¯+Nn@#Ë.N n[ 3ää¾ç¾çm¦I´i>Î<Ã0ÉE`Tñ÷ôýjmUÞY-Ý8ÎTí'§Ìç×ÕoH;àay."råARBÕ8Î:0öúuimxÒCÎ·9V¶vdg8=G+ÁÔ,
+ª±3êÍzlÑ¸L6fO_{tëUî5ËMPó.<èí
+»Qw Tçn =xúsQÛøzêÒt2Àd2(
+¹úg wîç>ªÍÝÊA%1ëo¸¯ õ$úg§BÜU"÷E]Ä¶~!ºÊÝ¡VO®#L¨Æ7sãäµmsÓJ4¡|´[p¹¹Ã¯=«N¾êVÖÅ`>zc®Xg$ð+±ð×¼'ªéíºlVú²Î¼`õ8#v	QøQ*N*ýxÉòÙ<(-t­JÞÚ5hâvYeÇû¤l=1'$ÅñÄËÆÐÆéw(xØ.¨!ëÆF1[ú?l­'I#EÜ=»8±#.2zä^*ÓxnÂãR0Ê\mÅÆ	íÜúõ-k£.2ÒÖ9û+¶KNBIYðÁ'9ÉSÁ +&êëìúÉ9I·¸ådVÁydlp7Óñ®Úi)&$*%ù\.HÉ°ÝNíÁÀ¬·ð¬ä3ÊØÁ$0èFsÆëJÚÜÓ¥â~ãMXu@m®GyJ%Ðö8#0väuÉ­§ÞVØ\Zê¬Ìß0!RÊ1Gq¨ôÅt> øo%ÕÚGtè%ß)PÀô½«"\Yß¬ÂÐ¡eØz6Fs gÒ3º0wèyí)ñ2çÀÞµ»·û:ÙO®é¶Zµôö"àéºl·Ç{s@fÜÍ"78t_þãxMßÇØxÃ±êÞ
+ð÷âºÔâ[9¡ãTÿ ¶Öã÷6mgpnd¶¹óå[E²BJ*à'Ô?´.â+?2%¦ê1\ê6qêBXìÖ-qÛ<µèÓ|Ö)`b$|_âø¯á¼;Á­+Ä2×Çz?&³ñi:n&²ïÒÞç^Ug- G!ÃG¼&¥s»%-m»MÁ=lÚåWvië6Õ¼üd*BRtcwË¢{&ò|ÎÉ­Ö=Óõ?~ÚÞÑµÈ-m5MVxoZËUm:ÞàG ²ÍåHfÛ,S"C&¹Þ±ÌVÚßÂ¾$øàøwû?Åcâ$Ú¦«éº´ÓçºÓ`¸ö	Zò8g¢XcËÉ
+ÆÂòÙÕÙÝ>~ðìí§|
+ñW-<%á¿jÚ¨jsO£àû)µÜÙ\ÛÙË»ÛUkI'açEl%6Õóãûjß~ý½>7üNáºøÂOÄ¾,>uö¢5­1,í<¨ä¼¸6ñÅ !âk0ªeWfÄä¡wñZít¿/Â·ºæ³½úÙJvmEH¿hãOáÖÍ­zÙµ¥Ñ[ÖñÕþ¿ø1ûø'DøËðÖÃJÑô§ÄfÔíô-COÖZ;+{Í>Í®îà¹kÈ!hd#	ùÐF~×+ó;¾&ýµ>ø·XÐdðv±cqã¿KkiìrMcÍlZxákg·hfÎQQ"HQ$òþð_Áo|Ó¾øq<!â=J?øÅ½Ä¶Vh±,:·mô Þëó-ÌnÏØG¥ìwÀO_ÿ eÚ6áï°Ð|Gâ[íZëG¹þÌºMÖ4k--Æäho¡x'iPV/,ÛýùYÞÑMv½ß$¯®·²½÷¾\õTcîïÌt=¥æÚ]´MÉ­.¹~ðí÷áýsÇ¾³ð&¡mâäñ­Ýþ¦ëz=ÍÅ¥µíÚö·_lÞky¿ÃÌcÔ>\ÞW²ü<ý°ÇíáË¸R+mkDµxÖÏZ·GÙ|¦8ßÎKr.Öv6-à2vüýñ/Ã_mñsáÎ½©üIøåñ«MðZýµÂx®ÎX$¶kí"{Z(¤Ô.Ð²Ë6é%óWtmÅûß¸¿b_«ð£önðu£ÛYßÙØ[70sËädq±\ÊËK|ïvm­§Z½ß¡GÚJñoü·Óð·Îú+¥b·¹ñàµiµ>[yÆ"Kù0Jä{þÕøcÄWÆé/urlJ5ôë5bÌ§æÏL÷À8¹=KI}(
+íÝ·)gzA$uÇ=Zðþ´úÔÄ·¤]2ïO_ZÎJ-mc¶1i¤ÙßÇãû-BÜ½±ºÊ2¬3^¤¸ÕZþ0ñª,Qv\çñÏò¯<»±þÓeæÑ$H3[e©ÚH ôäsSZxÿ J¶+ûÑÅ¢Þ¯BN<ÇÙ6ô7öÉnòÁpÁ1õ\g²,]î¿2&X£>¾Æ¸]ÇqÍ°¾w·¹c¶9c@B60c±Ïázé4ß ÝmrÞTÄrÁÆÖíÖ¦Tå:uc&]²ºÆfXÀVÝÎ{L
+÷R«ykì,N :g?Ö¢m1æ9#u d`Á¾{Õk<Ò©À `O©öÍBvw4SÑo´;7mÈe6Î×8úª|/)Rb1Ê=>é¡sw Ç;Ë´« CÆ¦  Q´ëõ®â&º5pdö·¡%«ÆFä+Û$p)0sÐÜ¹V,À¼ sýà*¥ý¤2íXoåH=ÿ JÙb¯º9V÷dP vÅzS§#ÁQÇ÷Îp¹ö'¯¯8<ÐmÙrv¾1ôÛõ«öÑêaõ
+½58üiAÏb*H,ä\ñ]Ç¯éïP ÄAÀÊ±À"©Uêg,5Xî*!Ö6 I`xq°·
+W$Aû§Ç|ÕÔäÚ-¬H21Ô©uQÎ3Á,	ï´{ÒÙ´V	í$ãl@%Ëc½_ZÊÙâÕe¹ËH» UuBÈÈêNâk$ï£=i±©¦ÁöInBGyFù²ÌS,ãëÁêp9â©]ÉªëÍ)QÆìñ¸Ávë½òNiÑjofÖÑ(Yî$¼B}õ©%¤±åLçÐzî1íKÞå8«¶º:­£E6ÂUÉ#îAë3z£w£É£3Þ4¿kF!s®@lsÁàH5kröwkÁY%ÝÁ*Pê<{õ®ª5mB?,·ËQé÷¤ ;ÿ RjÛµZ{yâ{{KÙ\lÚù¦0#nOO¦OLd*;¯²ÅµÌRååP±@®s÷®£Z²£Ý²ÜÇ½2  àç×cñ¬ëX® "
+«Ë±BõG?\!edK§ø[(ãX``fI$ñ¬Hþ,uéÏ¿NGÔ$×n£F \cÓýj;@AKæ\FxÇ&<m^	ÁÎ1Ö³%¸6w²Åü1Ci£mÍGUþÎÖµvÆÖö×þEIfîÞr¶æo»Üê}ºÖ¦¡ý¡c=Á-¼Ê¡N>o¯å>ÖÌÉ¹þÎGAaRô-#[Ä kyO[Uº ,þ5Ì-²jäKvÞZÀ7,ªF1Àç r<VÆpí+C´ôó×üûÕÇ­[Ä<Ù
+Â.¶e±¨ Ây pA¤¥É°:|êìÀX}æÕÂ¤÷`ÄqÜ{~Êõl<u«ZI ÃP}¢VBÜ 2r¹ë|`kûTßKÓFhdFiùI ð~^qýî2aÒsuoåJÊd@øÇ JÞ´z3pÓºìz7¢G;aòÇäÉå¶9B=T±Qi¬>!¹J ?H§$õÆT7±ÅC§ëßðøbY.dÖ.°ÌêóÎÜ©ÇÐ`ôéøhYØÏr®I,¹ëØQøs\Îéµ-Î¸ôY=ÆcÔ !ÝpÅ¾]wÿ ÐÜTSi"XDhTÂ»cz>¿ j]UïlWyðÜ©8Ó¥oªÛk)2LùÎ{þ¨O¡N*×*ZYºJ!çËÚ59Ë)Û»>çÏøSd´fºO-Óí:F07Ç¡íéëZÍÙ-PuóÈbzÙã£y¼ß#c°`
+à'nÓgáéM¶M¬+sö»Á"FPw`ärz0íüÎkJÃJêír¤¬xÉA÷¹ ÃºDÎAó±ô~85bîù¾ÁÇº3*Ønz°÷?bî¬$µ»25)>ÝÑí#lrøpAìzÃò]­yDy¶²ï=:ã9>ôàúæ_.ÒYDlî\(Â3Ó¾0V8ÚöBËsDò`nwõéN7	Y»£Síºü×EE <Äe ãàó=>¢°u¹²¸ÆõEB0P3¸ã8þujçÃ¶öh÷4ÐydG`zÈätÊäµ>¯§Ãkáù®³Ía2±ýê2oeþd{ÓI-P]¼^gX´Ö&8ÎAß©ëRi¼æubòM|ÛÀûò÷ý*{­ÐK¹-âòZ äUà`×ÕËyplÛ)ÌLe2Ãßå?4¹W`ç"ÉÔã#hFQäõÈêÐUºd¶1F»Q~bÙÉÇùïïTo­ÄVó¢äGnNy]ãùÔ6¼rï0ÇBAÉÏÿ ®¡Â-])²å£¼19Ébã§<~=¿­O¨_£ØÇOæ4c à¯^Ù¬Ãrðß33	«1]¸R¸úuJ9§ÐJ1ß'ÌGÌ6Hì?/Z7UwG
+à7\ç°ã·JmÛnU@åºäîÏ½<ÃÃ2 eÀÚ»¾m§·äi4ÐÓÐ«{ÚJcHb?täág\:6GNý©«³aFÁl÷¡ØÏéäÆ[Ý¬8áXjÂÜ?ÛÍÁã ÿ wÐn/sÿÙ
+</content>
+
+<content full_path="roles/docker_worker/files/index.html">
+<html>
+<body>
+    <h1>Docker Worker {{ ansible_hostname }}</h1>
+    <img src="/image.jpg" width="400">
+</body>
+</html>
+
+</content>
+
+<content full_path="roles/docker_worker/templates/index.html.j2">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Worker</title>
+</head>
+<body>
+    <h1>Welcome to Docker Worker {{ inventory_hostname }}</h1>
+    <p>Load balancer test image:</p>
+    <img src="image.jpg" width="400">
+</body>
+</html>
+</content>
+
+<content full_path="roles/nrpe/defaults/main.yml">
+---
+# Nagios server IP that is allowed to talk to NRPE
+nagios_server_ip: "192.168.220.206"
+
+# Порт NRPE
+nrpe_port: 5666
+
+</content>
+
+<content full_path="roles/nrpe/handlers/main.yml">
+---
+- name: restart nrpe
+  ansible.builtin.service:
+    name: nrpe
+    state: restarted
+
+</content>
+
+<content full_path="roles/nrpe/tasks/main.yml">
+---
+- name: Ensure EPEL repo installed (for nrpe packages)
+  ansible.builtin.yum:
+    name: epel-release
+    state: present
+
+- name: Install NRPE and basic Nagios plugins
+  ansible.builtin.yum:
+    name:
+      - nrpe
+      - nagios-plugins-load
+      - nagios-plugins-disk
+      - nagios-plugins-procs
+      - nagios-plugins-users
+    state: present
+
+- name: Deploy nrpe.cfg
+  ansible.builtin.template:
+    src: nrpe.cfg.j2
+    dest: /etc/nagios/nrpe.cfg
+    owner: nrpe
+    group: nrpe
+    mode: "0644"
+  notify: restart nrpe
+
+- name: Ensure NRPE run directory exists
+  ansible.builtin.file:
+    path: /run/nrpe
+    state: directory
+    owner: nrpe
+    group: nrpe
+    mode: "0755"
+
+- name: Enable and start NRPE service
+  ansible.builtin.service:
+    name: nrpe
+    state: started
+    enabled: true
+
+- name: Open NRPE port in firewalld
+  ansible.builtin.firewalld:
+    port: 5666/tcp
+    permanent: true
+    immediate: true
+    state: enabled
+
+</content>
+
+<content full_path="roles/nrpe/templates/nrpe.cfg.j2">
+# Managed by Ansible (role: nrpe)
+
+log_facility=daemon
+pid_file=/run/nrpe/nrpe.pid
+server_port={{ nrpe_port }}
+nrpe_user=nrpe
+nrpe_group=nrpe
+
+# Only localhost and Nagios-server
+allowed_hosts=127.0.0.1,{{ nagios_server_ip }}
+
+dont_blame_nrpe=1
+debug=0
+
+command_timeout=60
+connection_timeout=300
+
+# Стандартные проверки
+command[check_load]=/usr/lib64/nagios/plugins/check_load -w 5,4,3 -c 10,6,4
+command[check_disk_root]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
+command[check_procs]=/usr/lib64/nagios/plugins/check_procs -w 150 -c 250
+command[check_users]=/usr/lib64/nagios/plugins/check_users -w 5 -c 10
+
+</content>
+
+<content full_path="roles/nagios/tasks/main.yaml">
+# roles/nagios/tasks/main.yaml
+---
+
+- name: Install Nagios server and dependencies
+  yum:
+    name:
+      - nagios
+      - nagios-plugins
+      - nagios-plugins-ping
+      - nagios-plugins-load
+      - nagios-plugins-disk
+      - nagios-plugins-procs
+      - nagios-plugins-users
+      - httpd
+      - php
+      - php-cli
+      - git
+      - unzip
+    state: present
+
+
+- name: Ensure Nagios additional config directory exists
+  file:
+    path: /etc/nagios/servers
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: "0755"
+
+- name: Deploy Nagios hosts configuration
+  template:
+    src: hosts.cfg.j2
+    dest: /etc/nagios/servers/hosts.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+
+- name: Deploy Nagios services configuration
+  template:
+    src: services.cfg.j2
+    dest: /etc/nagios/servers/services.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+
+- name: Deploy extra Nagios command definitions
+  template:
+    src: commands_local.cfg.j2
+    dest: /etc/nagios/objects/commands_local.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+
+- name: Ensure commands_local.cfg is included in nagios.cfg
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^cfg_file=/etc/nagios/objects/commands_local.cfg'
+    line: 'cfg_file=/etc/nagios/objects/commands_local.cfg'
+    insertafter: '^cfg_file=/etc/nagios/objects/commands.cfg'
+  notify: restart nagios
+
+- name: Ensure /etc/nagios/servers is included via cfg_dir
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^cfg_dir=/etc/nagios/servers'
+    line: 'cfg_dir=/etc/nagios/servers'
+  notify: restart nagios
+
+- name: Deploy Apache Nagios configuration
+  template:
+    src: nagios-apache.conf.j2
+    dest: /etc/httpd/conf.d/nagios.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart apache
+
+- name: Deploy Nagios configs
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: nagios
+    group: nagios
+    mode: '0644'
+  loop:
+    - { src: 'commands.cfg.j2', dest: '/etc/nagios/objects/commands.cfg' }
+    - { src: 'hosts.cfg.j2', dest: '/etc/nagios/servers/hosts.cfg' }
+    - { src: 'services.cfg.j2', dest: '/etc/nagios/servers/services.cfg' }
+  notify:
+    - restart nagios
+    - restart apache
+ 
+
+- name: Ensure Nagios web user file exists
+  command: htpasswd -bc /etc/nagios/htpasswd.users "{{ nagios_web_user }}" "{{ nagios_web_password }}"
+  args:
+    creates: /etc/nagios/htpasswd.users
+  notify: restart apache
+
+- name: Remove wrong duplicate hosts file
+  file:
+    path: /etc/nagios/objects/hosts.cfg
+    state: absent
+
+
+- name: Enable and start Apache service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Validate Nagios configuration
+  command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
+  register: nagios_validation
+  changed_when: false
+  failed_when: "'Total Errors:' in nagios_validation.stdout and not 'Total Errors:   0' in nagios_validation.stdout"
+
+- name: Show Validation Output
+  debug:
+    var: nagios_validation.stdout
+
+- name: Ensure Nagios service is enabled
+  service:
+    name: nagios
+    enabled: yes
+
+- name: Enable and start Nagios service
+  service:
+    name: nagios
+    state: restarted
+    enabled: yes
+  when:
+    - "'Total Errors:   0' in nagios_validation.stdout"
+    - "'Things look okay' in nagios_validation.stdout"
+
+- name: Deploy local command configuration
+  template:
+    src: commands_local.cfg.j2
+    dest: /etc/nagios/objects/commands_local.cfg
+    owner: nagios
+    group: nagios
+    mode: '0644'
+
+</content>
+
+<content full_path="roles/nagios/handlers/main.yml">
+# roles/nagios/handlers/main.yml
+---
+
+- name: restart nagios
+  service:
+    name: nagios
+    state: restarted
+  when:
+    - nagios_validation is defined
+    - "'Total Errors:   0' in nagios_validation.stdout"
+
+
+- name: restart apache
+  service:
+    name: httpd
+    state: restarted
+
+</content>
+
+<content full_path="roles/nagios/templates/nagios-apache.conf.j2">
+# roles/nagios/templates/nagios-apache.conf.j2
+
+ScriptAlias /nagios/cgi-bin "/usr/lib64/nagios/cgi-bin/"
+
+<Directory "/usr/lib64/nagios/cgi-bin/">
+    Options ExecCGI
+    AllowOverride None
+    Require all granted
+
+    AuthName "Nagios Access"
+    AuthType Basic
+    AuthUserFile /etc/nagios/htpasswd.users
+    Require valid-user
+</Directory>
+
+Alias /nagios "/usr/share/nagios/html"
+
+<Directory "/usr/share/nagios/html">
+    Options None
+    AllowOverride None
+    Require all granted
+
+    AuthName "Nagios Access"
+    AuthType Basic
+    AuthUserFile /etc/nagios/htpasswd.users
+    Require valid-user
+</Directory>
+
+</content>
+
+<content full_path="roles/nagios/templates/commands_local.cfg.j2">
+# roles/nagios/templates/commands_local.cfg.j2
+###############################################################################
+# Extra Nagios Command Definitions (managed by Ansible)
+###############################################################################
+
+#define command{
+   # command_name    check_load_nrpe
+   # command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
+#}
+
+define command{
+    command_name    check_disk_root_nrpe
+    command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_disk_root
+}
+
+define command{
+    command_name    notify-service-by-email
+    command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nService: $SERVICEDESC$\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $SERVICESTATE$\n\nInfo:\n$SERVICEOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | mail -s "** $NOTIFICATIONTYPE$ alert - $HOSTALIAS$/$SERVICEDESC$ is $SERVICESTATE$ **" $CONTACTEMAIL$
+}
+
+define command{
+    command_name    notify-host-by-email
+    command_line    /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $HOSTSTATE$\n\nInfo:\n$HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | mail -s "** $NOTIFICATIONTYPE$ alert - Host $HOSTALIAS$ is $HOSTSTATE$ **" $CONTACTEMAIL$
+}
+
+</content>
+
+<content full_path="roles/nagios/templates/hosts.cfg.j2">
+{% for host in groups['clients'] %}
+define host{
+    use                     linux-server
+    host_name               {{ host }}
+    alias                   {{ host }}
+    address                 {{ hostvars[host].ansible_host }}
+}
+{% endfor %}
+</content>
+
+<content full_path="roles/nagios/templates/services.cfg.j2">
+{% for host in groups['clients'] %}
+
+define service{
+        use                     generic-service
+        host_name               {{ host }}
+        service_description     Disk Root /
+        check_command           check_disk_root_nrpe
+}
+
+define service{
+        use                     generic-service
+        host_name               {{ host }}
+        service_description     Load
+        check_command           check_load_nrpe
+}
+
+{% endfor %}
+</content>
+
+<content full_path="roles/nagios/templates/commands.cfg.j2">
+define command{
+    command_name check-host-alive
+    command_line /usr/lib64/nagios/plugins/check_ping -H $HOSTADDRESS$ -w 3000.0,80% -c 5000.0,100% -p 5
+}
+
+define command{
+    command_name check_disk_root_nrpe
+    command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_disk
+}
+
+define command{
+    command_name check_load_nrpe
+    command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_load
+}
+
+</content>
+
+<content full_path="roles/nagios/vars/main.yml">
+# roles/nagios/vars/main.yml
+---
+
+nagios_web_user: nagiosadmin
+nagios_web_password: "NagiosStrongP@ssw0rd"   # <-- CHANGE THIS
+
+</content>
+
+<content full_path="nagios_project/nagios_setup.yaml">
+---
+#### 1) Install NRPE on ALL CLIENTS ####
+#### 1) Install NRPE and monitoring plugins ####
+- name: Install NRPE and monitoring agent
+  hosts: "clients:!nagios"
+  become: yes
+  tasks:
+
+    - name: Ensure required Nagios directories exist
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: nagios
+        group: nagios
+        mode: '0755'
+      loop:
+        - /var/run/nagios
+        - /var/log/nagios
+        - /var/spool/nagios
+        - /var/spool/nagios/cmd
+
+    - name: Remove stale PID file if exists
+      file:
+        path: /var/run/nagios/nagios.pid
+        state: absent
+
+    - name: Fix ownership of main Nagios folders
+      file:
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+        owner: nagios
+        group: nagios
+      loop:
+        - /var/run/nagios
+        - /var/log/nagios
+        - /var/spool/nagios
+
+
+    - name: Install NRPE and basic plugins
+      dnf:
+        name:
+          - nrpe
+          - nagios-plugins-ping
+          - nagios-plugins-load
+          - nagios-plugins-disk
+          - nagios-plugins-procs
+          - nagios-plugins-users
+          - nagios-plugins-http
+        state: present
+
+    - name: Allow Nagios server IP access
+      lineinfile:
+        path: /etc/nagios/nrpe.cfg
+        regexp: '^allowed_hosts='
+        line: 'allowed_hosts=127.0.0.1,192.168.220.206'
+
+    - name: Create custom NRPE commands directory
+      file:
+        path: /etc/nagios/nrpe.d
+        state: directory
+        owner: nagios
+        group: nagios
+        mode: '0755'
+
+    - name: Deploy NRPE check commands
+      copy:
+        src: files/nrpe_local.cfg
+        dest: /etc/nagios/nrpe.d/nrpe_local.cfg
+        mode: '0644'
+
+    - name: Restart NRPE
+      service:
+        name: nrpe
+        enabled: yes
+        state: restarted
+
+
+
+#### 2) Install and Configure Nagios Server ####
+- name: Install and configure Nagios main server
+  hosts: nagios
+  become: yes
+  tasks:
+    - name: Install Nagios Core and plugins
+      dnf:
+        name:
+          - nagios
+          - nagios-plugins-all
+          - nagios-plugins-nrpe
+          - httpd
+          - php
+          - php-cli
+          - httpd-tools
+        state: present
+
+    - name: Add nagiosadmin web user
+      command: htpasswd -bc /etc/nagios/passwd nagiosadmin Nagios123!
+      args:
+        creates: /etc/nagios/passwd
+
+    - name: Deploy monitored host definitions
+      copy:
+        src: files/clients.cfg
+        dest: /etc/nagios/objects/clients.cfg
+        mode: '0644'
+
+    - name: Deploy service check definitions
+      copy:
+        src: files/services.cfg
+        dest: /etc/nagios/objects/services.cfg
+        mode: '0644'
+
+    - name: Ensure Nagios reads new config files
+      lineinfile:
+        path: /etc/nagios/nagios.cfg
+        insertafter: EOF
+        line: "{{ item }}"
+      loop:
+        - "cfg_file=/etc/nagios/objects/clients.cfg"
+        - "cfg_file=/etc/nagios/objects/services.cfg"
+
+    - name: Validate Nagios Configuration
+      command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
+      register: validation
+      ignore_errors: true
+
+    - name: Print validation output for debugging
+      debug:
+        var: validation.stdout_lines
+
+    - name: Fail if Nagios config is invalid
+      fail:
+        msg: "Nagios configuration invalid — check errors above"
+      when: validation.rc != 0
+
+    - name: Enable and start services
+      service:
+        name: nagios
+        state: restarted
+        enabled: yes
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: restarted
+        enabled: yes
+
+</content>
+
+<content full_path="nagios_project/files/nrpe_local.cfg">
+command[check_load]=/usr/lib64/nagios/plugins/check_load -w 5,4,3 -c 10,6,4
+command[check_disk]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
+command[check_mem]=/usr/lib64/nagios/plugins/check_mem -w 80 -c 90
+
+</content>
+
+<content full_path="nagios_project/files/clients.cfg">
+define host{
+    use                     linux-server
+    host_name               prdx-db101
+    alias                   Database Server
+    address                 192.168.220.204
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-webserver101
+    alias                   Web Server
+    address                 192.168.220.205
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-haproxy101
+    alias                   Load Balancer
+    address                 192.168.220.211
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-ntp101
+    alias                   NTP Server
+    address                 192.168.220.201
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-nfs101
+    alias                   NFS Server
+    address                 192.168.220.210
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-ftp101
+    alias                   FTP Server
+    address                 192.168.220.203
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-dprimary101
+    alias                   Docker Primary
+    address                 192.168.220.207
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-dworker101
+    alias                   Docker Worker 1
+    address                 192.168.220.208
+}
+
+define host{
+    use                     linux-server
+    host_name               prdx-dworker102
+    alias                   Docker Worker 2
+    address                 192.168.220.209
+}
+
+</content>
+
+<content full_path="nagios_project/files/services.cfg">
+define service{
+    use                     generic-service
+    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
+    service_description     PING
+    check_command           check_ping!100.0,20%!500.0,60%
+}
+
+define service{
+    use                     generic-service
+    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
+    service_description     CPU LOAD
+    check_command           check_nrpe!check_load
+}
+
+define service{
+    use                     generic-service
+    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
+    service_description     DISK SPACE
+    check_command           check_nrpe!check_disk
+}
+
+define service{
+    use                     generic-service
+    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
+    service_description     MEMORY
+    check_command           check_nrpe!check_mem
+}
+
+</content>
+
+</repo-to-text>

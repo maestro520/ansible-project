@@ -3,10 +3,10 @@
 # Extra Nagios Command Definitions (managed by Ansible)
 ###############################################################################
 
-define command{
-    command_name    check_load_nrpe
-    command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
-}
+#define command{
+   # command_name    check_load_nrpe
+   # command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
+#}
 
 define command{
     command_name    check_disk_root_nrpe
