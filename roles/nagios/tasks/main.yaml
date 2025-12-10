@@ -116,7 +116,7 @@
   command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
   register: nagios_validation
   changed_when: false
-  failed_when: "'Total Errors:' in nagios_validation.stdout and not 'Total Errors:   0' in nagios_validation.stdout"
+  failed_when: "'Error:' in nagios_validation.stdout"
 
 - name: Show Validation Output
   debug:
@@ -133,8 +133,7 @@
     state: restarted
     enabled: yes
   when:
-    - "'Total Errors:   0' in nagios_validation.stdout"
-    - "'Things look okay' in nagios_validation.stdout"
+    - nagios_validation.stdout is search("Total Errors:[ ]+0")
 
 - name: Deploy local command configuration
   template:
@@ -143,3 +142,16 @@
     owner: nagios
     group: nagios
     mode: '0644'
+
+- name: Remove duplicate command from default commands.cfg if exists
+  lineinfile:
+    path: /etc/nagios/objects/commands.cfg
+    regexp: '^define command{\s+command_name\s+check_disk_root_nrpe'
+    state: absent
+
+- name: Remove default hosts.cfg reference
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^cfg_file=/etc/nagios/objects/hosts.cfg'
+    state: absent
+

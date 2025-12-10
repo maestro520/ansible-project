@@ -8,10 +8,10 @@
    # command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_load
 #}
 
-define command{
-    command_name    check_disk_root_nrpe
-    command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_disk_root
-}
+#define command{
+    #command_name    check_disk_root_nrpe
+    #command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_disk_root
+#}
 
 define command{
     command_name    notify-service-by-email

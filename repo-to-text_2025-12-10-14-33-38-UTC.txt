@@ -82,11 +82,14 @@ Directory Structure:
 │   │   ├── ./.git/objects/18
 │   │   │   └── ./.git/objects/18/f719c2ffdce4a100453ee3bfe59e720b960498
 │   │   ├── ./.git/objects/19
-│   │   │   └── ./.git/objects/19/79c46428e56c72f266372953e3d490a341e286
+│   │   │   ├── ./.git/objects/19/79c46428e56c72f266372953e3d490a341e286
+│   │   │   └── ./.git/objects/19/843113f9c3cd904858187d7679cd0a154fe338
 │   │   ├── ./.git/objects/1a
 │   │   │   └── ./.git/objects/1a/40c2ad6decd33588ce813660655204ff0465e7
 │   │   ├── ./.git/objects/1d
 │   │   │   └── ./.git/objects/1d/b7c60e2b2d0ac1432bb6c40a805f6f79ab749d
+│   │   ├── ./.git/objects/1e
+│   │   │   └── ./.git/objects/1e/2681d4d96f8f4f4f8efef7d74e777df9dbacc8
 │   │   ├── ./.git/objects/1f
 │   │   │   └── ./.git/objects/1f/f6b41ab34e091b2d31dd4542b02247598dda67
 │   │   ├── ./.git/objects/20
@@ -110,7 +113,8 @@ Directory Structure:
 │   │   │   └── ./.git/objects/2b/2c9a90d80da73db0f919bc6c8bf30da3c26211
 │   │   ├── ./.git/objects/2c
 │   │   │   ├── ./.git/objects/2c/4ddfa84ebd79276e208183583d34a6ec982650
-│   │   │   └── ./.git/objects/2c/7e40860635619af8caa20aef7c13f9bac6ca43
+│   │   │   ├── ./.git/objects/2c/7e40860635619af8caa20aef7c13f9bac6ca43
+│   │   │   └── ./.git/objects/2c/9d83f38e05471892f2e1a58bdf37322b278387
 │   │   ├── ./.git/objects/2d
 │   │   │   ├── ./.git/objects/2d/2ab9388be3953df3a1527e16be163fda12a37e
 │   │   │   └── ./.git/objects/2d/c2d60f973927366f1a39632c9beef5e42f3fbd
@@ -154,7 +158,8 @@ Directory Structure:
 │   │   ├── ./.git/objects/4a
 │   │   │   └── ./.git/objects/4a/bff014b4f6c82d5471c640242d744661c3d005
 │   │   ├── ./.git/objects/4c
-│   │   │   └── ./.git/objects/4c/65a277817a6e5748fe6c8d7746d494f56fa2c8
+│   │   │   ├── ./.git/objects/4c/65a277817a6e5748fe6c8d7746d494f56fa2c8
+│   │   │   └── ./.git/objects/4c/d309aa5a4b76d8faeced75a853a62e0fe60a9e
 │   │   ├── ./.git/objects/4d
 │   │   │   ├── ./.git/objects/4d/66eab24c21e8aeb0d129d1d86b77a16ddc92d9
 │   │   │   └── ./.git/objects/4d/6a82bad21ba8cc8df046e51a78895869bc988e
@@ -181,6 +186,8 @@ Directory Structure:
 │   │   ├── ./.git/objects/5a
 │   │   │   ├── ./.git/objects/5a/22b596070b96a7bece3bd17e907b4985d2a04e
 │   │   │   └── ./.git/objects/5a/413c4e6b5e14998932e05f1416c01d4a879a56
+│   │   ├── ./.git/objects/5c
+│   │   │   └── ./.git/objects/5c/d4b11b0fa3e68666ef5e98c418506c14913313
 │   │   ├── ./.git/objects/5d
 │   │   │   ├── ./.git/objects/5d/5472fbb1180405c3e8f93652baad34ab650d8e
 │   │   │   ├── ./.git/objects/5d/a5a11245fd39b72f192718e6ef7cf008ae0048
@@ -233,7 +240,8 @@ Directory Structure:
 │   │   ├── ./.git/objects/76
 │   │   │   └── ./.git/objects/76/e24c1b2a828236ca7ee74323904a8cf7d70bdc
 │   │   ├── ./.git/objects/77
-│   │   │   └── ./.git/objects/77/76092500ee519376dc9126d4ec3b14147cb844
+│   │   │   ├── ./.git/objects/77/76092500ee519376dc9126d4ec3b14147cb844
+│   │   │   └── ./.git/objects/77/b232507746a85d2c099dc28a0cd5a92fbeadd1
 │   │   ├── ./.git/objects/79
 │   │   │   └── ./.git/objects/79/578f0e3011b8e99646a595f5ecdfc2025a8841
 │   │   ├── ./.git/objects/7a
@@ -364,6 +372,7 @@ Directory Structure:
 │   │   │   ├── ./.git/objects/c0/68e768a593fe4a95930ff534ba3c8b6b322c78
 │   │   │   └── ./.git/objects/c0/731102b9fc9f088d8103b2038efaca2b5c0963
 │   │   ├── ./.git/objects/c1
+│   │   │   ├── ./.git/objects/c1/76c820c690b71866faa98b221171828be5be62
 │   │   │   └── ./.git/objects/c1/8cafe5fada56780c822126e5c6ea8f63f67a0a
 │   │   ├── ./.git/objects/c2
 │   │   │   └── ./.git/objects/c2/f2da58038211cad378bbf34f62f27a88da54aa
@@ -484,12 +493,6 @@ Directory Structure:
 │       └── ./.git/refs/tags
 ├── ./inventory
 │   └── ./inventory/hosts.ini
-├── ./nagios_project
-│   ├── ./nagios_project/files
-│   │   ├── ./nagios_project/files/clients.cfg
-│   │   ├── ./nagios_project/files/nrpe_local.cfg
-│   │   └── ./nagios_project/files/services.cfg
-│   └── ./nagios_project/nagios_setup.yaml
 ├── ./playbooks
 │   ├── ./playbooks/check_docker.yml
 │   └── ./playbooks/site.yaml
@@ -2135,261 +2138,6 @@ define command{
 
 nagios_web_user: nagiosadmin
 nagios_web_password: "NagiosStrongP@ssw0rd"   # <-- CHANGE THIS
-
-</content>
-
-<content full_path="nagios_project/nagios_setup.yaml">
----
-#### 1) Install NRPE on ALL CLIENTS ####
-#### 1) Install NRPE and monitoring plugins ####
-- name: Install NRPE and monitoring agent
-  hosts: "clients:!nagios"
-  become: yes
-  tasks:
-
-    - name: Ensure required Nagios directories exist
-      file:
-        path: "{{ item }}"
-        state: directory
-        owner: nagios
-        group: nagios
-        mode: '0755'
-      loop:
-        - /var/run/nagios
-        - /var/log/nagios
-        - /var/spool/nagios
-        - /var/spool/nagios/cmd
-
-    - name: Remove stale PID file if exists
-      file:
-        path: /var/run/nagios/nagios.pid
-        state: absent
-
-    - name: Fix ownership of main Nagios folders
-      file:
-        path: "{{ item }}"
-        state: directory
-        recurse: yes
-        owner: nagios
-        group: nagios
-      loop:
-        - /var/run/nagios
-        - /var/log/nagios
-        - /var/spool/nagios
-
-
-    - name: Install NRPE and basic plugins
-      dnf:
-        name:
-          - nrpe
-          - nagios-plugins-ping
-          - nagios-plugins-load
-          - nagios-plugins-disk
-          - nagios-plugins-procs
-          - nagios-plugins-users
-          - nagios-plugins-http
-        state: present
-
-    - name: Allow Nagios server IP access
-      lineinfile:
-        path: /etc/nagios/nrpe.cfg
-        regexp: '^allowed_hosts='
-        line: 'allowed_hosts=127.0.0.1,192.168.220.206'
-
-    - name: Create custom NRPE commands directory
-      file:
-        path: /etc/nagios/nrpe.d
-        state: directory
-        owner: nagios
-        group: nagios
-        mode: '0755'
-
-    - name: Deploy NRPE check commands
-      copy:
-        src: files/nrpe_local.cfg
-        dest: /etc/nagios/nrpe.d/nrpe_local.cfg
-        mode: '0644'
-
-    - name: Restart NRPE
-      service:
-        name: nrpe
-        enabled: yes
-        state: restarted
-
-
-
-#### 2) Install and Configure Nagios Server ####
-- name: Install and configure Nagios main server
-  hosts: nagios
-  become: yes
-  tasks:
-    - name: Install Nagios Core and plugins
-      dnf:
-        name:
-          - nagios
-          - nagios-plugins-all
-          - nagios-plugins-nrpe
-          - httpd
-          - php
-          - php-cli
-          - httpd-tools
-        state: present
-
-    - name: Add nagiosadmin web user
-      command: htpasswd -bc /etc/nagios/passwd nagiosadmin Nagios123!
-      args:
-        creates: /etc/nagios/passwd
-
-    - name: Deploy monitored host definitions
-      copy:
-        src: files/clients.cfg
-        dest: /etc/nagios/objects/clients.cfg
-        mode: '0644'
-
-    - name: Deploy service check definitions
-      copy:
-        src: files/services.cfg
-        dest: /etc/nagios/objects/services.cfg
-        mode: '0644'
-
-    - name: Ensure Nagios reads new config files
-      lineinfile:
-        path: /etc/nagios/nagios.cfg
-        insertafter: EOF
-        line: "{{ item }}"
-      loop:
-        - "cfg_file=/etc/nagios/objects/clients.cfg"
-        - "cfg_file=/etc/nagios/objects/services.cfg"
-
-    - name: Validate Nagios Configuration
-      command: /usr/sbin/nagios -v /etc/nagios/nagios.cfg
-      register: validation
-      ignore_errors: true
-
-    - name: Print validation output for debugging
-      debug:
-        var: validation.stdout_lines
-
-    - name: Fail if Nagios config is invalid
-      fail:
-        msg: "Nagios configuration invalid — check errors above"
-      when: validation.rc != 0
-
-    - name: Enable and start services
-      service:
-        name: nagios
-        state: restarted
-        enabled: yes
-
-    - name: Start Apache service
-      service:
-        name: httpd
-        state: restarted
-        enabled: yes
-
-</content>
-
-<content full_path="nagios_project/files/nrpe_local.cfg">
-command[check_load]=/usr/lib64/nagios/plugins/check_load -w 5,4,3 -c 10,6,4
-command[check_disk]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
-command[check_mem]=/usr/lib64/nagios/plugins/check_mem -w 80 -c 90
-
-</content>
-
-<content full_path="nagios_project/files/clients.cfg">
-define host{
-    use                     linux-server
-    host_name               prdx-db101
-    alias                   Database Server
-    address                 192.168.220.204
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-webserver101
-    alias                   Web Server
-    address                 192.168.220.205
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-haproxy101
-    alias                   Load Balancer
-    address                 192.168.220.211
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-ntp101
-    alias                   NTP Server
-    address                 192.168.220.201
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-nfs101
-    alias                   NFS Server
-    address                 192.168.220.210
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-ftp101
-    alias                   FTP Server
-    address                 192.168.220.203
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-dprimary101
-    alias                   Docker Primary
-    address                 192.168.220.207
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-dworker101
-    alias                   Docker Worker 1
-    address                 192.168.220.208
-}
-
-define host{
-    use                     linux-server
-    host_name               prdx-dworker102
-    alias                   Docker Worker 2
-    address                 192.168.220.209
-}
-
-</content>
-
-<content full_path="nagios_project/files/services.cfg">
-define service{
-    use                     generic-service
-    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
-    service_description     PING
-    check_command           check_ping!100.0,20%!500.0,60%
-}
-
-define service{
-    use                     generic-service
-    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
-    service_description     CPU LOAD
-    check_command           check_nrpe!check_load
-}
-
-define service{
-    use                     generic-service
-    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
-    service_description     DISK SPACE
-    check_command           check_nrpe!check_disk
-}
-
-define service{
-    use                     generic-service
-    host_name               prdx-db101,prdx-webserver101,prdx-haproxy101,prdx-ntp101,prdx-nfs101,prdx-ftp101,prdx-dprimary101,prdx-dworker101,prdx-dworker102
-    service_description     MEMORY
-    check_command           check_nrpe!check_mem
-}
 
 </content>
 
