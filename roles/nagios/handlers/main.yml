@@ -1,16 +1,10 @@
-# roles/nagios/handlers/main.yml
 ---
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
 
 - name: restart nagios
   service:
     name: nagios
-    state: restarted
-  when:
-    - nagios_validation is defined
-    - "'Total Errors:   0' in nagios_validation.stdout"
-
-
-- name: restart apache
-  service:
-    name: httpd
     state: restarted

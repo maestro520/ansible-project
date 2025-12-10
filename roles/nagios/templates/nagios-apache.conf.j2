@@ -1,27 +1,20 @@
-# roles/nagios/templates/nagios-apache.conf.j2
-
-ScriptAlias /nagios/cgi-bin "/usr/lib64/nagios/cgi-bin/"
-
-<Directory "/usr/lib64/nagios/cgi-bin/">
-    Options ExecCGI
+ScriptAlias /nagios/cgi-bin "/usr/local/nagios/sbin/"
+<Directory "/usr/local/nagios/sbin/">
     AllowOverride None
+    Options ExecCGI
     Require all granted
-
-    AuthName "Nagios Access"
     AuthType Basic
-    AuthUserFile /etc/nagios/htpasswd.users
+    AuthName "Nagios Access"
+    AuthUserFile /usr/local/nagios/etc/htpasswd.users
     Require valid-user
 </Directory>
 
-Alias /nagios "/usr/share/nagios/html"
-
-<Directory "/usr/share/nagios/html">
-    Options None
+Alias /nagios "/usr/local/nagios/share"
+<Directory "/usr/local/nagios/share">
     AllowOverride None
     Require all granted
-
-    AuthName "Nagios Access"
     AuthType Basic
-    AuthUserFile /etc/nagios/htpasswd.users
+    AuthName "Nagios Access"
+    AuthUserFile /usr/local/nagios/etc/htpasswd.users
     Require valid-user
 </Directory>

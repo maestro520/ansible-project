@@ -1,0 +1,238 @@
+---
+# Clean Nagios Core install + config via Ansible
+# Target: Rocky Linux 9, Nagios Core 4.4.14
+
+- name: Install base packages (web + build + firewalld)
+  yum:
+    name:
+      - httpd
+      - php
+      - gcc
+      - glibc
+      - glibc-common
+      - wget
+      - unzip
+      - httpd-tools
+      - gd
+      - gd-devel
+      - perl
+      - openssl
+      - openssl-devel
+      - firewalld
+    state: present
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 1) Clean any old /usr/local/nagios install
+# ───────────────────────────────────────────────────────────────
+
+- name: Stop old Nagios service if it exists
+  service:
+    name: nagios
+    state: stopped
+  ignore_errors: true
+  tags: [nagios]
+
+- name: Remove old /usr/local/nagios tree (clean install)
+  file:
+    path: /usr/local/nagios
+    state: absent
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 2) Download, compile and install Nagios Core 4.4.14
+# ───────────────────────────────────────────────────────────────
+
+- name: Download Nagios Core 4.4.14 source
+  get_url:
+    url: https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.14.tar.gz
+    dest: /tmp/nagios-4.4.14.tar.gz
+    mode: '0644'
+  tags: [nagios]
+
+- name: Extract Nagios Core source
+  unarchive:
+    src: /tmp/nagios-4.4.14.tar.gz
+    dest: /tmp/
+    remote_src: yes
+  tags: [nagios]
+
+- name: Compile and install Nagios Core 4.4.14
+  shell: |
+    set -e
+    cd /tmp/nagios-4.4.14
+    ./configure
+    make all
+    make install-groups-users
+    make install
+    make install-daemoninit
+    make install-commandmode
+    make install-config
+  args:
+    creates: /usr/local/nagios/bin/nagios
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 3) Apache integration + web user
+# ───────────────────────────────────────────────────────────────
+
+- name: Install Apache Nagios config (nagios.conf)
+  shell: |
+    set -e
+    cd /tmp/nagios-4.4.14
+    make install-webconf
+  args:
+    creates: /etc/httpd/conf.d/nagios.conf
+  notify: restart httpd
+  tags: [nagios]
+
+- name: Enable Apache CGI module
+  replace:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^#(LoadModule cgi_module modules/mod_cgi.so)'
+    replace: 'LoadModule cgi_module modules/mod_cgi.so'
+  notify: restart httpd
+  tags: [nagios]
+
+- name: Create Nagios web user (nagiosadmin / Nagios123)
+  command: htpasswd -bc /usr/local/nagios/etc/htpasswd.users nagiosadmin Nagios123
+  args:
+    creates: /usr/local/nagios/etc/htpasswd.users
+  notify: restart httpd
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 4) NRPE + core plugins on Nagios server
+# ───────────────────────────────────────────────────────────────
+
+- name: Install NRPE plugin and core Nagios plugins
+  yum:
+    name:
+      - nagios-plugins-nrpe
+      - nagios-plugins-ping
+      - nagios-plugins-disk
+      - nagios-plugins-load
+      - nagios-plugins-procs
+      - nagios-plugins-users
+    state: present
+  tags: [nagios]
+
+- name: Ensure check_nrpe command is defined
+  blockinfile:
+    path: /usr/local/nagios/etc/objects/commands.cfg
+    marker: "# {mark} ANSIBLE MANAGED NRPE COMMAND"
+    block: |
+      define command{
+          command_name    check_nrpe
+          command_line    /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+      }
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Fix plugin path in commands.cfg (libexec -> /usr/lib64/nagios/plugins)
+  replace:
+    path: /usr/local/nagios/etc/objects/commands.cfg
+    regexp: '/usr/local/nagios/libexec'
+    replace: '/usr/lib64/nagios/plugins'
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Set $USER1$ to /usr/lib64/nagios/plugins
+  replace:
+    path: /usr/local/nagios/etc/resource.cfg
+    regexp: '^\$USER1\$=.*'
+    replace: '$USER1$=/usr/lib64/nagios/plugins'
+  notify: restart nagios
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 5) hosts.cfg + services.cfg via cfg_dir
+# ───────────────────────────────────────────────────────────────
+
+- name: Enable cfg_dir=/usr/local/nagios/etc/servers
+  replace:
+    path: /usr/local/nagios/etc/nagios.cfg
+    regexp: '^#cfg_dir=/usr/local/nagios/etc/servers'
+    replace: 'cfg_dir=/usr/local/nagios/etc/servers'
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Ensure /usr/local/nagios/etc/servers directory exists
+  file:
+    path: /usr/local/nagios/etc/servers
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: "0755"
+  tags: [nagios]
+
+- name: Deploy unified hosts.cfg
+  template:
+    src: hosts.cfg.j2
+    dest: /usr/local/nagios/etc/servers/hosts.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+  tags: [nagios]
+
+- name: Deploy unified services.cfg
+  template:
+    src: services.cfg.j2
+    dest: /usr/local/nagios/etc/servers/services.cfg
+    owner: nagios
+    group: nagios
+    mode: "0644"
+  notify: restart nagios
+  tags: [nagios]
+
+# ───────────────────────────────────────────────────────────────
+# 6) Firewall + services + validation
+# ───────────────────────────────────────────────────────────────
+
+- name: Ensure firewalld is enabled and started
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+  tags: [nagios]
+
+- name: Open HTTP and HTTPS in firewalld
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  loop:
+    - http
+    - https
+  tags: [nagios]
+
+- name: Reload firewalld
+  service:
+    name: firewalld
+    state: reloaded
+  tags: [nagios]
+
+
+- name: Validate Nagios configuration
+  command: /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+  register: nagios_validation
+  changed_when: false
+  failed_when: "'Total Errors:   0' not in nagios_validation.stdout"
+  tags: [nagios]
+
+- name: Show validation output
+  debug:
+    var: nagios_validation.stdout
+  tags: [nagios]
+
+- name: Enable and start httpd and nagios services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop:
+    - httpd
+    - nagios
+  tags: [nagios]

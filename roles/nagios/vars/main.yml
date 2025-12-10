@@ -1,5 +1,3 @@
-# roles/nagios/vars/main.yml
 ---
-
 nagios_web_user: nagiosadmin
-nagios_web_password: "NagiosStrongP@ssw0rd"   # <-- CHANGE THIS
+nagios_web_password: "Nagios123"
